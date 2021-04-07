@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        nav{
-            height: 65px;
-            font-family: 'Montserrat';
-            font-size: 14px;
-            line-height: 140%;
-            font-weight: bold;
-            padding: 12px 100px;
-            background-color: white;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
-        }
-
-        nav img{
-            width: 45px;
-            height: 45px;
-            margin: 0 0 0 100px;
-        }
-        .navigation-link{
-            margin: 0 100px 0 0;
-        }
-
-        .navigation-link li{
-            margin-right: 20px;
-        }
-
-        .btn-masuk{
-            width: 182px;
-            height: 40px;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/home.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/blog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/footer.css') }}">
 </head>
-<body>
-    <!-- Image and text -->
-    <nav class="navbar">
-        <a class="navbar-brand" href="#">
-        <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" class="d-inline-block align-top" alt="">
-        </a>
-        <ul class="nav justify-content-end navigation-link">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Beranda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Kegiatan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Prestasi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">Tentang Kami</a>
-            </li>
 
-            <li class="nav-item">
-                <a href="" class="btn btn-primary btn-masuk">Masuk</a>
-            </li>
-          </ul>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top position-sticky  w-100">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" class="d-inline-block align-top" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse ml-auto navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav navigation-link">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Kegiatan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Prestasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item m-0">
+                        <a href="" class="btn btn-primary btn-masuk">Masuk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
+    
     @yield('content')
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <footer class="footer mt-5 shadow bg-white">
+        <div class="col-12">
+            <div class="container py-3">
+                <div class="row">
+                    <div class="col-12 col-md-5 px-0 pr-5">
+                        <div class="d-flex align-items-center">
+                            <img class="footer-image"src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" class="d-inline-block align-top" alt="">
+                            <h5 class="heading font-weight-bold ml-3">BEM IT DEL</h5>
+                        </div>
+                        <p class="text my-3">Institut Teknologi Del berkunjung ke salah satu  sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa sekarang ini.</p>
+                    </div>
+                    <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
+                        <h5 class="heading font-weight-bold">Info</h5>
+                        <a href="#" class="mt-2 text-dark">Tentang Kami</a>
+                        <a href="#" class="mt-2 text-dark">Blog</a>
+                        <a href="#" class="mt-2 text-dark">Kontak</a>
+                    </div>
+                    <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
+                        <h5 class="heading font-weight-bold">Link Terkait</h5>
+                        <a href="#" class="mt-2 text-dark">Institut Teknologi Del</a>
+                        <a href="#" class="mt-2 text-dark">Yayasan Del</a>
+                    </div>
+                    <div class="contact col-12 col-md-3 d-flex flex-column py-4 text px-3">
+                        <h5 class="heading font-weight-bold">kontak</h5>
+                        <p class="mt-2 text-dark">Jl. P.I Del, Sitoluama Laguboti, Sumatra Utara, Indonesia</p>
+                        <p class="text-dark">+62 822 - 7685 - 8074</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 p-2 bottom-footer text-center text-light">
+            <p class="m-0">Copyright 2021 BEM IT Del. All Right Served</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+    </script>
 </body>
+
 </html>

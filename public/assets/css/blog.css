@@ -1,0 +1,15 @@
+.text-heading-child-post{
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.text-parag-child-post{
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+
+@media screen and (max-width: 768px){
+    .blog-archieve{
+        margin-top: 150px !important;
+    }
+}

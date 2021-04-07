@@ -1,0 +1,21 @@
+.footer{
+}
+
+.footer-image{
+    width: 85px;
+}
+
+.bottom-footer{
+    background: #0078C9;
+}
+
+.bottom-footer>p{
+    font-weight: 700;
+}
+
+
+@media screen and (max-width: 768px){
+    .contact{
+        padding: 0 !important;
+    }
+}
