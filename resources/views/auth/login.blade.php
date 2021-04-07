@@ -40,7 +40,7 @@
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="register.html">Register</a></li>
+					<li><a href="{{ route('register') }}">Register</a></li>
 				</ul>
 			</div>
 		</div>
