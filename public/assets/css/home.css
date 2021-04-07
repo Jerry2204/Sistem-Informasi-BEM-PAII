@@ -21,6 +21,24 @@
     font-weight: bold;
 }
 
+
+.container-description{
+    background: #B2D6EE;
+}
+
+.description-image{
+    width: 250px;
+}
+
+.btn-detail-card {
+    width: 152px;
+    height: 35px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 @media screen and (max-width: 768px){
     .img-home {
         width: 200%;
@@ -28,4 +46,13 @@
     .text-carousel{
         font-size: 1.5rem;
     }
+    .description-image{
+        width: 250px;
+        margin-top: 30px;
+        display: none;
+    }
+}
+
+.card-text-news{
+    font-size: 0.8rem;
 }
