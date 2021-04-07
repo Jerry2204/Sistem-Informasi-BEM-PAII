@@ -6,9 +6,8 @@
 	<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/apple-touch-icon.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon-32x32.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-16x16.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}">
 
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -33,7 +32,7 @@
 	</script>
 </head>
 <body>
-	<div class="pre-loader">
+	{{-- <div class="pre-loader">
 		<div class="pre-loader-box">
 			<div class="loader-logo"><img src="{{ asset('assets/images/deskapp-logo.svg') }}" alt=""></div>
 			<div class='loader-progress' id="progress_div">
@@ -44,7 +43,7 @@
 				Loading...
 			</div>
 		</div>
-	</div>
+	</div> --}}
 
 	<div class="header">
 		<div class="header-left">
@@ -157,7 +156,11 @@
 						<span class="user-icon">
 							<img src="{{ asset('assets/images/photo1.jpg') }}" alt="">
 						</span>
+                        @if (auth()->user())
 						<span class="user-name">{{ auth()->user()->name }}</span>
+                        @else
+						<span class="user-name">John Doe</span>
+                        @endif
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -251,8 +254,8 @@
 	<div class="left-side-bar">
 		<div class="brand-logo">
 			<a href="index.html">
-				<img src="{{ asset('assets/images/deskapp-logo.svg') }}" alt="" class="dark-logo">
-				<img src="{{ asset('assets/images/deskapp-logo-white.svg') }}" alt="" class="light-logo">
+				<img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" alt="" class="dark-logo">
+				<img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" width="50" alt="" class="light-logo"> BEM IT DEL
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -458,7 +461,7 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							Welcome back <div class="weight-600 font-30 text-blue">{{ auth()->user()->name }}</div>
+							Welcome back <div class="weight-600 font-30 text-blue">@if (auth()->user()) {{ auth()->user()->name }} @else John Doe @endif</div>
 						</h4>
 						<p class="font-18 max-width-600">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde hic non repellendus debitis iure, doloremque assumenda. Autem modi, corrupti, nobis ea iure fugiat, veniam non quaerat mollitia animi error corporis.</p>
 					</div>
