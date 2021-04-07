@@ -1,0 +1,31 @@
+.carousel-home {
+    height: 500px;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+.img-home {
+    position: absolute;
+    z-index: -1;
+    width: 150%;
+    height: 200%;
+    transform: translateY(10%) translateX(-10%);
+}
+
+.text-carousel{
+    margin: 0 auto;
+    width: 550px;
+    text-align: center;
+    z-index: 1;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 768px){
+    .img-home {
+        width: 200%;
+    }
+    .text-carousel{
+        font-size: 1.5rem;
+    }
+}
