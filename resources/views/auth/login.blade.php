@@ -56,35 +56,29 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Login To DeskApp</h2>
 						</div>
-						<form>
-							<div class="select-role">
-								<div class="btn-group btn-group-toggle" data-toggle="buttons">
-									<label class="btn active">
-										<input type="radio" name="options" id="admin">
-										<div class="icon"><img src="{{ asset('assets/images/briefcase.svg') }}" class="svg" alt=""></div>
-										<span>I'm</span>
-										Manager
-									</label>
-									<label class="btn">
-										<input type="radio" name="options" id="user">
-										<div class="icon"><img src="{{ asset('assets/images/person.svg') }}" class="svg" alt=""></div>
-										<span>I'm</span>
-										Employee
-									</label>
-								</div>
-							</div>
+						<form action="{{ route('login') }}" method="POST">
+                            @csrf
 							<div class="input-group custom">
-								<input type="text" class="form-control form-control-lg" placeholder="Username">
+								<input type="text" name="email" value="{{ old('email') }}" class="form-control form-control-lg @error('email') form-control-danger @enderror" placeholder="@error('email') Email harus diisi @else Masukkan Email @enderror ">
+                                @error('email')
+                                @else
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="icon-copy dw dw-user1"></i></span>
 								</div>
+                                @enderror
 							</div>
 							<div class="input-group custom">
-								<input type="password" class="form-control form-control-lg" placeholder="**********">
+								<input type="password" name="password" class="form-control @error('password') form-control-danger @enderror form-control-lg" placeholder="@error('password') Password harus diisi @else ********** @enderror">
+                                @error('password')
+                                @else
 								<div class="input-group-append custom">
 									<span class="input-group-text"><i class="dw dw-padlock1"></i></span>
 								</div>
+                                @enderror
 							</div>
+                            @if (session('status'))
+                            <div class="alert alert-danger">{{ session('status') }}</div>
+                            @endif
 							<div class="row pb-30">
 								<div class="col-6">
 									<div class="custom-control custom-checkbox">
@@ -99,15 +93,12 @@
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="input-group mb-0">
-										<!--
-											use code for form submit
-											<input class="btn btn-primary btn-lg btn-block" type="submit" value="Sign In">
-										-->
-										<a class="btn btn-primary btn-lg btn-block" href="index.html">Sign In</a>
+                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+										{{-- <a class="btn btn-primary btn-lg btn-block" href="index.html">Sign In</a> --}}
 									</div>
 									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
 									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="register.html">Register To Create Account</a>
+										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register') }}">Register To Create Account</a>
 									</div>
 								</div>
 							</div>
