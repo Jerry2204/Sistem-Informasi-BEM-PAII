@@ -60,7 +60,6 @@
 
     @yield('content')
 
-
     <footer class="footer mt-5 shadow bg-white">
         <div class="col-12">
             <div class="container py-3">

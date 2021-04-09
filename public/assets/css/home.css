@@ -56,3 +56,9 @@
 .card-text-news{
     font-size: 0.8rem;
 }
+
+.card-date{
+    font-size: 0.8rem;
+    color: rgb(174, 174, 174);
+    font-weight: 600;
+}

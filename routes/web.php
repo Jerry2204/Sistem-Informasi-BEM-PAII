@@ -23,3 +23,4 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
+

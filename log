@@ -1,0 +1,121 @@
+[33mcommit 7ffd64be24c47021b28eeb4214d9c24d895f68a9[m[33m ([m[1;36mHEAD -> [m[1;32mzico[m[33m)[m
+Merge: c7fa40b 582dbab
+Author: andreaszico <zicoaritonang@gmail.com>
+Date:   Fri Apr 9 17:14:49 2021 +0700
+
+    terbaru-1
+
+[33mcommit c7fa40b3e02ddf7ca7fca7bf943393d306a8d196[m[33m ([m[1;31morigin/zico[m[33m)[m
+Author: andreaszico <zicoaritonang@gmail.com>
+Date:   Fri Apr 9 13:41:33 2021 +0700
+
+    commit_1
+
+[33mcommit 582dbabf62af55c3983b2b6e05a7cb9f79eff729[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Thu Apr 8 16:55:13 2021 +0700
+
+    login and logout
+
+[33mcommit 97e4cd4ee88e8b37374f822cd0903e590f538c5c[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Thu Apr 8 12:09:47 2021 +0700
+
+    create maintenance page :D
+
+[33mcommit 8a3c1c18d0ee4849f09bdf25b40bac862d43171a[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Thu Apr 8 00:05:04 2021 +0700
+
+    perbaikan layout
+
+[33mcommit c9293023033d4867c294a3ca31455701284d2cd1[m
+Merge: 0d26be7 d82c173
+Author: Jerry Andrianto Pangaribuan <59874947+Jerry2204@users.noreply.github.com>
+Date:   Wed Apr 7 23:21:18 2021 +0700
+
+    Merge pull request #4 from Jerry2204/jerry
+    
+    create register function
+
+[33mcommit d82c173a26c66b467de8547a1f7b5e49a23ae2b9[m
+Merge: 16b68d3 0d26be7
+Author: Jerry Andrianto Pangaribuan <59874947+Jerry2204@users.noreply.github.com>
+Date:   Wed Apr 7 23:21:09 2021 +0700
+
+    Merge branch 'main' into jerry
+
+[33mcommit 16b68d3b7cde05a7a373392769cecbbfc6f549c1[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Wed Apr 7 23:12:20 2021 +0700
+
+    create register function
+
+[33mcommit 0d26be7a6bc6d536e50898145e5dfaedfcc93b5d[m
+Merge: a8de82a 3c9c11f
+Author: Jerry Andrianto Pangaribuan <59874947+Jerry2204@users.noreply.github.com>
+Date:   Wed Apr 7 23:08:05 2021 +0700
+
+    Merge pull request #3 from Jerry2204/zico
+    
+    fourth commit
+
+[33mcommit 3c9c11fa1cf63a37b4ac960a159fc639028b823d[m
+Author: andreaszico <zicoaritonang@gmail.com>
+Date:   Wed Apr 7 21:14:44 2021 +0700
+
+    fourth commit
+
+[33mcommit a8de82a9eefc3ce3aedcb80613f3236e48dbc196[m
+Merge: 330698a 9f263b7
+Author: Jerry Andrianto Pangaribuan <59874947+Jerry2204@users.noreply.github.com>
+Date:   Wed Apr 7 19:49:06 2021 +0700
+
+    Merge pull request #2 from Jerry2204/zico
+    
+    Progress Design Home
+
+[33mcommit 9f263b7f80372072271715fbaac6e9290a894406[m
+Author: andreaszico <zicoaritonang@gmail.com>
+Date:   Wed Apr 7 19:43:58 2021 +0700
+
+    third commit
+
+[33mcommit 330698a9ee469682cb8748dbbcf0f668d5c75db7[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Wed Apr 7 10:24:01 2021 +0700
+
+    create navbar
+
+[33mcommit d512ff17a7c20232418f7547fbd79a18f572093e[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Wed Apr 7 09:34:42 2021 +0700
+
+    create login layout
+
+[33mcommit 655b09e4bbd25261ab764f04cf5e861c24e0cd4d[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Tue Apr 6 15:12:30 2021 +0700
+
+    create home.blade.php
+
+[33mcommit 4463364601513b833afc86aab24aca3372ca8d35[m
+Merge: 9bf5a18 ab60537
+Author: Jerry Andrianto Pangaribuan <59874947+Jerry2204@users.noreply.github.com>
+Date:   Tue Apr 6 15:06:59 2021 +0700
+
+    Merge pull request #1 from Jerry2204/zico
+    
+    second commit
+
+[33mcommit ab60537e09bedbaa264d46d276cd2c71366ee6ca[m
+Author: andreaszico <zicoaritonang@gmail.com>
+Date:   Tue Apr 6 15:02:10 2021 +0700
+
+    second commit
+
+[33mcommit 9bf5a181b3bd65ad52736aa748a82a08a9a80f61[m
+Author: jerry2204 <jerryandrianto22@gmail.com>
+Date:   Tue Apr 6 14:31:08 2021 +0700
+
+    Create Project Laravel
