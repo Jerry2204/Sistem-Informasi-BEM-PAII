@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKemahasiswaanTable extends Migration
+class AddUsernameToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateKemahasiswaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('kemahasiswaan', function (Blueprint $table) {
-            $table->id();
-            $table->char('nama', 255);
-            $table->char('nip', 20);
-            $table->char('notelp', 12);
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateKemahasiswaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kemahasiswaan');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('username');
+        });
     }
 }

@@ -54,7 +54,6 @@
             </div>
         </div>
     </div>
-
     <div class="col-12 container-description">
         <div class="container">
             <div class="row py-5">
