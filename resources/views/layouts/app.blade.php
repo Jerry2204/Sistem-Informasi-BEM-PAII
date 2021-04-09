@@ -13,7 +13,14 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/index.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/home.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/blog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/activity.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/footer.css') }}">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
 </head>
 
 <body>
@@ -29,13 +36,14 @@
             <div class="collapse ml-auto navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav navigation-link">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Beranda</a>
+
+                        <a class="nav-link active" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kegiatan</a>
+                        <a class="nav-link" href="{{ route('activity') }}">Kegiatan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Prestasi</a>
@@ -101,6 +109,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
+    @yield('script')
 </body>
 
 </html>
