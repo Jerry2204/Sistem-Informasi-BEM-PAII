@@ -79,11 +79,12 @@
                 <h3 class="heading font-weight-bolder text-center mb-4">Berita Terbaru</h3>
                 <div class="row row-cols-1 row-cols-md-3">
                     <div class="col mb-4">
-                        <div class="card" style="width: 20rem;">
+                        <div class="card">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">IT Del Mengajar</h5>
+                                <p class="card-date">30 February 2020</p>
                                 <p class="card-text text card-text-news">Institut Teknologi Del berkunjung ke salah satu
                                     sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
                                     sekarang ini</p>
@@ -92,11 +93,12 @@
                         </div>
                     </div>
                     <div class="col mb-4">
-                        <div class="card" style="width: 20rem;">
+                        <div class="card">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">IT Del Mengajar</h5>
+                                <p class="card-date">30 February 2020</p>
                                 <p class="card-text text card-text-news">Institut Teknologi Del berkunjung ke salah satu
                                     sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
                                     sekarang ini</p>
@@ -105,11 +107,12 @@
                         </div>
                     </div>
                     <div class="col mb-4">
-                        <div class="card" style="width: 20rem;">
+                        <div class="card">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">IT Del Mengajar</h5>
+                                <p class="card-date">30 February 2020</p>
                                 <p class="card-text text card-text-news">Institut Teknologi Del berkunjung ke salah satu
                                     sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
                                     sekarang ini</p>
