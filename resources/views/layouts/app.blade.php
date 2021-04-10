@@ -19,7 +19,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
 </head>
 
