@@ -58,6 +58,10 @@
             @yield('content')
 		</div>
 	</div>
+
+    <div class="footer-wrap pd-20 mb-20 card-box">
+        Copyright&copy;{{ date('Y') }} - Badan Eksekutif Mahasiswa Institut Teknologi Del
+    </div>
 	<!-- js -->
 	<script src="{{ asset('assets/scripts/core.js') }}"></script>
 	<script src="{{ asset('assets/scripts/script.min.js') }}"></script>

@@ -20,7 +20,7 @@ class CreateBphTable extends Migration
             $table->string('no_hp');
             $table->text('alamat');
             $table->integer('user_id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

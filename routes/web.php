@@ -26,10 +26,15 @@ Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 
-Route::get('/bph', [BPHController::class, 'index'])->name('bph');
-Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/bph', [BPHController::class, 'index'])->name('bph');
+    Route::post('/bph', [BPHController::class, 'store'])->name('bph');
+
+});

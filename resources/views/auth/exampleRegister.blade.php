@@ -16,13 +16,6 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="username">Username</label>
-              <input type="text" class="form-control @error('username') is-invalid @enderror" name="username" id="username" placeholder="Masukkan username anda" value="{{ old('username') }}">
-              @error('username')
-              <div class="text-danger">{{ $message }}</div>
-              @enderror
-            </div>
-            <div class="form-group">
               <label for="email">Email</label>
               <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="Masukkan email anda" value="{{ old('email') }}">
               @error('email')

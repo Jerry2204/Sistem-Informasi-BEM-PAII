@@ -10,4 +10,6 @@ class BPH extends Model
     use HasFactory;
 
     protected $table = 'bph';
+
+    protected $fillable = ['nim', 'jenis_kelamin', 'no_hp', 'alamat', 'user_id', 'foto'];
 }
