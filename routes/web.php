@@ -31,10 +31,11 @@ Route::get('/register', [RegistrationController::class, 'index'])->name('registe
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::post('/bph', [BPHController::class, 'store'])->name('bph');
-
 });

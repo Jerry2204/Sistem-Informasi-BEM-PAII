@@ -20,6 +20,7 @@
                         <li><a href="index2.html">Dashboard style 2</a></li>
                     </ul>
                 </li>
+                @if (auth()->user()->role == "admin")
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-user1"></span><span class="mtext">User</span>
@@ -31,6 +32,7 @@
                         <li><a href="html5-editor.html">HTML5 Editor</a></li>
                     </ul>
                 </li>
+                @endif
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
