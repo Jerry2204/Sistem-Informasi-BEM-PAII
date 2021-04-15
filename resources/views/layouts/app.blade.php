@@ -51,11 +51,6 @@
                     <li class="nav-item">
                         <a class="nav-link">Tentang Kami</a>
                     </li>
-                    @auth
-                    <li class="nav-item m-0">
-                        <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Keluar</a>
-                    </li>
-                    @endauth
                     @guest
                     <li class="nav-item m-0">
                         <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Masuk</a>
