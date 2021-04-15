@@ -12,4 +12,8 @@ class BPH extends Model
     protected $table = 'bph';
 
     protected $fillable = ['nim', 'jenis_kelamin', 'no_hp', 'alamat', 'user_id', 'foto'];
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
 }

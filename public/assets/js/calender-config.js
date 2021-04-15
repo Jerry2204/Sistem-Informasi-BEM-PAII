@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         selectable: true,
         timeZone: 'UTC',
         dateClick: function (info) {
-            
+
         },
         eventClick: function(event, jsEvent, view) {
             const { title } = event.event._def;
@@ -40,8 +40,9 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             {
                 title: 'Conference',
-                start: '2021-09-18',
-                end: '2021-09-20'
+                start: '2021-09-19',
+                end: '2021-09-24',
+                description: 'Rapat Paripurna'
             },
             {
                 title: 'Party',

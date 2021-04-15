@@ -41,23 +41,28 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                        <th scope="col">Tag</th>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">NIM</th>
+                                        <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">No. HP</th>
+                                        <th scope="col">Alamat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($bphs as $bph)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th scope="row">{{ $loop->iteration }}</th>
+                                        <td>{{ $bph->user->name }}</td>
+                                        <td>{{ $bph->nim }}</td>
+                                        <td>{{ $bph->jenis_kelamin }}</td>
+                                        <td>{{ $bph->no_hp }}</td>
+                                        <td>{{ $bph->alamat }}</td>
                                         <td>
                                             <span class="badge badge-primary">Primary</span>
                                         </td>
                                     </tr>
+                                    @endforeach
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Jacob</td>

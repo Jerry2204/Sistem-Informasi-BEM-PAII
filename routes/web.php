@@ -16,6 +16,7 @@ Route::get('/', function () {
 Route::get('/blog_detail', function () {
     return view('public.blog.blog_detail');
 })->name('blog_detail');
+
 Route::get('/blog',  [BlogController::class, 'index'])->name('blog');
 
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity');
@@ -39,3 +40,5 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::post('/bph', [BPHController::class, 'store'])->name('bph');
 });
+
+
