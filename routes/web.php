@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\BPHController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KadepController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -39,6 +40,11 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph']], function(){
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::post('/bph', [BPHController::class, 'store'])->name('bph');
+});
+
+Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
+    Route::get('/kadep', [KadepController::class, 'index'])->name('kadep');
+    Route::post('/kadep', [KadepController::class, 'store'])->name('kadep');
 });
 
 

@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function bph() {
         return $this->hasOne(BPH::class);
     }
+
+    public function kadep() {
+        return $this->hasOne(Kadep::class);
+    }
 }
