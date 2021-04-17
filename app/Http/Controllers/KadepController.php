@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Departemen;
 use App\Models\Kadep;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,8 +12,9 @@ class KadepController extends Controller
 {
     public function index() {
         $kadeps = Kadep::all();
+        $departemen = Departemen::all();
 
-        return view("kadep.index", compact('kadeps'));
+        return view("kadep.index", compact('kadeps', 'departemen'));
     }
 
     public function store(Request $request) {

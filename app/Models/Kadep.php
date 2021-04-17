@@ -11,9 +11,13 @@ class Kadep extends Model
 
     protected $table = "kadep";
 
-    protected $fillable = ["nim", "jenis_kelamin", "no_hp", "alamat", "user_id", "foto"];
+    protected $fillable = ["nim", "jenis_kelamin", "no_hp", "alamat", "user_id", "foto", "departemen_id"];
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function departemen () {
+        return $this->belongsTo(Departemen::class);
     }
 }

@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="title">
-                <h4>Dashboard</h4>
+                <h4>Kepala Departemen</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">User</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Kadep</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Kepala Departemen</li>
                 </ol>
             </nav>
         </div>
@@ -121,12 +121,23 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-12 col-md-2 col-form-label">Select</label>
+                                    <label class="col-sm-12 col-md-2 col-form-label">Jenis Kelamin</label>
                                     <div class="col-sm-12 col-md-10">
                                         <select name="jenis_kelamin" class="custom-select col-12">
                                             <option value="">Pilih Jenis Kelamin</option>
                                             <option value="Laki-laki">Laki-laki</option>
                                             <option value="Perempuan">Perempuan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">Departemen</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <select class="custom-select col-12">
+                                            <option selected="">Pilih Departemen</option>
+                                            @foreach ($departemen as $department)
+                                            <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

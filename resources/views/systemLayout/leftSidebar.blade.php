@@ -20,19 +20,21 @@
                         <li><a href="index2.html">Dashboard style 2</a></li>
                     </ul>
                 </li>
-                @if (auth()->user()->role == "admin")
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-user1"></span><span class="mtext">User</span>
                     </a>
                     <ul class="submenu">
+                        @if (auth()->user()->role == "admin")
                         <li><a href="{{ route('bph') }}">BPH</a></li>
-                        <li><a href="advanced-components.html">Advanced Components</a></li>
+                        @endif
+                        @if (auth()->user()->role == "bph")
+                        <li><a href="{{ route('kadep') }}">Kepala Departemen</a></li>
+                        @endif
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="html5-editor.html">HTML5 Editor</a></li>
                     </ul>
                 </li>
-                @endif
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
@@ -43,8 +45,8 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.html" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                    <a href="{{ route('departemen') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
                 </li>
                 <li>

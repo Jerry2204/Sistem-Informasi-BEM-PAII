@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\BPHController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\KadepController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +34,7 @@ Route::get('/register', [RegistrationController::class, 'index'])->name('registe
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 
 
-Route::group(['middleware' => ['auth', 'checkRole:admin,bph']], function(){
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
@@ -45,6 +46,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/kadep', [KadepController::class, 'index'])->name('kadep');
     Route::post('/kadep', [KadepController::class, 'store'])->name('kadep');
+    Route::get('/departemen', [DepartemenController::class, 'index'])->name('departemen');
+    Route::post('/departemen', [DepartemenController::class, 'store'])->name('departemen');
 });
 
 
