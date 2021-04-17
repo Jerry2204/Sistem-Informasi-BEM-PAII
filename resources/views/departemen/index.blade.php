@@ -66,7 +66,7 @@
                                     <h4 class="text-blue h4">Tambah Departemen BEM KM IT Del</h4>
                                 </div>
                             </div>
-                            <form action="{{ route('departemen') }}" method="POST" enctype="">
+                            <form action="{{ route('departemen') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-sm-12 col-md-2 col-form-label" for="name">Nama Departemen</label>
