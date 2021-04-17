@@ -19,7 +19,6 @@ class DepartemenController extends Controller
         ]);
 
         $departemen = new Departemen;
-
         $departemen->name = $request->name;
         if($request->hasFile('logo')){
             $request->file('logo')->move('assets/images/logo-departemen',$request->file('logo')->getClientOriginalName());

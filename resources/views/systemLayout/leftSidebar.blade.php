@@ -49,6 +49,13 @@
                         <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
                 </li>
+                @if (auth()->user()->role == 'admin')
+                <li>
+                    <a href="{{ route('program_studi') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notebook"></span><span class="mtext">Program Studi</span>
+                    </a>
+                </li>
+                @endif
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>

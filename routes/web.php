@@ -9,6 +9,7 @@ use App\Http\Controllers\BPHController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\KadepController;
+use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -41,6 +42,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function()
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::post('/bph', [BPHController::class, 'store'])->name('bph');
+    Route::get('/program_studi', [ProgramStudiController::class, 'index'])->name('program_studi');
+    Route::post('/program_studi', [ProgramStudiController::class, 'store'])->name('program_studi');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
