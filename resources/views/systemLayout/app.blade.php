@@ -21,6 +21,10 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables/css/responsive.bootstrap4.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/style.css') }}">
 
+    <!-- Livewire Style -->
+    @livewireStyles
+    @yield('styles')
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 	<script>
@@ -73,5 +77,7 @@
 	<script src="{{ asset('assets/datatables/js/dataTables.responsive.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/responsive.bootstrap4.min.js') }}"></script>
 	<script src="{{ asset('assets/scripts/dashboard.js') }}"></script>
+    @livewireScripts
+    @yield('scripts')
 </body>
 </html>

@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class BPHController extends Controller
 {
     public function index() {
-        $bphs = BPH::all();
-
-        return view('bph.index', compact('bphs'));
+        return view('bph.index');
     }
 
     public function store(Request $request) {
