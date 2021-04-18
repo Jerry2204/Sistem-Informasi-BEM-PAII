@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function()
 
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
-    Route::post('/bph', [BPHController::class, 'store'])->name('bph');
     Route::get('/program_studi', [ProgramStudiController::class, 'index'])->name('program_studi');
     Route::post('/program_studi', [ProgramStudiController::class, 'store'])->name('program_studi');
 });

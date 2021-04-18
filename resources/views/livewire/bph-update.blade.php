@@ -1,11 +1,12 @@
 <div class="pd-20">
     <div class="clearfix pb-4">
         <div class="pull-left">
-            <h4 class="text-blue h4">Tambah Badan Pengurus Harian BEM KM IT Del</h4>
+            <h4 class="text-blue h4">Ubah Badan Pengurus Harian BEM KM IT Del</h4>
         </div>
     </div>
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="update">
         @csrf
+        <input type="hidden" name="" wire:model="BPHId">
         <div class="form-group row @error('name') has-danger @enderror">
             <label class="col-sm-12 col-md-2 col-form-label" for="name">Nama</label>
             <div class="col-sm-12 col-md-10">
@@ -79,7 +80,7 @@
             </div>
         </div>
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Tambah</button>
+            <button type="submit" class="btn btn-primary">Ubah</button>
         </div>
     </form>
 </div>
