@@ -33,7 +33,7 @@ class BPHIndex extends Component
 
     public function confirmation($id) {
         $this->dispatchBrowserEvent('swal:confirm', [
-            'type' => 'warning',
+            'icon' => 'warning',
             'title' => 'Apakah anda yakin?',
             'text' => '',
             'id' => $id
@@ -43,11 +43,7 @@ class BPHIndex extends Component
     public function destroy (BPH $bph) {
 
         if ($bph) {
-            $deleted = $bph->delete();
-
-            if ($deleted) {
-                session()->flash('message', 'BPH berhasil dihapus');
-            }
+            $bph->delete();
         }
 
     }

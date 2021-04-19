@@ -21,7 +21,7 @@ class BphCreate extends Component
 
     protected $rules = [
         'name' => 'required',
-        'nim' => 'required|unique:bph,nim',
+        'nim' => 'required|unique:bph,nim|max:10',
         'email' => 'required|unique:users,email',
         'no_hp' => 'required',
         'jenis_kelamin' => 'required',
@@ -33,6 +33,7 @@ class BphCreate extends Component
         'name.required' => 'Nama tidak boleh kosong',
         'nim.required' => 'NIM tidak boleh kosong',
         'nim.unique' => 'NIM sudah terdaftar',
+        'nim.max' => 'NIM tidak boleh lebih dari 10 karakter',
         'email.required' => 'Email tidak boleh kosong',
         'email.unique' => 'Email telah digunakan',
         'no_hp.required' => 'No. Hp tidak boleh kosong',

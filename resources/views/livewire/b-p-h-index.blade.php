@@ -20,13 +20,13 @@
                         <div class="pd-20 table-responsive">
                             @if (session()->has('message'))
                             <script>
-                                swal({
+                                Swal.fire({
                                     position: 'top-end',
-                                    showConfirmButton: false,
-                                    timer: 1500,
-                                    title: "Sukses",
+                                    icon: 'success',
+                                    title: 'Sukses',
                                     text: "{{ session('message') }}",
-                                    type: 'success',
+                                    showConfirmButton: false,
+                                    timer: 1500
                                 })
                             </script>
                             @endif
@@ -59,61 +59,8 @@
                                         <td>{{ $bph->alamat }}</td>
                                         <td>
                                             <button wire:click="getBPH({{ $bph->id }}, {{ $bph->user_id }})" class="btn btn-sm btn-primary">Ubah</button>
-                                            <button onclick="warning({{ $bph->id }})" class="btn btn-sm btn-danger">Hapus</button>
-                                            <script>
-                                                function warning(id){
-                                                    // swal({
-                                                    //     title: 'Are you sure?',
-                                                    //     text: "You won't be able to revert this!",
-                                                    //     type: 'warning',
-                                                    //     showCancelButton: true,
-                                                    //     confirmButtonClass: 'btn btn-success',
-                                                    //     cancelButtonClass: 'btn btn-danger',
-                                                    //     confirmButtonText: 'Yes, delete it!'
-                                                    // }).then(function (willDelete) {
-                                                    //     if(willDelete.isConfirmed){
-                                                    //         window.livewire.emit('destroy', id)
-                                                    //         swal(
-                                                    //             'Deleted!',
-                                                    //             'Your file has been deleted.',
-                                                    //             'success'
-                                                    //         )
-                                                    //     }else{
-
-                                                    //     }
-                                                    // })
-                                                    swal({
-                                                        title: 'Are you sure?',
-                                                        text: "You won't be able to revert this!",
-                                                        type: 'warning',
-                                                        showCancelButton: true,
-                                                        confirmButtonText: 'Yes, delete it!',
-                                                        cancelButtonText: 'No, cancel!',
-                                                        confirmButtonClass: 'btn btn-success margin-5',
-                                                        cancelButtonClass: 'btn btn-danger margin-5',
-                                                        buttonsStyling: false
-                                                    }).then(function (willDelete) {
-                                                        if (willDelete.isConfimed){
-                                                            swal(
-                                                                'Deleted!',
-                                                                'Your file has been deleted.',
-                                                                'success'
-                                                            )
-                                                        }
-                                                    }, function (dismiss) {
-                                                        // dismiss can be 'cancel', 'overlay',
-                                                        // 'close', and 'timer'
-                                                        dismiss = 'cancel';
-                                                        if (dismiss === 'cancel') {
-                                                            swal(
-                                                                'Cancelled',
-                                                                'Your imaginary file is safe :)',
-                                                                'error'
-                                                            )
-                                                        }
-                                                    })
-                                                }
-                                            </script>
+                                            <button wire:click="confirmation({{ $bph->id }})" class="btn btn-sm btn-danger">Hapus</button>
+                                            
                                         </td>
                                     </tr>
                                     @endforeach

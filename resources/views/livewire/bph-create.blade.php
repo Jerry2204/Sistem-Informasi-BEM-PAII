@@ -1,13 +1,13 @@
 <div class="pd-20">
     @if (session()->has('message'))
     <script>
-        swal({
+        Swal.fire({
             position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            title: "Sukses",
+            icon: 'success',
+            title: 'Sukses',
             text: "{{ session('message') }}",
-            type: 'success',
+            showConfirmButton: false,
+            timer: 1500
         })
     </script>
     @endif
