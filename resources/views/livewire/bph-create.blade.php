@@ -1,11 +1,22 @@
 <div class="pd-20">
+    @if (session()->has('message'))
+    <script>
+        swal({
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 1500,
+            title: "Sukses",
+            text: "{{ session('message') }}",
+            type: 'success',
+        })
+    </script>
+    @endif
     <div class="clearfix pb-4">
         <div class="pull-left">
             <h4 class="text-blue h4">Tambah Badan Pengurus Harian BEM KM IT Del</h4>
         </div>
     </div>
     <form wire:submit.prevent="store">
-        @csrf
         <div class="form-group row @error('name') has-danger @enderror">
             <label class="col-sm-12 col-md-2 col-form-label" for="name">Nama</label>
             <div class="col-sm-12 col-md-10">

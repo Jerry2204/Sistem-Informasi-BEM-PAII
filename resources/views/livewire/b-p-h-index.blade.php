@@ -4,17 +4,14 @@
             <div class="tab">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link text-blue @if (!$statusUpdate) active @endif @if (!$statusCreate) active
-                            
-                        @endif" data-toggle="tab" href="#home" role="tab" aria-selected="@if ($statusUpdate) false @else true @endif">Daftar BPH</a>
+                        <a class="nav-link text-blue @if (!$statusUpdate) active @endif " data-toggle="tab" href="#home" role="tab" aria-selected="@if ($statusUpdate) false @else true @endif">Daftar BPH</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Tambah BPH</a>
                     </li>
                     @if ($statusUpdate)
                     <li class="nav-item">
                         <a class="nav-link text-blue @if ($statusUpdate) active @endif" data-toggle="tab" href="#profileUpdate" role="tab" aria-selected="true">Ubah BPH</a>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Tambah BPH</a>
                     </li>
                     @endif
                 </ul>
@@ -62,24 +59,76 @@
                                         <td>{{ $bph->alamat }}</td>
                                         <td>
                                             <button wire:click="getBPH({{ $bph->id }}, {{ $bph->user_id }})" class="btn btn-sm btn-primary">Ubah</button>
-                                            <button wire:click="getBPH({{ $bph->id }}, {{ $bph->user_id }})" class="btn btn-sm btn-danger">Hapus</button>
+                                            <button onclick="warning({{ $bph->id }})" class="btn btn-sm btn-danger">Hapus</button>
+                                            <script>
+                                                function warning(id){
+                                                    // swal({
+                                                    //     title: 'Are you sure?',
+                                                    //     text: "You won't be able to revert this!",
+                                                    //     type: 'warning',
+                                                    //     showCancelButton: true,
+                                                    //     confirmButtonClass: 'btn btn-success',
+                                                    //     cancelButtonClass: 'btn btn-danger',
+                                                    //     confirmButtonText: 'Yes, delete it!'
+                                                    // }).then(function (willDelete) {
+                                                    //     if(willDelete.isConfirmed){
+                                                    //         window.livewire.emit('destroy', id)
+                                                    //         swal(
+                                                    //             'Deleted!',
+                                                    //             'Your file has been deleted.',
+                                                    //             'success'
+                                                    //         )
+                                                    //     }else{
+
+                                                    //     }
+                                                    // })
+                                                    swal({
+                                                        title: 'Are you sure?',
+                                                        text: "You won't be able to revert this!",
+                                                        type: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonText: 'Yes, delete it!',
+                                                        cancelButtonText: 'No, cancel!',
+                                                        confirmButtonClass: 'btn btn-success margin-5',
+                                                        cancelButtonClass: 'btn btn-danger margin-5',
+                                                        buttonsStyling: false
+                                                    }).then(function (willDelete) {
+                                                        if (willDelete.isConfimed){
+                                                            swal(
+                                                                'Deleted!',
+                                                                'Your file has been deleted.',
+                                                                'success'
+                                                            )
+                                                        }
+                                                    }, function (dismiss) {
+                                                        // dismiss can be 'cancel', 'overlay',
+                                                        // 'close', and 'timer'
+                                                        dismiss = 'cancel';
+                                                        if (dismiss === 'cancel') {
+                                                            swal(
+                                                                'Cancelled',
+                                                                'Your imaginary file is safe :)',
+                                                                'error'
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        
                     </div>
                     @if ($statusUpdate)
                     <div class="tab-pane fade @if ($statusUpdate) active show @endif" id="profileUpdate" role="tabpanel">
                         <livewire:bph-update></livewire:bph-update>
                     </div>
-                    @else
+                    @endif
                     <div class="tab-pane fade" id="profile" role="tabpanel">
                         <livewire:bph-create></livewire:bph-create>
                     </div>
-                    @endif
                 </div>
             </div>
         </div>

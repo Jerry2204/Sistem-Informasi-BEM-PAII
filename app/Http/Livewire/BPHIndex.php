@@ -16,7 +16,8 @@ class BPHIndex extends Component
 
     protected $listeners = [
         'bphStore' => 'handleStored',
-        'bphUpdate' => 'handleUpdated'
+        'bphUpdate' => 'handleUpdated',
+        'destroy'
     ];
 
     public function render()
@@ -30,8 +31,28 @@ class BPHIndex extends Component
         $this->emit('getBPH', $bph, $user);
     }
 
+    public function confirmation($id) {
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'type' => 'warning',
+            'title' => 'Apakah anda yakin?',
+            'text' => '',
+            'id' => $id
+        ]);
+    }
+
+    public function destroy (BPH $bph) {
+
+        if ($bph) {
+            $deleted = $bph->delete();
+
+            if ($deleted) {
+                session()->flash('message', 'BPH berhasil dihapus');
+            }
+        }
+
+    }
+
     public function handleStored() {
-        session()->flash('message', 'BPH berhasil ditambahkan');
         $this->statusCreate = false;
     }
 

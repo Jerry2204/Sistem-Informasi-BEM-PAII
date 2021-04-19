@@ -74,6 +74,8 @@ class BphCreate extends Component
 
         $this->resetInput();
 
+        session()->flash('message', 'BPH berhasil ditambahkan');
+
         $this->emit('bphStore');
     }
 
