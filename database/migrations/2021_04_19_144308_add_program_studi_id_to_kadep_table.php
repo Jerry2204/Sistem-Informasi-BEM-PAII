@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDepartemenIdToKadepTable extends Migration
+class AddProgramStudiIdToKadepTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddDepartemenIdToKadepTable extends Migration
     public function up()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->integer('departemen_id')->unique();
+            $table->bigInteger('program_studi_id');
         });
     }
 
@@ -26,7 +26,7 @@ class AddDepartemenIdToKadepTable extends Migration
     public function down()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->dropColumn('departemen_id');
+            $table->dropColumn('program_studi_id');
         });
     }
 }

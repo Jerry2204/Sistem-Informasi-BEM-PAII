@@ -16,4 +16,8 @@ class ProgramStudi extends Model
     public function BPH () {
         return $this->hasMany(BPH::class);
     }
+
+    public function kadep () {
+        return $this->hasMany(Kadep::class);
+    }
 }
