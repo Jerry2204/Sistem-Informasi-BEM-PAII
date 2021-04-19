@@ -1,4 +1,18 @@
 <div class="row">
+    {{-- Session --}}
+    @if (session()->has('message'))
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Sukses',
+            text: "{{ session('message') }}",
+            showConfirmButton: false,
+            timer: 1500
+        })
+    </script>
+    @endif
+
     <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
         <div class="pd-20 card-box">
             <div class="tab">
@@ -18,18 +32,6 @@
                 <div class="tab-content">
                     <div class="tab-pane fade @if (!$statusUpdate) active show @endif" id="home" role="tabpanel">
                         <div class="pd-20 table-responsive">
-                            @if (session()->has('message'))
-                            <script>
-                                Swal.fire({
-                                    position: 'top-end',
-                                    icon: 'success',
-                                    title: 'Sukses',
-                                    text: "{{ session('message') }}",
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                })
-                            </script>
-                            @endif
                             <div class="clearfix mb-20">
                                 <div class="pull-left">
                                     <h4 class="text-blue h4">Daftar BPH</h4>
@@ -45,6 +47,7 @@
                                         <th scope="col">Jenis Kelamin</th>
                                         <th scope="col">No. HP</th>
                                         <th scope="col">Alamat</th>
+                                        <th scope="col">Program Studi</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -57,10 +60,10 @@
                                         <td>{{ $bph->jenis_kelamin }}</td>
                                         <td>{{ $bph->no_hp }}</td>
                                         <td>{{ $bph->alamat }}</td>
+                                        <td>{{ $bph->programStudi->nama_program_studi }}</td>
                                         <td>
                                             <button wire:click="getBPH({{ $bph->id }}, {{ $bph->user_id }})" class="btn btn-sm btn-primary">Ubah</button>
                                             <button wire:click="confirmation({{ $bph->id }})" class="btn btn-sm btn-danger">Hapus</button>
-                                            
                                         </td>
                                     </tr>
                                     @endforeach

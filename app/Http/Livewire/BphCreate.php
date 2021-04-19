@@ -87,5 +87,6 @@ class BphCreate extends Component
         $this->alamat = null;
         $this->email = null;
         $this->no_hp = null;
+        $this->program_studi_id = null;
     }
 }

@@ -12,4 +12,8 @@ class ProgramStudi extends Model
     protected $table = 'program_studi';
 
     protected $fillable = ['nama_program_studi'];
+
+    public function BPH () {
+        return $this->hasMany(BPH::class);
+    }
 }
