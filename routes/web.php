@@ -46,9 +46,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
 
 Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/kadep', [KadepController::class, 'index'])->name('kadep');
-    Route::post('/kadep', [KadepController::class, 'store'])->name('kadep');
     Route::get('/departemen', [DepartemenController::class, 'index'])->name('departemen');
     Route::post('/departemen', [DepartemenController::class, 'store'])->name('departemen');
 });
-
-
