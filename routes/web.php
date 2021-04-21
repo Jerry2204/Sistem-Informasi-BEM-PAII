@@ -55,8 +55,6 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
 });
 
-Route::get('/{slug}', [PostController::class, 'singlePost'])->name('single.post');
-  
 Route::get('/blog',  [BlogController::class, 'index'])->name('blog');
 
 // PUBLIC
@@ -79,3 +77,5 @@ Route::get('/forums/{id}', [ForumController::class, 'detail']);
 
 Route::get('/bph', [BPHController::class, 'index'])->name('bph');
 Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');
+
+Route::get('/{slug}', [PostController::class, 'singlePost'])->name('single.post');

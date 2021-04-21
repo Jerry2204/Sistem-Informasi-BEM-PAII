@@ -62,7 +62,7 @@
                                 <div class="col-12">
                                     <div class="image_about">
                                         <img class=""
-                                            src="https://cdn.ayobandung.com/upload/bank_image/medium/jadi-centibillionaire-kekayaan-mark-zuckerberg-lampaui-100-dolar-as.jpg"
+                                            src="{{ asset('assets/images/Jerry.png') }}"
                                             alt="" srcset="">
                                     </div>
                                 </div>

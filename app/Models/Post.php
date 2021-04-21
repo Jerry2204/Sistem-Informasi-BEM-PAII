@@ -12,4 +12,12 @@ class Post extends Model
     public function user () {
         return $this->belongsTo(User::class);
     }
+
+    public function thumbnail () {
+        if ($this->thumbnail) {
+            return $this->thumbnail;
+        } else {
+            return asset('assets/images/erik-mclean-sxiSod0tyYQ-unsplash.jpg');
+        }
+    }
 }

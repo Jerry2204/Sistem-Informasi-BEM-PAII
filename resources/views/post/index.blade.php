@@ -1,5 +1,13 @@
 @extends('systemLayout.app')
 
+@section('styles')
+<style>
+    .ck-editor__editable_inline {
+        min-height: 350px;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="page-header">
     <div class="row">
@@ -69,15 +77,21 @@
                         <div class="pd-20">
                             <div class="clearfix pb-4">
                                 <div class="pull-left">
-                                    <h4 class="text-blue h4">Tambah Departemen BEM KM IT Del</h4>
+                                    <h4 class="text-blue h4">Tambah Postingan Website</h4>
                                 </div>
                             </div>
-                            <form action="{{ route('departemen') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('post') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-sm-12 col-md-2 col-form-label" for="name">Nama Departemen</label>
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="title">Judul</label>
                                     <div class="col-sm-12 col-md-10">
-                                        <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}" placeholder="Johnny Brown">
+                                        <input class="form-control" type="text" id="title" name="title" value="{{ old('title') }}" placeholder="ex: Del goes to school">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="alamat">Alamat</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <textarea name="" id="editor" cols="30" rows="10"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -97,4 +111,14 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script src="{{ asset('assets/js/ckeditor.js') }}"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 @endsection

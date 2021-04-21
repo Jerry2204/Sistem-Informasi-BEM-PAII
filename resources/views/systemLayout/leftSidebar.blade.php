@@ -67,6 +67,11 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ route('post')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-newspaper-1"></span><span class="mtext">Blog</span>
+                    </a>
+                </li>
+                <li>
                     <div class="dropdown-divider"></div>
                 </li>
                 <li>
