@@ -22,4 +22,8 @@ class BlogController extends Controller
     public function index(){
         return view('public.blog.blog');
     }
+
+    public function about(){
+        return view('public.about.about');
+    }
 }

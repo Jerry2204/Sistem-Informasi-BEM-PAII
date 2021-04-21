@@ -20,9 +20,11 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables/css/dataTables.bootstrap4.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/datatables/css/responsive.bootstrap4.min.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/style.css') }}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -59,6 +61,7 @@
 		</div>
 	</div>
 	<!-- js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="{{ asset('assets/scripts/core.js') }}"></script>
 	<script src="{{ asset('assets/scripts/script.min.js') }}"></script>
 	<script src="{{ asset('assets/scripts/process.js') }}"></script>
@@ -68,6 +71,9 @@
 	<script src="{{ asset('assets/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/dataTables.responsive.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-	<script src="{{ asset('assets/scripts/dashboard.js') }}"></script>
+	{{-- <script src="{{ asset('assets/scripts/dashboard.js') }}"></script> --}}
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
+	@yield('script')
 </body>
 </html>

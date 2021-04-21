@@ -22,3 +22,11 @@
         margin: 10px;
     }
 }
+
+.fc-button{
+    width: 65px;
+    height: 35px;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+    text-align: center;
+}

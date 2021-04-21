@@ -41,8 +41,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="calendar.html" class="dropdown-toggle no-arrow">
+                    <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('forums-admin')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
                     </a>
                 </li>
                 <li>

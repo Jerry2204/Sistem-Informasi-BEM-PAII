@@ -1,149 +1,85 @@
-jQuery(document).ready(function(){
-	jQuery("#add-event").submit(function(){
-		alert("Submitted");
-		var values = {};
-		$.each($('#add-event').serializeArray(), function(i, field) {
-			values[field.name] = field.value;
-		});
-		console.log(
-			values
-		);
-	});
+$(document).ready(function () {
+    $("#add-event").submit(function () {
+        alert("Submitted");
+        var values = {};
+        $.each($('#add-event').serializeArray(), function (i, field) {
+            values[field.name] = field.value;
+        });
+        // console.log(
+        //     values
+        // );
+    });
+
+
 });
 
 (function () {
-	'use strict';
-	// ------------------------------------------------------- //
-	// Calendar
-	// ------------------------------------------------------ //
-	jQuery(function() {
-		// page is ready
-		jQuery('#calendar').fullCalendar({
-			themeSystem: 'bootstrap4',
-			// emphasizes business hours
-			businessHours: false,
-			defaultView: 'month',
-			// event dragging & resizing
-			editable: true,
-			// header
-			header: {
-				left: 'title',
-				center: 'month,agendaWeek,agendaDay',
-				right: 'today prev,next'
-			},
-			events: [
-			{
-				title: 'Barber',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-05-05',
-				end: '2020-05-05',
-				className: 'fc-bg-default',
-				icon : "circle"
-			},
-			{
-				title: 'Flight Paris',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-08-08T14:00:00',
-				end: '2020-08-08T20:00:00',
-				className: 'fc-bg-deepskyblue',
-				icon : "cog",
-				allDay: false
-			},
-			{
-				title: 'Team Meeting',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-07-10T13:00:00',
-				end: '2020-07-10T16:00:00',
-				className: 'fc-bg-pinkred',
-				icon : "group",
-				allDay: false
-			},
-			{
-				title: 'Meeting',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-08-12',
-				className: 'fc-bg-lightgreen',
-				icon : "suitcase"
-			},
-			{
-				title: 'Conference',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-08-13',
-				end: '2020-08-15',
-				className: 'fc-bg-blue',
-				icon : "calendar"
-			},
-			{
-				title: 'Baby Shower',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-08-13',
-				end: '2020-08-14',
-				className: 'fc-bg-default',
-				icon : "child"
-			},
-			{
-				title: 'Birthday',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-09-13',
-				end: '2020-09-14',
-				className: 'fc-bg-default',
-				icon : "birthday-cake"
-			},
-			{
-				title: 'Restaurant',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-10-15T09:30:00',
-				end: '2020-10-15T11:45:00',
-				className: 'fc-bg-default',
-				icon : "glass",
-				allDay: false
-			},
-			{
-				title: 'Dinner',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-11-15T20:00:00',
-				end: '2020-11-15T22:30:00',
-				className: 'fc-bg-default',
-				icon : "cutlery",
-				allDay: false
-			},
-			{
-				title: 'Shooting',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-08-25',
-				end: '2020-08-25',
-				className: 'fc-bg-blue',
-				icon : "camera"
-			},
-			{
-				title: 'Go Space :)',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-12-27',
-				end: '2020-12-27',
-				className: 'fc-bg-default',
-				icon : "rocket"
-			},
-			{
-				title: 'Dentist',
-				description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eu pellentesque nibh. In nisl nulla, convallis ac nulla eget, pellentesque pellentesque magna.',
-				start: '2020-12-29T11:30:00',
-				end: '2020-12-29T012:30:00',
-				className: 'fc-bg-blue',
-				icon : "medkit",
-				allDay: false
-			}
-			],
-			dayClick: function() {
-				jQuery('#modal-view-event-add').modal();
-			},
-			eventClick: function(event, jsEvent, view) {
-				jQuery('.event-icon').html("<i class='fa fa-"+event.icon+"'></i>");
-				jQuery('.event-title').html(event.title);
-				jQuery('.event-body').html(event.description);
-				jQuery('.eventUrl').attr('href',event.url);
-				jQuery('#modal-view-event').modal();
-			},
-		})
-});
+    'use strict';
+    $(function () {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            themeSystem: 'bootstrap4',
+            businessHours: false,
+            initialDate: Date.now(),
+            navLinks: true,
+            selectable: true,
+            businessHours: true,
+            dayMaxEventRows: true,
+            droppable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+            events: '/activity/data',
+            dateClick: function () {
+                $('#modal-view-event-add').modal();
+                $('.title-form-event').html("Add Event");
+                $('#add-event').attr('action', 'http://127.0.0.1:8000/calendar/add');
+                $('#name').val('');
+                $('#date-start').val('');
+                $('#date-end').val('');
+                $('#description').val('');
+                $('#icon').val('');
+            },
+            eventClick: function (event, jsEvent, view) {
+                const {
+                    startStr,
+                    endStr,
+                    id
+                } = event.event;
+                const {
+                    title,
+                    url,
+                    publicId
+                } = event.event._def;
+                const {
+                    description,
+                    icon
+                } = event.event._def.extendedProps;
+
+
+                $('.event-icon').html("<i class='fa fa-" + event.icon + "'></i>");
+                $('.idCalendarEvent').val(publicId);
+                $('.event-title').html(title);
+                $('.event-body').html(description);
+                $('.eventUrl').attr('href', url);
+                $('#modal-view-event').modal();
+
+                $(".edit-button").on('click', function () {
+                    $('#modal-view-event-add').modal();
+                    $('#add-event').attr('action', `http://127.0.0.1:8000/calendar/update/${id}`);
+                    $('#name').val(title);
+                    $('.title-form-event').html("Edit Event");
+                    $('#date-start').val(startStr);
+                    $('#date-end').val(endStr);
+                    $('#description').val(description);
+                    $('#icon').val(icon);
+                })
+                console.log(event)
+            },
+        })
+        calendar.render();
+    });
 
 })(jQuery);
