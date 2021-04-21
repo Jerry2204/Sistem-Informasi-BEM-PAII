@@ -55,7 +55,7 @@
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->user->name }}</td>
                                         <td>
-                                            <a href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
+                                            <a target="_blank" href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
                                             <a href="" class="btn btn-sm btn-primary">Ubah</a>
                                             <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                         </td>

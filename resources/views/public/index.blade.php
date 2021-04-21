@@ -77,20 +77,23 @@
             <div class="col-12 my-5">
                 <h3 class="heading font-weight-bolder text-center mb-4">Berita Terbaru</h3>
                 <div class="row row-cols-1 row-cols-md-3">
+                    @foreach ($posts as $post)
                     <div class="col mb-4">
                         <div class="card">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">IT Del Mengajar</h5>
-                                <p class="card-date">30 February 2020</p>
+                                <h5 class="card-title">{{ $post->title }}</h5>
+                                <p class="card-date">{{ $post->created_at->format('D, d M Y') }}</p>
                                 <p class="card-text text card-text-news">Institut Teknologi Del berkunjung ke salah satu
                                     sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
                                     sekarang ini</p>
+                                <p class="card-date">Oleh: {{ $post->user->name }}</p>
                                 <a href="#" class="btn btn-primary btn-detail-card">Lihat Detail</a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <div class="col mb-4">
                         <div class="card">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"

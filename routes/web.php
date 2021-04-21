@@ -9,14 +9,13 @@ use App\Http\Controllers\BPHController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\KadepController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use Illuminate\Support\Facades\Route;
 
 // All
-Route::get('/', function () {
-    return view('public.index');
-})->name('home');
+Route::get('/', [PageController::class, 'index'])->name('home');
 
 
 Route::get('/blog_detail', function () {
@@ -28,7 +27,6 @@ Route::get('/activity', [ActivityController::class, 'index'])->name('activity');
 Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
-
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 

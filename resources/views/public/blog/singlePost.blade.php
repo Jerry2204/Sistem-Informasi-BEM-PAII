@@ -19,11 +19,11 @@
                         class="img-fluid" alt="Responsive image">
 
                     <h3 class="mt-4 heading font-weight-bold">{{ $post->title }}</h3>
-                    <small class="mt-0"><i class="fas fa-user"></i> {{ $post->user->name }}</small>
+                    <small class="mt-0"><i class="fas fa-user"></i> {{ $post->user->name }} | {{ $post->created_at->format('D, d M Y') }}</small>
 
-                    <p class="my-4 text-justify text">
-                       {{ $post->content }}
-                    </p>
+                    <div class="my-4 text-justify text">
+                       {!! $post->content !!}
+                    </div>
                 </div>
                 <div class="col-12 col-md-4 blog-archieve">
                     <div class="blog_post">
