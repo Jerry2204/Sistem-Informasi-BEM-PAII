@@ -14,6 +14,7 @@ class DepartemenController extends Controller
     }
 
     public function store (Request $request) {
+
         $this->validate($request, [
             'name' => 'required'
         ]);
@@ -23,9 +24,38 @@ class DepartemenController extends Controller
         if($request->hasFile('logo')){
             $request->file('logo')->move('assets/images/logo-departemen',$request->file('logo')->getClientOriginalName());
             $departemen->logo = $request->file('logo')->getClientOriginalName();
-            $departemen->save();
         }
+        $departemen->save();
 
         return back()->with('sukses', 'Departemen Berhasil ditambahkan');
+    }
+
+    public function showDepartemen (Departemen $departemen) {
+        return view('departemen.update', compact('departemen'));
+    }
+
+    public function updateDepartemen (Request $request, Departemen $departemen) {
+        if($request->hasFile('logo')){
+            $request->file('logo')->move('assets/images/logo-departemen',$request->file('logo')->getClientOriginalName());
+            $departemen->update([
+                'name' => $request->name,
+                'logo' => $request->file('logo')->getClientOriginalName()
+                ]);
+            }else {
+                $departemen->update([
+                'name' => $request->name,
+            ]);
+        }
+
+        return redirect()->route('departemen')->with('sukses', 'Departemen Berhasil diubah');
+    }
+
+    public function deleteDepartemen (Departemen $departemen) {
+        if ($departemen) {
+            $departemen->kadep()->forceDelete();
+            $departemen->delete();
+
+            return redirect()->route('departemen')->with('sukses', 'Departemen Berhasil dihapus');
+        }
     }
 }
