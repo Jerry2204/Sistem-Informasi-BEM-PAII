@@ -34,7 +34,7 @@ class KadepIndex extends Component
         $this->emit('getKadep', $kadep, $user);
     }
 
-    public function handleStored () 
+    public function handleStored ()
     {
         $this->statusCreate = false;
     }
@@ -52,6 +52,7 @@ class KadepIndex extends Component
 
     public function destroy (Kadep $kadep) {
         if ($kadep) {
+            $kadep->user()->forceDelete();
             $kadep->delete();
         }
     }
@@ -61,7 +62,7 @@ class KadepIndex extends Component
 
         session()->flash('message', 'Kepala Departemen berhasil diubah');
     }
-    
+
     public function handleUpdateLost () {
         session()->flash('gagal', 'Kepala Departemen gagal diubah');
     }

@@ -14,7 +14,8 @@ class AddProgramStudiIdToKadepTable extends Migration
     public function up()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->bigInteger('program_studi_id');
+            // $table->bigInteger('program_studi_id');
+            $table->foreignId('program_studi_id')->constrained('program_studi')->onDelete('cascade');
         });
     }
 
@@ -26,7 +27,8 @@ class AddProgramStudiIdToKadepTable extends Migration
     public function down()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->dropColumn('program_studi_id');
+            // $table->dropColumn('program_studi_id');
+            $table->dropForeign(['program_studi_id']);
         });
     }
 }

@@ -14,7 +14,8 @@ class AddProgramStudiIdToBphTable extends Migration
     public function up()
     {
         Schema::table('bph', function (Blueprint $table) {
-            $table->integer('program_studi_id');
+            // $table->integer('program_studi_id');
+            $table->foreignId('program_studi_id')->constrained('program_studi')->onDelete('cascade');
         });
     }
 
@@ -26,7 +27,8 @@ class AddProgramStudiIdToBphTable extends Migration
     public function down()
     {
         Schema::table('bph', function (Blueprint $table) {
-            $table->dropColumn('program_studi_id');
+            // $table->dropColumn('program_studi_id');
+            $table->dropForeign(['program_studi_id']);
         });
     }
 }

@@ -43,6 +43,7 @@ class BPHIndex extends Component
     public function destroy (BPH $bph) {
 
         if ($bph) {
+            $bph->user()->forceDelete();
             $bph->delete();
         }
 

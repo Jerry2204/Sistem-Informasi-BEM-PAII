@@ -14,7 +14,8 @@ class AddDepartemenIdToKadepTable extends Migration
     public function up()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->integer('departemen_id')->unique();
+            // $table->integer('departemen_id')->unique();
+            $table->foreignId('departemen_id')->unique()->constrained('departemen')->onDlete('cascade');
         });
     }
 
@@ -26,7 +27,8 @@ class AddDepartemenIdToKadepTable extends Migration
     public function down()
     {
         Schema::table('kadep', function (Blueprint $table) {
-            $table->dropColumn('departemen_id');
+            // $table->dropColumn('departemen_id');
+            $table->dropForeign(['departemen_id']);
         });
     }
 }

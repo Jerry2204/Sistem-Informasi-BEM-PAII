@@ -19,7 +19,8 @@ class CreateBphTable extends Migration
             $table->string('jenis_kelamin');
             $table->string('no_hp');
             $table->text('alamat');
-            $table->integer('user_id');
+            // $table->integer('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('foto')->nullable();
             $table->timestamps();
         });
