@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Activities;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
@@ -18,7 +20,16 @@ class ActivityController extends Controller
         //
     }
 
-    public function index(){
+    public function index()
+    {
         return view('public.activity.index');
     }
+
+    public function getData()
+    {
+        $data = DB::table('activity')->get();
+
+        return response()->json($data);
+    }
+
 }

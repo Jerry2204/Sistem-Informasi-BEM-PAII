@@ -49,6 +49,11 @@
                         <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
                 </li>
+                <li>
+                  <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                   </a>
+                </li>
                 @if (auth()->user()->role == 'admin')
                 <li>
                     <a href="{{ route('program_studi') }}" class="dropdown-toggle no-arrow">
@@ -56,6 +61,11 @@
                     </a>
                 </li>
                 @endif
+                <li>
+                    <a href="{{ route('forums-admin')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
+                    </a>
+                </li>
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
