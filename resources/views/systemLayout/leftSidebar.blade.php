@@ -1,7 +1,7 @@
 <div class="left-side-bar">
     <div class="brand-logo">
         <a href="index.html">
-            <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" alt="" class="dark-logo">
+            <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" width="50" alt="" class="dark-logo">
             <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" width="50" alt="" class="light-logo"> BEM IT DEL
         </a>
         <div class="close-sidebar" data-toggle="left-sidebar-close">
@@ -25,8 +25,12 @@
                         <span class="micon dw dw-user1"></span><span class="mtext">User</span>
                     </a>
                     <ul class="submenu">
+                        @if (auth()->user()->role == "admin")
                         <li><a href="{{ route('bph') }}">BPH</a></li>
-                        <li><a href="advanced-components.html">Advanced Components</a></li>
+                        @endif
+                        @if (auth()->user()->role == "bph")
+                        <li><a href="{{ route('kadep') }}">Kepala Departemen</a></li>
+                        @endif
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="html5-editor.html">HTML5 Editor</a></li>
                     </ul>
@@ -41,10 +45,22 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                    <a href="{{ route('departemen') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
                 </li>
+                <li>
+                  <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
+                   </a>
+                </li>
+                @if (auth()->user()->role == 'admin')
+                <li>
+                    <a href="{{ route('program_studi') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notebook"></span><span class="mtext">Program Studi</span>
+                    </a>
+                </li>
+                @endif
                 <li>
                     <a href="{{ route('forums-admin')}}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>

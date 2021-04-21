@@ -10,4 +10,14 @@ class BPH extends Model
     use HasFactory;
 
     protected $table = 'bph';
+
+    protected $fillable = ['nim', 'jenis_kelamin', 'no_hp', 'alamat', 'user_id', 'program_studi_id', 'foto'];
+
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
+
+    public function programStudi () {
+        return $this->belongsTo(ProgramStudi::class);
+    }
 }

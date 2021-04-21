@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="title">
-                <h4>Dashboard</h4>
+                <h4>Badan Pengurus Harian</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -16,52 +16,34 @@
         </div>
     </div>
 </div>
+<livewire:b-p-h-index></livewire:b-p-h-index>
+@endsection
 
-<div class="pd-20 card-box mb-30">
-    <div class="clearfix mb-20">
-        <div class="pull-left">
-            <h4 class="text-blue h4">Daftar BPH</h4>
-            <p>Berikut ini merupakan daftar Badan Pengurus Harian Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
-        </div>
-        <div class="pull-right">
-            <a href="{{ route('addBph') }}" class="btn btn-primary btn-sm text-white"><i class="icon-copy fi-plus"></i> Tambah BPH</a>
-        </div>
-    </div>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                <th scope="col">Tag</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>
-                    <span class="badge badge-primary">Primary</span>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td><span class="badge badge-secondary">Secondary</span></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td><span class="badge badge-success">Success</span></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+@section('scripts')
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script>
+    window.addEventListener('swal:confirm', event => {
+        Swal.fire({
+            title: event.detail.title,
+            text: event.detail.text,
+            icon: event.detail.icon,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+            }).then((willDelete) => {
+                if (willDelete.isConfirmed) {
+                    window.livewire.emit('destroy', event.detail.id);
+                    Swal.fire({
+                        title: 'Sukses',
+                        text: "Data Berhasil dihapus",
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    })
+</script>
 @endsection

@@ -21,6 +21,7 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
 
+    @yield('styles')
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
 </head>
@@ -63,15 +64,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('forum') }}">FAQ</a>
                     </li>
-                    @auth
-                        <li class="nav-item m-0">
-                            <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Keluar</a>
-                        </li>
+                     @auth
+                    <li class="nav-item m-0">
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Masuk</a>
+                    </li>
                     @endauth
                     @guest
-                        <li class="nav-item m-0">
-                            <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Masuk</a>
-                        </li>
+                    <li class="nav-item m-0">
+                        <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Masuk</a>
+                    </li>
                     @endguest
                 </ul>
             </div>

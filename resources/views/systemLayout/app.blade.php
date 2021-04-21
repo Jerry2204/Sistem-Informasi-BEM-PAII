@@ -22,6 +22,10 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/styles/style.css') }}">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
 
+    <!-- Livewire Style -->
+    @livewireStyles
+    @yield('styles')
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
 
@@ -60,6 +64,10 @@
             @yield('content')
 		</div>
 	</div>
+
+    <div class="footer-wrap pd-20 mb-20 card-box">
+        Copyright&copy;{{ date('Y') }} - Badan Eksekutif Mahasiswa Institut Teknologi Del
+    </div>
 	<!-- js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="{{ asset('assets/scripts/core.js') }}"></script>
@@ -71,9 +79,9 @@
 	<script src="{{ asset('assets/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/dataTables.responsive.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/responsive.bootstrap4.min.js') }}"></script>
-	{{-- <script src="{{ asset('assets/scripts/dashboard.js') }}"></script> --}}
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
-	@yield('script')
+   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
+	<script src="{{ asset('assets/scripts/dashboard.js') }}"></script>
+   @livewireScripts
+   @yield('scripts')
 </body>
 </html>

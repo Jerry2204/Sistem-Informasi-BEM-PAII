@@ -20,7 +20,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'username',
         'role'
     ];
 
@@ -42,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function bph() {
+        return $this->hasOne(BPH::class);
+    }
+
+    public function kadep() {
+        return $this->hasOne(Kadep::class);
+    }
+
+    public function posts () {
+        return $this->hasMany(Post::class);
+    }
 }
