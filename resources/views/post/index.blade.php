@@ -35,7 +35,7 @@
                         <div class="pd-20">
                             <div class="clearfix mb-20">
                                 <div class="pull-left">
-                                    <h4 class="text-blue h4">Daftar Departemen</h4>
+                                    <h4 class="text-blue h4">Blog</h4>
                                     <p>Berikut ini merupakan daftar Departemen Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
                                 </div>
                             </div>
@@ -43,18 +43,21 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Nama Departemen</th>
+                                        <th scope="col">Judul</th>
+                                        <th scope="col">Pembuat</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($departemen as $department)
+                                    @foreach ($posts as $post)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $department->name }}</td>
+                                        <td>{{ $post->title }}</td>
+                                        <td>{{ $post->user->name }}</td>
                                         <td>
-                                            <a href="{{ route('departemen.detail', $department->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <a href="{{ route('departemen.delete', $department->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                                            <a href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
+                                            <a href="" class="btn btn-sm btn-primary">Ubah</a>
+                                            <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -94,21 +97,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('scripts')
-<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
-{{-- Session --}}
-@if (session()->has('sukses'))
-<script>
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Sukses',
-        text: "{{ session('sukses') }}",
-        showConfirmButton: false,
-        timer: 1500
-    })
-</script>
-@endif
 @endsection

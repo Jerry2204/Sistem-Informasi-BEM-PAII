@@ -49,4 +49,8 @@ class User extends Authenticatable
     public function kadep() {
         return $this->hasOne(Kadep::class);
     }
+
+    public function posts () {
+        return $this->hasMany(Post::class);
+    }
 }
