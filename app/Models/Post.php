@@ -9,13 +9,15 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['user_id', 'slug', 'title', 'content', 'thumbnail'];
+
     public function user () {
         return $this->belongsTo(User::class);
     }
 
     public function thumbnail () {
         if ($this->thumbnail) {
-            return $this->thumbnail;
+            return asset('assets/images/thumbnail-postingan') . '/' . $this->thumbnail;
         } else {
             return asset('assets/images/erik-mclean-sxiSod0tyYQ-unsplash.jpg');
         }

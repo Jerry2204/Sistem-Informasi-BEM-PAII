@@ -14,12 +14,12 @@
 
         <div class="col-md-6 col-sm-12">
             <div class="title">
-                <h4>Departemen</h4>
+                <h4>Blog</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Departemen</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Departemen</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Blog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
                 </ol>
             </nav>
         </div>
@@ -32,10 +32,10 @@
             <div class="tab">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link text-blue active" data-toggle="tab" href="#home" role="tab" aria-selected="true">Daftar Departemen</a>
+                        <a class="nav-link text-blue active" data-toggle="tab" href="#home" role="tab" aria-selected="true">Daftar Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Tambah Departemen</a>
+                        <a class="nav-link text-blue" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Tambah Blog</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -44,7 +44,7 @@
                             <div class="clearfix mb-20">
                                 <div class="pull-left">
                                     <h4 class="text-blue h4">Blog</h4>
-                                    <p>Berikut ini merupakan daftar Departemen Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
+                                    <p>Berikut ini merupakan daftar Blog Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
                                 </div>
                             </div>
                             <table class="table table-bordered">
@@ -64,7 +64,7 @@
                                         <td>{{ $post->user->name }}</td>
                                         <td>
                                             <a target="_blank" href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
-                                            <a href="" class="btn btn-sm btn-primary">Ubah</a>
+                                            <a href="{{ route('post.detail') }}" class="btn btn-sm btn-primary">Ubah</a>
                                             <a href="" class="btn btn-sm btn-danger">Hapus</a>
                                         </td>
                                     </tr>
@@ -89,15 +89,15 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-12 col-md-2 col-form-label" for="alamat">Alamat</label>
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="content">Isi Blog</label>
                                     <div class="col-sm-12 col-md-10">
-                                        <textarea name="" id="editor" cols="30" rows="10"></textarea>
+                                        <textarea name="content" id="editor" cols="30" rows="10">{{ old('content') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-12 col-md-2 col-form-label" for="logo">Logo Departemen</label>
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="thumbnail">Thumbnail</label>
                                     <div class="col-sm-12 col-md-10">
-                                        <input class="form-control" type="file" id="logo" name="logo" value="{{ old('logo') }}">
+                                        <input class="form-control" type="file" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
                                     </div>
                                 </div>
                                 <div class="text-center">

@@ -37,6 +37,8 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/posts', [PostController::class, 'index'])->name('post');
+    Route::post('/posts', [PostController::class, 'store'])->name('post');
+    Route::get('/post/{id}/detail', [PostController::class, 'detail'])->name('post.detail');
 });
 
 // Admin
