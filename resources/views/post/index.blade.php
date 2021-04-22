@@ -64,8 +64,8 @@
                                         <td>{{ $post->user->name }}</td>
                                         <td>
                                             <a target="_blank" href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
-                                            <a href="{{ route('post.detail') }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                            <a href="{{ route('post.detail', $post->id) }}" class="btn btn-sm btn-primary">Ubah</a>
+                                            <a href="{{ route('post.delete', $post->id) }}" class="btn btn-sm btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -38,7 +38,9 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function()
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/posts', [PostController::class, 'index'])->name('post');
     Route::post('/posts', [PostController::class, 'store'])->name('post');
-    Route::get('/post/{id}/detail', [PostController::class, 'detail'])->name('post.detail');
+    Route::get('/post/{post}/detail', [PostController::class, 'detail'])->name('post.detail');
+    Route::post('/post/{post}/update', [PostController::class, 'update'])->name('post.update');
+    Route::get('/post/{post}/delete', [PostController::class, 'delete'])->name('post.delete');
 });
 
 // Admin

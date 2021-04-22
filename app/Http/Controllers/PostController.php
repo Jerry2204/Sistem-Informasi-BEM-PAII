@@ -48,7 +48,45 @@ class PostController extends Controller
         return back()->with('sukses', 'Blog berhasil ditambahkan');
     }
 
-    public function detail () {
-        
+    public function detail (Post $post) {
+        return view('post.update', compact('post'));
+    }
+
+    public function update (Request $request, Post $post) {
+        $user = auth()->user()->id;
+        $this->validate($request, [
+            'title' => 'required',
+            'thumbnail' => 'image',
+            'content' => 'required'
+        ]);
+
+        if($request->hasFile('thumbnail')){
+            $request->file('thumbnail')->move('assets/images/thumbnail-postingan',$request->file('thumbnail')->getClientOriginalName());
+            $thumbnail = $request->file('thumbnail')->getClientOriginalName();
+            $post->update([
+                'title' => $request->title,
+                'user_id' => $user,
+                'content' => $request->content,
+                'slug' => Str::slug($request->title),
+                'thumbnail' => $thumbnail
+            ]);
+        } else {
+            $post->update([
+                'title' => $request->title,
+                'content' => $request->content,
+            ]);
+        }
+
+        return redirect()->route('post')->with('sukses', 'Data berhasil diubah');
+    }
+
+    public function delete (Post $post) {
+        $delete = $post->delete();
+
+        if ($delete) {
+            return back()->with('sukses', 'Data berhasil dihapus');
+        } else {
+            return back()->with('gagal', 'Data gagal dihapus');
+        }
     }
 }
