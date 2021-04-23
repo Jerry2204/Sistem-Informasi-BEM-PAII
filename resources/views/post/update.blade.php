@@ -53,8 +53,22 @@
                         <input class="form-control" type="file" id="thumbnail" name="thumbnail">
                     </div>
                 </div>
+                <div class="form-group row @error('kategori_id') has-danger @enderror">
+                    <label class="col-sm-12 col-md-2 col-form-label">Kategori</label>
+                    <div class="col-sm-12 col-md-10">
+                        <select wire:model="kategori_id" name="kategori_id" class="custom-select col-12 @error('kategori_id') form-control-danger @enderror">
+                            <option value="">Pilih Kategori</option>
+                            @foreach ($kategori as $category)
+                            <option value="{{ $category->id }}" {{ $category->id == $post->kategori_id ? 'selected' : 'yosi' }}>{{ $category->nama_kategori }}</option>
+                            @endforeach
+                        </select>
+                        @error('kategori_id')
+                        <div class="form-control-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" class="btn btn-primary">Ubah</button>
                 </div>
             </form>
         </div>

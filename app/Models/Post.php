@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id', 'slug', 'title', 'content', 'thumbnail'];
+    protected $fillable = ['user_id', 'slug', 'title', 'content', 'thumbnail', 'kategori_id'];
 
     public function user () {
         return $this->belongsTo(User::class);
@@ -21,5 +21,10 @@ class Post extends Model
         } else {
             return asset('assets/images/erik-mclean-sxiSod0tyYQ-unsplash.jpg');
         }
+    }
+
+    public function kategori ()
+    {
+        return $this->belongsTo(Kategori::class);
     }
 }

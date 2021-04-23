@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -11,12 +12,19 @@ class PostController extends Controller
 {
     public function index () {
         $posts = Post::all();
+        $kategori = Kategori::all();
 
-        return view('post.index', compact('posts'));
+        return view('post.index', compact('posts', 'kategori'));
     }
 
     public function singlePost ($slug) {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->firstOrFail();
+
+        if (!$post->count()) {
+            abort(404);
+        }
+
+
         return view('public.blog.singlePost', compact('post'));
     }
 
@@ -36,12 +44,16 @@ class PostController extends Controller
                 'user_id' => $user,
                 'content' => $request->content,
                 'slug' => Str::slug($request->title),
-                'thumbnail' => $thumbnail
+                'kategori_id' => $request->kategori_id,
+                'thumbnail' => $thumbnail,
             ]);
         } else {
             Post::create([
                 'title' => $request->title,
+                'user_id' => $user,
                 'content' => $request->content,
+                'slug' => Str::slug($request->title),
+                'kategori_id' => $request->kategori_id,
             ]);
         }
 
@@ -49,7 +61,8 @@ class PostController extends Controller
     }
 
     public function detail (Post $post) {
-        return view('post.update', compact('post'));
+        $kategori = Kategori::all();
+        return view('post.update', compact('post', 'kategori'));
     }
 
     public function update (Request $request, Post $post) {
@@ -68,12 +81,16 @@ class PostController extends Controller
                 'user_id' => $user,
                 'content' => $request->content,
                 'slug' => Str::slug($request->title),
-                'thumbnail' => $thumbnail
+                'thumbnail' => $thumbnail,
+                'kategori_id' => $request->kategori_id,
             ]);
         } else {
             $post->update([
                 'title' => $request->title,
+                'user_id' => $user,
                 'content' => $request->content,
+                'slug' => Str::slug($request->title),
+                'kategori_id' => $request->kategori_id,
             ]);
         }
 

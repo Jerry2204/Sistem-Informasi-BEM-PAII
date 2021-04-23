@@ -13,7 +13,9 @@ class KategoriIndex extends Component
     public $statusCreate = true;
 
     protected $listeners = [
-        'kategoriStore' => 'handleStored'
+        'kategoriStore' => 'handleStored',
+        'kategoriUpdate' => 'handleUpdated',
+        'destroy'
     ];
 
     public function render()
@@ -31,5 +33,32 @@ class KategoriIndex extends Component
     public function getKategori (Kategori $kategori) {
         $this->statusUpdate = true;
         $this->emit('getKategori', $kategori);
+    }
+
+    public function confirmation ($id)
+    {
+        $this->statusUpdate = false;
+
+        $this->dispatchBrowserEvent('swal:confirm', [
+            'icon' => 'warning',
+            'title' => 'Apakah anda yakin?',
+            'text' => '',
+            'id' => $id
+        ]);
+    }
+
+    public function destroy (Kategori $kategori)
+    {
+        if ($kategori)
+        {
+            dd($kategori->posts);
+            $kategori->delete();
+        }
+    }
+
+    public function handleUpdated ()
+    {
+        $this->statusUpdate = false;
+        session()->flash('message', 'Kategori berhasil diubah');
     }
 }
