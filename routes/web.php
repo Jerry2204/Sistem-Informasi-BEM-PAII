@@ -15,6 +15,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\ForumController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 // All
@@ -41,6 +42,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function()
     Route::get('/post/{post}/detail', [PostController::class, 'detail'])->name('post.detail');
     Route::post('/post/{post}/update', [PostController::class, 'update'])->name('post.update');
     Route::get('/post/{post}/delete', [PostController::class, 'delete'])->name('post.delete');
+    Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 });
 
 // Admin

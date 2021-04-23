@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('slug');
             $table->string('thumbnail')->nullable();
+            $table->bigInteger('kategori_id')->nullable();
             $table->timestamps();
         });
     }

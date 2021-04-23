@@ -66,10 +66,14 @@
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('post')}}" class="dropdown-toggle no-arrow">
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-newspaper-1"></span><span class="mtext">Blog</span>
                     </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('post')}}">Blog</a></li>
+                        <li><a href="{{ route('kategori') }}">Kategori</a></li>
+                    </ul>
                 </li>
                 <li>
                     <div class="dropdown-divider"></div>
