@@ -52,7 +52,11 @@ class DepartemenController extends Controller
 
     public function deleteDepartemen (Departemen $departemen) {
         if ($departemen) {
-            $departemen->kadep()->forceDelete();
+            $kadep = $departemen->kadep;
+            $user = $kadep->user;
+            $user->forceDelete();
+            $kadep->forceDelete();
+            $kadep->user->forceDelete();
             $departemen->delete();
 
             return redirect()->route('departemen')->with('sukses', 'Departemen Berhasil dihapus');
