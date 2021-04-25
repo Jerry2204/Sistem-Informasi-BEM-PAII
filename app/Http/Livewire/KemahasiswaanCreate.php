@@ -25,7 +25,6 @@ class KemahasiswaanCreate extends Component
 
     protected $messages = [
         'name.required' => 'Nama tidak boleh kosong',
-        'nim.max' => 'NIM tidak boleh lebih dari 10 karakter',
         'email.required' => 'Email tidak boleh kosong',
         'email.unique' => 'Email telah digunakan',
         'no_hp.required' => 'No. Hp tidak boleh kosong',
@@ -69,11 +68,9 @@ class KemahasiswaanCreate extends Component
 
     private function resetInput() {
         $this->name = null;
-        $this->nim = null;
         $this->jenis_kelamin = null;
         $this->alamat = null;
         $this->email = null;
         $this->no_hp = null;
-        $this->program_studi_id = null;
     }
 }
