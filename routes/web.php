@@ -18,6 +18,8 @@ use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
+use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PengeluaranController;
 use App\Models\AnggotaDepartemen;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +65,8 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/departemen/{departemen}/detail', [DepartemenController::class, 'showDepartemen'])->name('departemen.detail');
     Route::post('/departemen/{departemen}/update', [DepartemenController::class, 'updateDepartemen'])->name('departemen.update');
     Route::get('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
+    Route::get('/pemasukan', [PemasukanController::class, 'index'])->name('keuangan.pemasukan');
+    Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('keuangan.pengeluaran');
 });
 
 // Kadep

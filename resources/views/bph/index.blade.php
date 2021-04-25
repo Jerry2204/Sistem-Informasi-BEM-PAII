@@ -1,5 +1,15 @@
 @extends('systemLayout.app')
 
+@section('styles')
+<link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/responsive.bootstrap4.min.css') }}">
+<script>
+    $(document).ready(function(){
+        $('#datatable').DataTable();
+    });
+</script>
+@endsection
+
 @section('content')
 <div class="page-header">
     <div class="row">
@@ -45,5 +55,14 @@
                 }
             })
     })
+</script>
+<script src="{{ asset('assets/datatables/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('assets/datatables/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/datatables/js/responsive.bootstrap4.min.js') }}"></script>
+<script>
+    $(document).ready(function(){
+        $('#datatable').DataTable();
+    });
 </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Kemahasiswaan;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
@@ -14,6 +15,7 @@ class KemahasiswaanCreate extends Component
     public $alamat;
     public $jenis_kelamin;
     public $no_hp;
+    public $tanggal;
 
     protected $rules = [
         'name' => 'required',
@@ -39,6 +41,7 @@ class KemahasiswaanCreate extends Component
 
     public function store ()
     {
+        dd($this->tanggal);
         $this->validate();
 
         $user = new User;

@@ -38,7 +38,7 @@
                                     <p>Berikut ini merupakan daftar Badan Pengurus Harian Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
                                 </div>
                             </div>
-                            <table class="table table-bordered">
+                            <table class="table" id="datatable">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>

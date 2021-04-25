@@ -79,6 +79,15 @@
                         <li><a href="{{ route('kategori') }}">Kategori</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
+                        <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
+                    </ul>
+                </li>
                 <li>
                     <div class="dropdown-divider"></div>
                 </li>
