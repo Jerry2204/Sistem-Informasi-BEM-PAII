@@ -3,6 +3,7 @@
 use App\Http\Controllers\Activities\ActivityController;
 use App\Http\Controllers\Activities\AdminActivityController;
 use App\Http\Controllers\Admin\ForumAdminController;
+use App\Http\Controllers\AnggotaDepartemenController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegistrationController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\KategoriController;
+use App\Models\AnggotaDepartemen;
 use Illuminate\Support\Facades\Route;
 
 // All
@@ -59,6 +61,11 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/departemen/{departemen}/detail', [DepartemenController::class, 'showDepartemen'])->name('departemen.detail');
     Route::post('/departemen/{departemen}/update', [DepartemenController::class, 'updateDepartemen'])->name('departemen.update');
     Route::get('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
+});
+
+// Kadep
+Route::group(['middleware' => ['auth', 'checkRole:kadep']], function () {
+    Route::get('/anggotaDepartemen', [AnggotaDepartemenController::class, 'index'])->name('anggotaDepartemen');
 });
 
 Route::get('/blog',  [BlogController::class, 'index'])->name('blog');

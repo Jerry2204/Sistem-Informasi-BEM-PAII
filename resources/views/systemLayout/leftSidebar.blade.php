@@ -31,6 +31,9 @@
                         @if (auth()->user()->role == "bph")
                         <li><a href="{{ route('kadep') }}">Kepala Departemen</a></li>
                         @endif
+                        @if (auth()->user()->role == "kadep")
+                        <li><a href="{{ route('anggotaDepartemen') }}">Anggota Departemen</a></li>
+                        @endif
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="html5-editor.html">HTML5 Editor</a></li>
                     </ul>

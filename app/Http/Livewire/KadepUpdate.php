@@ -78,7 +78,7 @@ class KadepUpdate extends Component
                 'program_studi_id' => $this->program_studi_id,
                 'departemen_id' => $this->departemen_id
             ]);
-            
+
             $this->resetInput();
 
             $this->emit('kadepUpdate');
@@ -99,7 +99,7 @@ class KadepUpdate extends Component
 
     // public function rules(){
     //     return [
-            
+
     //         // 'departemen_id' => 'required|unique:kadep,departemen_id'
     //     ];
     // }
