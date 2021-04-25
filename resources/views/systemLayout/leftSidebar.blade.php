@@ -27,6 +27,7 @@
                     <ul class="submenu">
                         @if (auth()->user()->role == "admin")
                         <li><a href="{{ route('bph') }}">BPH</a></li>
+                        <li><a href="{{ route('kemahasiswaan') }}">Kemahasiswaan</a></li>
                         @endif
                         @if (auth()->user()->role == "bph")
                         <li><a href="{{ route('kadep') }}">Kepala Departemen</a></li>

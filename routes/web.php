@@ -17,6 +17,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KemahasiswaanController;
 use App\Models\AnggotaDepartemen;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function()
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::get('/program_studi', [ProgramStudiController::class, 'index'])->name('program_studi');
+    Route::get('/kemahasiswaan', [KemahasiswaanController::class, 'index'])->name('kemahasiswaan');
 });
 
 // BPH
