@@ -19,13 +19,13 @@ class PostController extends Controller
 
     public function singlePost ($slug) {
         $post = Post::where('slug', $slug)->firstOrFail();
+        $new_posts = Post::orderBy('updated_at', 'desc')->limit(5)->get();
 
         if (!$post->count()) {
             abort(404);
         }
 
-
-        return view('public.blog.singlePost', compact('post'));
+        return view('public.blog.singlePost', compact('post', 'new_posts'));
     }
 
     public function store (Request $request) {
@@ -61,6 +61,7 @@ class PostController extends Controller
     }
 
     public function detail (Post $post) {
+
         $kategori = Kategori::all();
         return view('post.update', compact('post', 'kategori'));
     }

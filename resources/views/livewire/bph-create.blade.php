@@ -16,7 +16,7 @@
             <h4 class="text-blue h4">Tambah Badan Pengurus Harian BEM KM IT Del</h4>
         </div>
     </div>
-    <form wire:submit.prevent="store">
+    <form wire:submit.prevent="store" enctype="multipart/form-data">
         <div class="form-group row @error('name') has-danger @enderror">
             <label class="col-sm-12 col-md-2 col-form-label" for="name">Nama</label>
             <div class="col-sm-12 col-md-10">

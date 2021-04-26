@@ -71,7 +71,6 @@
         </div>
     </div>
 
-
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 my-5">
@@ -89,7 +88,7 @@
                                     sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
                                     sekarang ini</p>
                                 <p class="card-date">Oleh: {{ $post->user->name }}</p>
-                                <a href="#" class="btn btn-primary btn-detail-card">Lihat Detail</a>
+                                <a href="{{ route('single.post', $post->slug) }}" class="btn btn-primary btn-detail-card">Lihat Detail</a>
                             </div>
                         </div>
                     </div>

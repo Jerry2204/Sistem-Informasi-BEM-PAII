@@ -66,7 +66,13 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::post('/departemen/{departemen}/update', [DepartemenController::class, 'updateDepartemen'])->name('departemen.update');
     Route::get('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
     Route::get('/pemasukan', [PemasukanController::class, 'index'])->name('keuangan.pemasukan');
+    Route::get('/pemasukan/tambah', [PemasukanController::class, 'add'])->name('pemasukan.tambah');
+    Route::post('/pemasukan/tambah', [PemasukanController::class, 'store'])->name('pemasukan.tambah');
     Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('keuangan.pengeluaran');
+    Route::get('/keuangan/export', [PemasukanController::class, 'export'])->name('keuangan.export');
+    Route::get('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'detail'])->name('pemasukan.ubah');
+    Route::post('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'update'])->name('pemasukan.ubah');
+    Route::get('/pemasukan/{pemasukan}/delete', [PemasukanController::class, 'deletePemasukan'])->name('pemasukan.delete');
 });
 
 // Kadep

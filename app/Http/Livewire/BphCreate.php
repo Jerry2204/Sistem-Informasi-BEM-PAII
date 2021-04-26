@@ -7,10 +7,10 @@ use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class BphCreate extends Component
 {
-
     public $name;
     public $nim;
     public $email;
@@ -54,7 +54,6 @@ class BphCreate extends Component
     }
 
     public function store() {
-
         $this->validate();
 
         $user = new User;

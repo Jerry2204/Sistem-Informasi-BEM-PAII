@@ -16,7 +16,7 @@
                 <div class="col-12 col-md-7">
                     <h3 class="mb-4 heading font-weight-bold">{{ $post->title }}</h3>
                     <p class="text font-14 text-secondary mb-2"><i class="fas fa-user-alt"></i>&nbsp; {{ $post->user->name }}</p>
-                    <p class="text font-14 text-secondary"><i class="fas fa-calendar-alt"></i>&nbsp; {{ $post->created_at->format('D, d M Y') }} | {{ $post->kategori ? $post->kategori->nama_kategori : 'Tidak ada kategori' }}</p>
+                    <p class="text font-14 text-secondary"><i class="fas fa-calendar-alt"></i>&nbsp; {{ $post->updated_at->format('D, d M Y') }} | {{ $post->kategori ? $post->kategori->nama_kategori : 'Tidak ada kategori' }}</p>
                     <img src="{{ $post->thumbnail() }}"
                         class="img-fluid" alt="Responsive image">
                     <div class="my-4 text-justify text font-14">
@@ -52,12 +52,13 @@
                 </div>
                 <div class="col-12 col-md-4 blog-archieve">
                     <div class="blog_post">
-                        <h3 class="heading font-weight-bold mb-4">Latest Post</h3>
+                        <h3 class="heading font-weight-bold mb-4">Postingan Terbaru</h3>
+                        @foreach ($new_posts as $new_post)
                         <div class="my-2 border-bottom">
-                            <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco</a>
-                            <p class="text-secondary text-parag-child-post">Event</p>
+                            <a class="heading text-heading-child-post font-14" href="#">{{ $new_post->title }}</a>
+                            <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                         </div>
+                        @endforeach
                         <div class="my-2 border-bottom">
                             <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
                                 exercitation ullamco</a>
