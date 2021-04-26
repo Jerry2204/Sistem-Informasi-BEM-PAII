@@ -86,6 +86,7 @@ Route::get('/blog',  [BlogController::class, 'index'])->name('blog');
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity');
 Route::get('/activity/data', [ActivityController::class, 'getData']);
 Route::get('/about', [BlogController::class, 'about'])->name('about_us');
+ROute::get('/keuangan', [PemasukanController::class, 'publicView'])->name('keuangan');
 
 
 Route::get('/calendar', [AdminActivityController::class, 'index'])->name('calendar');

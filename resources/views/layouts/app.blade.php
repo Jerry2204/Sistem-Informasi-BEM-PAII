@@ -48,6 +48,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item text" href="{{ route('about_us') }}">Tentang Kami</a>
+                            <a class="dropdown-item text" href="{{ route('keuangan') }}">Keuangan</a>
                             <a class="dropdown-item text" href="#">History</a>
                             <a class="dropdown-item text" href="#">Visi & Misi</a>
                         </div>
