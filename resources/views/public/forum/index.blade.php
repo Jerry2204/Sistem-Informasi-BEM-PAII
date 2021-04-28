@@ -49,77 +49,99 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog text font-14">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title font-weight-bold" id="exampleModalLabel">New Question</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="col-form-label">Email:</label>
-                                    <input type="text" class="form-control font-14" id="recipient-name">
+
+
+            @if (Auth::check())
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog text font-14">
+                        <form method="POST" action="{{ route('add_forum') }}">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">New Question</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Message:</label>
-                                    <textarea class="form-control font-14" id="message-text"></textarea>
+                                <div class="modal-body">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Name:</label>
+                                        <input type="text" class="form-control font-14" name="name"
+                                            value="{{ Auth::user()->name }}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Email:</label>
+                                        <input type="text" class="form-control font-14" name="email"
+                                            value="{{ Auth::user()->email }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Question:</label>
+                                        <textarea class="form-control font-14" name="question"></textarea>
+                                    </div>
                                 </div>
-                            </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary font-14"
+                                        data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary font-14 font-weight-light">Send
+                                        message</button>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            @else
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog text font-14">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">New Question</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-danger" role="alert">
+                                    Silahkan login terlebih dahulu
+                                  </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary font-14" data-dismiss="modal">Close</button>
+                                <a href="{{ route('login') }}" class="btn btn-primary btn-masuk font-14 font-weight-light">Login</a>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary font-14" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary font-14 font-weight-light">Send
-                                message</button>
+                    </div>
+            @endif
+        </div>
+
+        <div class="col-md-12 p-4 mt-3 bg-white">
+            @foreach ($forum as $item)
+            <div>
+                <div class="row">
+                    <div class="col-md-1 d-flex justify-content-start">
+                        <div class="rounded-circle border box-image">
+                            <img class="image-child"
+                                src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-11 pl-0 forum-desc">
+                        <p class="text font-14 font-weight-bold my-1">{{ $item->name }}</p>
+                        <a class="text font-14" href="/forums/{{ $item->id }}">{{ $item->question }}</a>
+                        <p class="text font-14 text-secondary mt-2 font-weight-bold">{{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
+                        <div class="d-flex flex-column">
+                            <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
+                                echo count($item->answer_forums);
+                            @endphp Answer&nbsp;<i
+                                    class="fa fa-eye"></i> &nbsp;5 Views </p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-12 p-4 mt-3 bg-white">
-                @for ($i = 1; $i <= 7; $i++)
-                    <div>
-                        <div class="row">
-                            <div class="col-md-1 d-flex justify-content-start">
-                                <div class="rounded-circle border box-image">
-                                    <img class="image-child"
-                                        src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
-                                        alt="...">
-                                </div>
-                            </div>
-                            <div class="col-md-11 pl-0 forum-desc">
-                                <p class="text font-14">Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Ex
-                                    neque facere dolorem nostrum
-                                    inventore ratione, alias voluptate atque fuga dignissimos voluptatum explicabo cum
-                                    doloribus
-                                    nihil debitis aspernatur optio odio officia.</p>
-
-                                <p class="text font-14 text-secondary mt-2 font-weight-bold">17 Agustus 2021</p>
-                                <div class="d-flex flex-column">
-                                    <a class="text font-14 mr-4 mb-3" data-toggle="collapse"
-                                        href="#collapseForumsDesc{{ $i }}" role="button" aria-expanded="false"
-                                        aria-controls="collapseForumsDesc{{ $i }}" href="#"><i
-                                            class="fas fa-comment-alt"></i> &nbsp;Answer</a>
-                                    <div class="collapse text font-14" id="collapseForumsDesc{{ $i }}">
-                                        Some placeholder content for the collapse component. This panel is hidden by default
-                                        but revealed when the user activates the relevant trigger.
-                                        Some placeholder content for the collapse component. This panel is hidden by default
-                                        but revealed when the user activates the relevant trigger.
-                                        Some placeholder content for the collapse component. This panel is hidden by default
-                                        but revealed when the user activates the relevant trigger.
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                @endfor
-            </div>
+            <hr>
+            @endforeach
         </div>
+    </div>
     </div>
 @endsection
 

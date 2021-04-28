@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateForumsTable extends Migration
+class AddParentIdToAnswerForumsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateForumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('forums', function (Blueprint $table) {
-            $table->id();
-            $table->char('name', 255);
-            $table->char('email', 255);
-            $table->char('question', 255);
-            $table->timestamps();
+        Schema::table('forums_answer', function (Blueprint $table) {
+            $table->unsignedBigInteger('parent_id')->nullable()->onDelete('cascade');
         });
     }
 
@@ -29,6 +25,7 @@ class CreateForumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forums');
+        Schema::table('answer_forums', function (Blueprint $table) {
+        });
     }
 }

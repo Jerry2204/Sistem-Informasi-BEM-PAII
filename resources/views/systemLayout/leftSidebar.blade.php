@@ -62,7 +62,7 @@
                 </li>
                 @endif
                 <li>
-                    <a href="{{ route('forums-admin')}}" class="dropdown-toggle no-arrow">
+                    <a href="" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
                     </a>
                 </li>

@@ -51,6 +51,10 @@ nav img {
     font-family: 'Montserrat', sans-serif;
 }
 
+.font-1 {
+    font-size: 1px !important;
+}
+
 .font-14 {
     font-size: 14px !important;
 }
