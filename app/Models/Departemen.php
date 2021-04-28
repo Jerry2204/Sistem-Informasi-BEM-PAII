@@ -16,4 +16,8 @@ class Departemen extends Model
     public function kadep () {
         return $this->hasOne(Kadep::class);
     }
+
+    public function anggota_departemen () {
+        return $this->hasMany(AnggotaDepartemen::class);
+    }
 }

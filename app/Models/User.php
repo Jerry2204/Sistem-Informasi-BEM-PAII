@@ -53,4 +53,13 @@ class User extends Authenticatable
     public function posts () {
         return $this->hasMany(Post::class);
     }
+
+    public function anggota_departemen () {
+        return $this->hasOne(AnggotaDepartemen::class);
+    }
+
+    public function kemahasiswaan ()
+    {
+        return $this->hasOne(Kemahasiswaan::class);
+    }
 }

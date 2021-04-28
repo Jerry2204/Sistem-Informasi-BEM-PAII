@@ -61,6 +61,7 @@
                                 <a class="dropdown-item text py-2" href="#">History</a>
                             </li>
                           </ul>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>

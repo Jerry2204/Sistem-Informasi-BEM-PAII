@@ -27,9 +27,13 @@
                     <ul class="submenu">
                         @if (auth()->user()->role == "admin")
                         <li><a href="{{ route('bph') }}">BPH</a></li>
+                        <li><a href="{{ route('kemahasiswaan') }}">Kemahasiswaan</a></li>
                         @endif
                         @if (auth()->user()->role == "bph")
                         <li><a href="{{ route('kadep') }}">Kepala Departemen</a></li>
+                        @endif
+                        @if (auth()->user()->role == "kadep")
+                        <li><a href="{{ route('anggotaDepartemen') }}">Anggota Departemen</a></li>
                         @endif
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="html5-editor.html">HTML5 Editor</a></li>
@@ -66,10 +70,23 @@
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('post')}}" class="dropdown-toggle no-arrow">
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-newspaper-1"></span><span class="mtext">Blog</span>
                     </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('post')}}">Blog</a></li>
+                        <li><a href="{{ route('kategori') }}">Kategori</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
+                        <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
+                    </a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
+                        <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
+                    </ul>
                 </li>
                 <li>
                     <div class="dropdown-divider"></div>

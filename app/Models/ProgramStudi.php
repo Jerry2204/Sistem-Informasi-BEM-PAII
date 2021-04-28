@@ -20,4 +20,8 @@ class ProgramStudi extends Model
     public function kadep () {
         return $this->hasMany(Kadep::class);
     }
+
+    public function anggota_departemen () {
+        return $this->hasMany(AnggotaDepartemen::class);
+    }
 }

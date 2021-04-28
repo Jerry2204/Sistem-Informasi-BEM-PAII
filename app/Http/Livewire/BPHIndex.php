@@ -32,6 +32,8 @@ class BPHIndex extends Component
     }
 
     public function confirmation($id) {
+        $this->statusUpdate = false;
+
         $this->dispatchBrowserEvent('swal:confirm', [
             'icon' => 'warning',
             'title' => 'Apakah anda yakin?',
