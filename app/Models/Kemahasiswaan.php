@@ -17,4 +17,14 @@ class Kemahasiswaan extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function foto ()
+    {
+        if ($this->foto)
+        {
+            return $this->foto;
+        } else {
+            return asset('assets/images/photo1.jpg');
+        }
+    }
 }

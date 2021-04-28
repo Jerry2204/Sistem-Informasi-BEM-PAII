@@ -62,4 +62,38 @@ class User extends Authenticatable
     {
         return $this->hasOne(Kemahasiswaan::class);
     }
+
+    public function peran ()
+    {
+        if ($this->role == 'admin'){
+            return 'Admin';
+        } else if ($this->role == 'bph') {
+            return 'Badan Pengurus Harian';
+        } else if ($this->role == 'kadep') {
+            return 'Kepala Departemen ' . $this->kadep->departemen->name;
+        } else if ($this->role == 'anggota') {
+            return 'Anggota Departemen';
+        } else if ($this->role == 'kemahasiswaan') {
+            return 'Kemahasiswaan';
+        } else {
+            return 'Umum';
+        }
+    }
+
+    public function gambar ()
+    {
+        if ($this->role == 'admin'){
+            return;
+        } else if ($this->role == 'bph') {
+            return $this->bph->foto();
+        } else if ($this->role == 'kadep') {
+            return $this->kadep->foto();
+        } else if ($this->role == 'anggota') {
+            return $this->anggota_departemen->foto();
+        } else if ($this->role == 'kemahasiswaan') {
+            return $this->kemahasiswaan->foto();
+        } else {
+            return 'Umum';
+        }
+    }
 }

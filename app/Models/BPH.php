@@ -20,4 +20,14 @@ class BPH extends Model
     public function programStudi () {
         return $this->belongsTo(ProgramStudi::class);
     }
+
+    public function foto ()
+    {
+        if ($this->foto)
+        {
+            return asset('assets/images/profil') . '/' . $this->foto;
+        } else {
+            return asset('assets/images/photo1.jpg');
+        }
+    }
 }

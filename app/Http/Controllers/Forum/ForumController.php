@@ -22,7 +22,7 @@ class ForumController extends Controller
     }
 
     public function store(Request $request)
-    {   
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'email|required',
@@ -36,7 +36,7 @@ class ForumController extends Controller
         ]);
 
         return redirect()->back();
-    }   
+    }
 
     public function destroy()
     {

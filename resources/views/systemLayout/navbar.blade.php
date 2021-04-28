@@ -116,11 +116,7 @@
                     @endif
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <form action="{{ route('profile', auth()->user()->id) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button class="dropdown-item"><i class="dw dw-user1"></i> Profile</button>
-                    </form>
+                    <a href="{{ route('profile') }}" class="dropdown-item"><i class="dw dw-user1"></i> Profile</a>
                     <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
                     <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"><i class="dw dw-logout"></i> Log Out</a>

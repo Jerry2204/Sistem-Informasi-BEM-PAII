@@ -43,8 +43,13 @@ Route::get('/register', [RegistrationController::class, 'index'])->name('registe
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 
 // Admin, Kadep, BPH, and Kemahasiswaan
-Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
-    Route::put('/profile/{user}', [UserController::class, 'profile'])->name('profile');
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan']], function(){
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+});
+
+// Kadep, BPH, and Kemahasiswaan
+Route::group(['middleware' => ['auth', 'checkRole:bph,kadep,kemahasiswaan']], function(){
+    Route::post('/update_foto/{user}', [UserController::class, 'changeImage'])->name('ubah_foto');
 });
 
 // Admin, Kadep and BPH
