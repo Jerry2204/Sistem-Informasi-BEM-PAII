@@ -11,11 +11,12 @@ use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\BPHController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\Forum\AnswerForumsController;
 use App\Http\Controllers\KadepController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
-use App\Http\Controllers\ForumController;
+use App\Http\Controllers\Forum\ForumController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
@@ -100,18 +101,15 @@ Route::get('/activity/data', [ActivityController::class, 'getData']);
 Route::get('/about', [BlogController::class, 'about'])->name('about_us');
 ROute::get('/keuangan', [PemasukanController::class, 'publicView'])->name('keuangan');
 
-
 Route::get('/calendar', [AdminActivityController::class, 'index'])->name('calendar');
 Route::post('/calendar/add', [AdminActivityController::class, 'store'])->name('add_calendar');
 Route::delete('/calendar/delete', [AdminActivityController::class, 'destroy'])->name('delete_calendar');
 Route::post('/calendar/update/{id}', [AdminActivityController::class, 'update'])->name('update_calendar');
 
-
-Route::get('/forums', [ForumAdminController::class, 'index'])->name('forums-admin');
-
-
 Route::get('/forum', [ForumController::class, 'index'])->name('forum');
 Route::get('/forums/{id}', [ForumController::class, 'detail']);
+Route::post('/forum/add', [ForumController::class, 'store'])->name('add_forum');
+Route::post('/replyforum/add/{forum_id}', [AnswerForumsController::class, 'store'])->name('add_reply_forum');
 
 Route::get('/bph', [BPHController::class, 'index'])->name('bph');
 Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');

@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index () {
-        $posts = Post::all();
         $kategori = Kategori::all();
 
         return view('post.index', compact('posts', 'kategori'));

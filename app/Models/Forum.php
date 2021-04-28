@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Forum extends Model
 {
     use HasFactory;
-    protected $fillable = ['email', 'question', 'answer'];
+    protected $fillable = ['name', 'email', 'question', 'answer'];
+
+    public function answer_forums(){
+        return $this->hasMany(AnswerForum::class)->whereNull('parent_id');
+    }
 }
