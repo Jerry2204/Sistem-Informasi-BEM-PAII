@@ -12,11 +12,9 @@ class PemasukanController extends Controller
 {
     public function index ()
     {
-        $now = now();
-        $current_month = $now->month;
-        $pemasukans = Pemasukan::whereMonth('tanggal', $current_month)->get();
+        $pemasukans = Pemasukan::orderBy('tanggal', 'desc')->get();
 
-        return view('keuangan.pemasukan', compact('pemasukans', 'current_month'));
+        return view('keuangan.pemasukan', compact('pemasukans'));
     }
 
     public function publicView ()
@@ -35,7 +33,6 @@ class PemasukanController extends Controller
 
     public function store (Request $request)
     {
-
         Pemasukan::create($request->all());
 
         return redirect()->route('keuangan.pemasukan')->with('sukses', 'Pemasukan berhasil ditambahkan');

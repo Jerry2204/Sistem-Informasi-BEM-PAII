@@ -21,6 +21,7 @@ use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Models\AnggotaDepartemen;
+use App\Models\Pengeluaran;
 use Illuminate\Support\Facades\Route;
 
 // All
@@ -68,11 +69,16 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/pemasukan', [PemasukanController::class, 'index'])->name('keuangan.pemasukan');
     Route::get('/pemasukan/tambah', [PemasukanController::class, 'add'])->name('pemasukan.tambah');
     Route::post('/pemasukan/tambah', [PemasukanController::class, 'store'])->name('pemasukan.tambah');
-    Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('keuangan.pengeluaran');
     Route::get('/keuangan/export', [PemasukanController::class, 'export'])->name('keuangan.export');
     Route::get('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'detail'])->name('pemasukan.ubah');
     Route::post('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'update'])->name('pemasukan.ubah');
     Route::get('/pemasukan/{pemasukan}/delete', [PemasukanController::class, 'deletePemasukan'])->name('pemasukan.delete');
+    Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('keuangan.pengeluaran');
+    Route::get('/pengeluaran/tambah', [PengeluaranController::class, 'add'])->name('pengeluaran.tambah');
+    Route::post('/pengeluaran/tambah', [PengeluaranController::class, 'store'])->name('pengeluaran.tambah');
+    Route::get('/pengeluaran/{pengeluaran}/ubah', [PengeluaranController::class, 'detail'])->name('pengeluaran.ubah');
+    Route::post('/pengeluaran/{pengeluaran}/ubah', [PengeluaranController::class, 'update'])->name('pengeluaran.ubah');
+    Route::delete('/pengeluaran/{pengeluaran}/hapus', [PengeluaranController::class, 'delete'])->name('pengeluaran.hapus');
 });
 
 // Kadep

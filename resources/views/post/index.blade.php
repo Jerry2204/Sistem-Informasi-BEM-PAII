@@ -62,7 +62,7 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $post->title }}</td>
                                         <td>{{ $post->user->name }}</td>
-                                        <td>
+                                        <td style="width: 30%">
                                             <a target="_blank" href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
                                             <a href="{{ route('post.detail', $post->id) }}" class="btn btn-sm btn-primary">Ubah</a>
                                             <a href="{{ route('post.delete', $post->id) }}" class="btn btn-sm btn-danger">Hapus</a>

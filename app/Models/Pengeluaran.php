@@ -9,5 +9,9 @@ class Pengeluaran extends Model
 {
     use HasFactory;
 
+    protected $dates = ['tanggal'];
+
     protected $table = "pengeluaran";
+
+    protected $fillable = ['jumlah', 'keperluan', 'tanggal'];
 }
