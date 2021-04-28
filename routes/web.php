@@ -20,6 +20,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\UserController;
 use App\Models\AnggotaDepartemen;
 use App\Models\Pengeluaran;
 use Illuminate\Support\Facades\Route;
@@ -39,6 +40,11 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
+
+// Admin, Kadep, BPH, and Kemahasiswaan
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
+    Route::put('/profile/{user}', [UserController::class, 'profile'])->name('profile');
+});
 
 // Admin, Kadep and BPH
 Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
