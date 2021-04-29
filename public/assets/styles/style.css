@@ -4861,3 +4861,9 @@ body.IE .register-page-wrap .container {
     cursor: pointer;
     color: #000;
 }
+
+.profile-image{
+    width: 175px;
+    height: 175px;
+    border-radius: 10px;
+}

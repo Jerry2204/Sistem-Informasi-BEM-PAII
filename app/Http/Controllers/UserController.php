@@ -34,4 +34,9 @@ class UserController extends Controller
 
         return back()->with('sukses', 'Foto berhasil disimpan');
     }
+
+    public function accountSetting ()
+    {
+        return view('user.account');
+    }
 }

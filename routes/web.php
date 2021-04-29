@@ -42,9 +42,10 @@ Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
 
-// Admin, Kadep, BPH, and Kemahasiswaan
-Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan']], function(){
+// Admin, Kadep, BPH, and Kemahasiswaan, anggota
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan,anggota']], function(){
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('/account/setting', [UserController::class, 'accountSetting'])->name('account.setting');
 });
 
 // Kadep, BPH, and Kemahasiswaan
