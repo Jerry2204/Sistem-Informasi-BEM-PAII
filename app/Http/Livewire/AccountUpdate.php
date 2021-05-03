@@ -8,16 +8,14 @@ class AccountUpdate extends Component
 {
     public $email;
     public $password;
+    public $password_confirmation;
 
     protected $rules = [
-        'email' => 'required|email',
-        'password' => 'confirmed'
+        'password' => 'confirmed|min:8'
     ];
 
     public function render()
     {
-        $this->email = auth()->user()->email;
-
         return view('livewire.account-update');
     }
 
@@ -32,6 +30,6 @@ class AccountUpdate extends Component
 
     public function initiate ()
     {
-        // $this->email
+        $this->email = auth()->user()->email;
     }
 }

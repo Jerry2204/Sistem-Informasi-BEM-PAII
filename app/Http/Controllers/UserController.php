@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -37,6 +38,30 @@ class UserController extends Controller
 
     public function accountSetting ()
     {
-        return view('user.account');
+        $email = auth()->user()->email;
+
+        return view('user.account', compact('email'));
+    }
+
+    public function accountUpdate (Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required',
+            'password' => 'confirmed'
+        ]);
+        $user = auth()->user();
+
+        if($request->password){
+            $user->update([
+                'email' => $request->email,
+                'password' => Hash::make($request->password)
+            ]);
+        }else{
+            $user->update([
+                'email' => $request->email
+            ]);
+        }
+
+        return back()->with('sukses', 'Data berhasil diubah');
     }
 }

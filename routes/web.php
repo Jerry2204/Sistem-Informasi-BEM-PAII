@@ -46,6 +46,7 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan,anggota']], function(){
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::get('/account/setting', [UserController::class, 'accountSetting'])->name('account.setting');
+    Route::post('/account/setting', [UserController::class, 'accountUpdate'])->name('account.setting');
 });
 
 // Kadep, BPH, and Kemahasiswaan
