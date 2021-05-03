@@ -34,20 +34,7 @@
             </div>
 
             <div class="col-md-12 form-forum">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-md-10 pl-0 pr-1 mt-3">
-                        <div class="input-group mb-3 h-100">
-                            <input type="text" class="form-control text font-14 h-100" placeholder="Search"
-                                aria-label="Search" aria-describedby="basic-addon2">
-                        </div>
-                    </div>
-                    <div class="col-md-2 px-0 mt-3">
-                        <button class="btn w-100 text font-14 bg-red h-100 text-white" id="btn-add-forums"
-                            data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa fa-plus"></i>
-                            Tambah
-                            Pertanyaan</button>
-                    </div>
-                </div>
+                @livewire('forum-search-bar')
             </div>
 
 
@@ -128,7 +115,7 @@
                     <div class="col-md-11 pl-0 forum-desc">
                         <p class="text font-14 font-weight-bold my-1">{{ $item->name }}</p>
                         <a class="text font-14" href="/forums/{{ $item->id }}">{{ $item->question }}</a>
-                        <p class="text font-14 text-secondary mt-2 font-weight-bold">{{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
+                        <p class="text font-12 text-secondary mt-2 font-weight-regular" style="opacity: 1">{{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
                         <div class="d-flex flex-column">
                             <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
                                 echo count($item->answer_forums);

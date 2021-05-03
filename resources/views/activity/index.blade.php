@@ -128,14 +128,13 @@
 
 
 
-@section('script')
+@section('scripts')
     <script src="{{ asset('assets/scripts/calendar-setting.js') }}"></script>
     @if ($errors->any())
         <script>
             $(document).ready(function() {
                 $('#modal-view-event-add').modal();
             })
-
         </script>
     @endif
 @endsection

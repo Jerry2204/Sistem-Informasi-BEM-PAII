@@ -112,7 +112,7 @@ Route::delete('/calendar/delete', [AdminActivityController::class, 'destroy'])->
 Route::post('/calendar/update/{id}', [AdminActivityController::class, 'update'])->name('update_calendar');
 
 Route::get('/forum', [ForumController::class, 'index'])->name('forum');
-Route::get('/forums/{id}', [ForumController::class, 'detail']);
+Route::get('/forums/{id}', [ForumController::class, 'detail'])->name('forum_detail');
 Route::post('/forum/add', [ForumController::class, 'store'])->name('add_forum');
 Route::post('/replyforum/add/{forum_id}', [AnswerForumsController::class, 'store'])->name('add_reply_forum');
 

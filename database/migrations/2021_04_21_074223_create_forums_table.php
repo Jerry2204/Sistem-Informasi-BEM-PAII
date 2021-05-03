@@ -17,7 +17,7 @@ class CreateForumsTable extends Migration
             $table->id();
             $table->char('name', 255);
             $table->char('email', 255);
-            $table->char('question', 255);
+            $table->text('question');
             $table->timestamps();
         });
     }

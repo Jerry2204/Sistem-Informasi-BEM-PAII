@@ -27,3 +27,9 @@
 .visimisi{
     background-color: #EEE589;
 }
+
+@media screen and (min-width: 768px){
+    .list-tujuan{
+        width: 40%;
+    }
+}
