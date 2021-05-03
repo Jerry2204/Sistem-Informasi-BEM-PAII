@@ -5,13 +5,9 @@ $(document).ready(function () {
         $.each($('#add-event').serializeArray(), function (i, field) {
             values[field.name] = field.value;
         });
-        // console.log(
-        //     values
-        // );
     });
-
-
 });
+
 
 (function () {
     'use strict';

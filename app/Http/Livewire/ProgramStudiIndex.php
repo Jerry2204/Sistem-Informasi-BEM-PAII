@@ -52,7 +52,6 @@ class ProgramStudiIndex extends Component
     }
 
     public function destroy (ProgramStudi $programStudi) {
-
         if ($programStudi) {
             $programStudi->delete();
         }

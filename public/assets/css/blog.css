@@ -13,3 +13,12 @@
         margin-top: 150px !important;
     }
 }
+
+.navs-search{
+    background: transparent !important;
+    box-shadow: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important; 
+    justify-content: center !important;
+}

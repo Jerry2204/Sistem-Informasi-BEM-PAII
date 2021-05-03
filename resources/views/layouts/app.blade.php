@@ -21,7 +21,8 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
+    
+    @livewireStyles
     @yield('styles')
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
@@ -107,14 +108,14 @@
                     </div>
                     <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
                         <h5 class="heading font-weight-bold">Info</h5>
-                        <a href="#" class="mt-2 text-dark font-14">Tentang Kami</a>
-                        <a href="#" class="mt-2 text-dark font-14">Blog</a>
+                        <a href="{{ route('about_us') }}" class="mt-2 text-dark font-14">Tentang Kami</a>
+                        <a href="{{ route('blog') }}" class="mt-2 text-dark font-14">Blog</a>
                         <a href="#" class="mt-2 text-dark font-14">Kontak</a>
                     </div>
                     <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
                         <h5 class="heading font-weight-bold">Link Terkait</h5>
-                        <a href="#" class="mt-2 text-dark font-14">Institut Teknologi Del</a>
-                        <a href="#" class="mt-2 text-dark font-14">Yayasan Del</a>
+                        <a href="https://www.del.ac.id/" class="mt-2 text-dark font-14">Institut Teknologi Del</a>
+                        <a href="https://www.del.or.id/" class="mt-2 text-dark font-14">Yayasan Del</a>
                     </div>
                     <div class="contact col-12 col-md-3 d-flex flex-column py-4 text px-3">
                         <h5 class="heading font-weight-bold">kontak</h5>
@@ -135,6 +136,7 @@
     </script>
     
 	<script src="{{ asset('assets/js/home.js') }}"></script>
+    @livewireScripts
     @yield('script')
 </body>
 

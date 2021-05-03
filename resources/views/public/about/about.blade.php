@@ -113,7 +113,7 @@
     <div class="col-md-12 mt-5">
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h3 class="heading font-weight-bold text-center">TUJUAN KM IT DEL</h3>
-            <div class="mt-3" style="width: 40%">
+            <div class="mt-3 list-tujuan" style="">
                 <ul class="list-group" style="background: transparent !important">
                     @for ($i = 0; $i < 4; $i++)
                         <li class="list-group-item text font-14 border-0 px-0 py-2 text-center"
