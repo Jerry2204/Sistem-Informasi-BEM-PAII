@@ -41,7 +41,6 @@ class KemahasiswaanCreate extends Component
 
     public function store ()
     {
-        dd($this->tanggal);
         $this->validate();
 
         $user = new User;

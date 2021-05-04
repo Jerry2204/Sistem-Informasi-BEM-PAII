@@ -44,6 +44,7 @@ Route::post('/register', [RegistrationController::class, 'store'])->name('regist
 
 // Admin, Kadep, BPH, and Kemahasiswaan, anggota
 Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan,anggota']], function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::get('/account/setting', [UserController::class, 'accountSetting'])->name('account.setting');
     Route::post('/account/setting', [UserController::class, 'accountUpdate'])->name('account.setting');
@@ -54,9 +55,8 @@ Route::group(['middleware' => ['auth', 'checkRole:bph,kadep,kemahasiswaan']], fu
     Route::post('/update_foto/{user}', [UserController::class, 'changeImage'])->name('ubah_foto');
 });
 
-// Admin, Kadep and BPH
-Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep']], function(){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Admin, Kadep and BPH kemahasiswaan
+Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan']], function(){
     Route::get('/posts', [PostController::class, 'index'])->name('post');
     Route::post('/posts', [PostController::class, 'store'])->name('post');
     Route::get('/post/{post}/detail', [PostController::class, 'detail'])->name('post.detail');
