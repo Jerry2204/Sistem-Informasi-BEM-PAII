@@ -24,13 +24,25 @@ class UserController extends Controller
             ]);
         } else if ($user->role == 'kadep') {
             $user = $user->kadep;
-            $user->update($request->all());
+            $request->file('foto')->move('assets/images/profil/',$request->file('foto')->getClientOriginalName());
+            $foto = $request->file('foto')->getClientOriginalName();
+            $user->update([
+                'foto' => $foto
+            ]);
         } else if ($user->role == 'kemahasiswaan') {
             $user = $user->kemahasiswaan;
-            $user->update($request->all());
+            $request->file('foto')->move('assets/images/profil/',$request->file('foto')->getClientOriginalName());
+            $foto = $request->file('foto')->getClientOriginalName();
+            $user->update([
+                'foto' => $foto
+            ]);
         } else if ($user->role == 'anggota') {
             $user = $user->anggota_departemen;
-            $user->update($request->all());
+            $request->file('foto')->move('assets/images/profil/',$request->file('foto')->getClientOriginalName());
+            $foto = $request->file('foto')->getClientOriginalName();
+            $user->update([
+                'foto' => $foto
+            ]);
         }
 
         return back()->with('sukses', 'Foto berhasil disimpan');

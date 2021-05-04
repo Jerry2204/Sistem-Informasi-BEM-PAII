@@ -107,7 +107,7 @@
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                     <span class="user-icon">
-                        <img src="{{ asset('assets/images/photo1.jpg') }}" alt="">
+                        <img src="{{ auth()->user()->gambar() }}" alt="">
                     </span>
                     @if (auth()->user())
                     <span class="user-name">{{ auth()->user()->name }}</span>

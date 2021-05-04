@@ -22,7 +22,7 @@ class Kemahasiswaan extends Model
     {
         if ($this->foto)
         {
-            return $this->foto;
+            return asset('assets/images/profil') . '/' . $this->foto;
         } else {
             return asset('assets/images/photo1.jpg');
         }
