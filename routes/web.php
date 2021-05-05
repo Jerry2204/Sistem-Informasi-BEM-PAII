@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Activities\ActivityController;
 use App\Http\Controllers\Activities\AdminActivityController;
 use App\Http\Controllers\Admin\ForumAdminController;
@@ -75,9 +76,11 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan'
 });
 
 // Admin, Kemahasiswaan, BPH
-// Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], function(){
-//     Route::get('/about_page', [])
-// });
+Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], function(){
+    Route::get('/about_page', [AboutController::class, 'index'])->name('about_page');
+    Route::post('/about_page', [AboutController::class, 'store'])->name('about_page');
+    Route::get('/about_page/{about}/detail', [AboutController::class, 'detail'])->name('about_page_update');
+});
 
 // Admin
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){

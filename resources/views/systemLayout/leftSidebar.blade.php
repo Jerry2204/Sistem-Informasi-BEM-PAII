@@ -66,11 +66,11 @@
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
                     </a>
                 </li>
-                {{-- <li>
+                <li>
                     <a href="{{ route('about_page') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-notepad-1"></span><span class="mtext">About Page</span>
                     </a>
-                </li> --}}
+                </li>
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-newspaper-1"></span><span class="mtext">Blog</span>
@@ -80,16 +80,18 @@
                         <li><a href="{{ route('kategori') }}">Kategori</a></li>
                     </ul>
                 </li>
-                @if (auth()->user()->role == 'BPH')
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
-                        <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
-                    </ul>
-                </li>
+                @if (auth()->user()->role == 'bph')
+                    @if (auth()->user()->bph->jabatan->jabatan == "Bendahara I")
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
+                            <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
+                        </ul>
+                    </li>
+                    @endif
                 @endif
             </ul>
         </div>
