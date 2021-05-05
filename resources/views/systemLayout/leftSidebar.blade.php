@@ -11,15 +11,12 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
+                <li>
+                    <a href="{{ route('dashboard') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                     </a>
-                    <ul class="submenu">
-                        <li><a href="index.html">Dashboard style 1</a></li>
-                        <li><a href="index2.html">Dashboard style 2</a></li>
-                    </ul>
                 </li>
+                @if (auth()->user()->role == 'admin' || auth()->user()->role == 'bph' || auth()->user()->role == 'kadep')
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-user1"></span><span class="mtext">User</span>
@@ -35,39 +32,43 @@
                         @if (auth()->user()->role == "kadep")
                         <li><a href="{{ route('anggotaDepartemen') }}">Anggota Departemen</a></li>
                         @endif
-                        <li><a href="form-wizard.html">Form Wizard</a></li>
-                        <li><a href="html5-editor.html">HTML5 Editor</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-library"></span><span class="mtext">Tables</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="basic-table.html">Basic Tables</a></li>
-                        <li><a href="datatable.html">DataTables</a></li>
-                    </ul>
-                </li>
+                @endif
+                @if (auth()->user()->role == 'bph')
                 <li>
                     <a href="{{ route('departemen') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
                 </li>
+                @endif
+                @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kadep')
                 <li>
-                  <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-calendar1"></span><span class="mtext">Calendar</span>
-                   </a>
+                    <a href="{{ route('calendar')}}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-calendar1"></span><span class="mtext">Kegiatan</span>
+                    </a>
                 </li>
+                @endif
                 @if (auth()->user()->role == 'admin')
                 <li>
                     <a href="{{ route('program_studi') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-notebook"></span><span class="mtext">Program Studi</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('jabatan') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-bookmark"></span><span class="mtext">Jabatan</span>
+                    </a>
+                </li>
                 @endif
                 <li>
                     <a href="" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('about_page') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notepad-1"></span><span class="mtext">About Page</span>
                     </a>
                 </li>
                 <li class="dropdown">
@@ -79,38 +80,19 @@
                         <li><a href="{{ route('kategori') }}">Kategori</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
-                        <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="dropdown-divider"></div>
-                </li>
-                <li>
-                    <div class="sidebar-small-cap">Extra</div>
-                </li>
-                <li>
-                    <a href="javascript:;" class="dropdown-toggle">
-                        <span class="micon dw dw-edit-2"></span><span class="mtext">Documentation</span>
-                    </a>
-                    <ul class="submenu">
-                        <li><a href="introduction.html">Introduction</a></li>
-                        <li><a href="getting-started.html">Getting Started</a></li>
-                        <li><a href="color-settings.html">Color Settings</a></li>
-                        <li><a href="third-party-plugins.html">Third Party Plugins</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
-                        <span class="micon dw dw-paper-plane1"></span>
-                        <span class="mtext">Landing Page <img src="{{ asset('assets/images/coming-soon.png') }}" alt="" width="25"></span>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'bph')
+                    @if (auth()->user()->bph->jabatan->jabatan == "Bendahara I")
+                    <li class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle">
+                            <span class="micon dw dw-money-2"></span><span class="mtext">Keuangan</span>
+                        </a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('keuangan.pemasukan')}}">Pemasukan</a></li>
+                            <li><a href="{{ route('keuangan.pengeluaran') }}">Pengeluaran</a></li>
+                        </ul>
+                    </li>
+                    @endif
+                @endif
             </ul>
         </div>
     </div>

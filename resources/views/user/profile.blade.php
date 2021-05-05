@@ -25,7 +25,7 @@
                     <img src="{{ asset('assets/images/photo1.jpg') }}" alt="" class="avatar-photo">
                     @else
                     <a href="modal" data-toggle="modal" data-target="#modal" class="edit-avatar"><i class="fa fa-pencil"></i></a>
-                    <img src="{{ auth()->user()->gambar() }}" alt="" width="125" height="125" class="text-center">
+                    <img src="{{ auth()->user()->gambar() }}" alt="" class="profile-image" class="text-center">
                     @endif
                     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BPH;
+use App\Models\Jabatan;
 use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -17,6 +18,7 @@ class BphUpdate extends Component
     public $jenis_kelamin;
     public $no_hp;
     public $program_studi_id;
+    public $jabatan_id;
     public $BPHId;
 
     protected $rules = [
@@ -26,7 +28,8 @@ class BphUpdate extends Component
         'no_hp' => 'required',
         'jenis_kelamin' => 'required',
         'alamat' => 'required',
-        'program_studi_id' => 'required'
+        'program_studi_id' => 'required',
+        'jabatan_id' => 'required'
     ];
 
     protected $messages = [
@@ -40,6 +43,7 @@ class BphUpdate extends Component
         'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
         'alamat.required' => 'Alamat tidak boleh kosong',
         'program_studi_id.required' => 'Program Studi tidak boleh kosong',
+        'jabatan_id.required' => 'Jabatan harus diisi'
     ];
 
     public function updated ($propertyName) {
@@ -67,7 +71,8 @@ class BphUpdate extends Component
                 'jenis_kelamin' => $this->jenis_kelamin,
                 'no_hp' => $this->no_hp,
                 'alamat' => $this->alamat,
-                'program_studi_id' => $this->program_studi_id
+                'program_studi_id' => $this->program_studi_id,
+                'jabatan_id' => $this->jabatan_id
             ]);
         }
 
@@ -80,8 +85,9 @@ class BphUpdate extends Component
     public function render()
     {
         $programStudi = ProgramStudi::all();
+        $jabatan = Jabatan::all();
 
-        return view('livewire.bph-update', compact('programStudi'));
+        return view('livewire.bph-update', compact('programStudi', 'jabatan'));
     }
 
     public function showBPH ($bph, $user) {
@@ -92,6 +98,7 @@ class BphUpdate extends Component
         $this->jenis_kelamin = $bph['jenis_kelamin'];
         $this->no_hp = $bph['no_hp'];
         $this->program_studi_id = $bph['program_studi_id'];
+        $this->jabatan_id = $bph['jabatan_id'];
         $this->BPHId = $bph['id'];
     }
 

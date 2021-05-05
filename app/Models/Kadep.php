@@ -12,6 +12,9 @@ class Kadep extends Model
     protected $table = "kadep";
 
     protected $fillable = ["nim", "jenis_kelamin", "no_hp", "alamat", "user_id", "foto", "departemen_id", "program_studi_id"];
+    protected $rules = [
+        'departemen_id' => 'unique:kadep,departemen_id'
+    ];
 
     public function user() {
         return $this->belongsTo(User::class);
@@ -23,5 +26,15 @@ class Kadep extends Model
 
     public function programStudi () {
         return $this->belongsTo(ProgramStudi::class);
+    }
+
+    public function foto ()
+    {
+        if ($this->foto)
+        {
+            return asset('assets/images/profil') . '/' . $this->foto;
+        } else {
+            return asset('assets/images/photo1.jpg');
+        }
     }
 }

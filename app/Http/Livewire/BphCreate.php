@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BPH;
+use App\Models\Jabatan;
 use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,7 @@ class BphCreate extends Component
     public $jenis_kelamin;
     public $no_hp;
     public $program_studi_id;
+    public $jabatan_id;
 
     protected $rules = [
         'name' => 'required',
@@ -26,7 +28,8 @@ class BphCreate extends Component
         'no_hp' => 'required',
         'jenis_kelamin' => 'required',
         'alamat' => 'required',
-        'program_studi_id' => 'required'
+        'program_studi_id' => 'required',
+        'jabatan_id' => 'required|unique:bph,jabatan_id'
     ];
 
     protected $messages = [
@@ -40,13 +43,16 @@ class BphCreate extends Component
         'jenis_kelamin.required' => 'Jenis Kelamin tidak boleh kosong',
         'alamat.required' => 'Alamat tidak boleh kosong',
         'program_studi_id.required' => 'Program Studi tidak boleh kosong',
+        'jabatan_id.required' => 'Jabatan harus diisi',
+        'jabatan_id.unique' => 'Jabatan sudah diisi'
     ];
 
     public function render()
     {
         $programStudi = ProgramStudi::all();
+        $jabatan = Jabatan::all();
 
-        return view('livewire.bph-create', compact('programStudi'));
+        return view('livewire.bph-create', compact('programStudi', 'jabatan'));
     }
 
     public function updated ($propertyName) {
@@ -70,6 +76,7 @@ class BphCreate extends Component
         $bph->no_hp = $this->no_hp;
         $bph->alamat = $this->alamat;
         $bph->program_studi_id = $this->program_studi_id;
+        $bph->jabatan_id = $this->jabatan_id;
         $bph->save();
 
         $this->resetInput();

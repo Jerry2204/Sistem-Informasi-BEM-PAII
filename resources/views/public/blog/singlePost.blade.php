@@ -227,10 +227,8 @@
                         <h3 class="heading font-weight-bold mb-4">Postingan Terbaru</h3>
                         @foreach ($new_posts as $new_post)
                             <div class="my-2 border-bottom">
-                                <a class="heading text-heading-child-post font-14"
-                                    href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
-                                <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}
-                                </p>
+                                <a class="heading text-heading-child-post font-14 href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
+                                <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                             </div>
                         @endforeach
                     </div>

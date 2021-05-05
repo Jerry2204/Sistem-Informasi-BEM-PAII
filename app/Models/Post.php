@@ -23,6 +23,16 @@ class Post extends Model
         }
     }
 
+    public function kategori_id ()
+    {
+        if (!$this->kategori_id){
+            return 'Tidak ada kategori';
+        } else{
+
+            return $this->kategori->nama_kategori;
+        }
+    }
+
     public function kategori ()
     {
         return $this->belongsTo(Kategori::class);

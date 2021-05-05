@@ -66,12 +66,6 @@
                 @enderror
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-12 col-md-2 col-form-label">Month</label>
-            <div class="col-sm-12 col-md-10">
-                <input wire:model="tanggal" name="tanggal" class="form-control" placeholder="Select Month" type="date" autocomplete="off">
-            </div>
-        </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Tambah</button>
         </div>
