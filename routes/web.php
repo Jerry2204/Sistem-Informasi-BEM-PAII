@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegistrationController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\BPHController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\Forum\AnswerForumsController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\UserController;
 use App\Models\AnggotaDepartemen;
 use App\Models\Pengeluaran;
@@ -119,4 +121,8 @@ Route::post('/replyforum/add/{forum_id}', [AnswerForumsController::class, 'store
 Route::get('/bph', [BPHController::class, 'index'])->name('bph');
 Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');
 
-Route::get('/{slug}', [PostController::class, 'singlePost'])->name('single.post');
+Route::post('/comment/add/{blog_id}', [CommentController::class, 'store'])->name('add_comment_blog');
+Route::get('/departemen', [DepartemenController::class, 'public'])->name('departemen');
+Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
+
+Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');

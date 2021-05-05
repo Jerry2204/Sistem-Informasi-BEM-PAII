@@ -62,4 +62,8 @@ class DepartemenController extends Controller
             return redirect()->route('departemen')->with('sukses', 'Departemen Berhasil dihapus');
         }
     }
+
+    public function public(){
+        return view('public.departemen.index');
+    }
 }

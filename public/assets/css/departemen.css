@@ -1,0 +1,14 @@
+.image{
+    width: 70% !important;
+}
+
+.desc{
+    background: #E7DA59;
+}
+
+@media screen and (max-width: 768px){
+    .heading{
+        font-size: 1.5rem;
+        margin-top: 50px;
+    }
+}

@@ -138,7 +138,7 @@
                                                                         <div
                                                                             class="card card-body text px-0 py-0 p-3 font-14 mt-3">
                                                                             @if (Auth::check())
-                                                                                <form>
+                                                                                <form method="POST" action="{{ route('add_reply_forum', $forum->id) }}">
                                                                                     <input type="hidden" name="parent_id"
                                                                                         value="{{ $item->id }}">
                                                                                     <div class="form-group">
@@ -188,7 +188,6 @@
                         </div>
                     </div>
                 @endforeach
-
                 <hr>
 
                 @if (Auth::check())

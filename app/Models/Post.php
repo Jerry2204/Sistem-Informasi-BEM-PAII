@@ -27,4 +27,8 @@ class Post extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'blog_id', 'id')->whereNull('parent_id');
+    }
 }

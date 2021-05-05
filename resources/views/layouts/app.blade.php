@@ -54,8 +54,8 @@
                             <li class="dropdown-submenu w-100">
                               <a class="dropdown-item dropdown-toggle text py-2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departemen</a>
                               <ul class="dropdown-menu">
-                                <li class="w-100"><a class="dropdown-item text py-2" href="#">Depkominfo</a></li>
-                                <li class="w-100"><a class="dropdown-item text py-2" href="#">Depsenbud</a></li>
+                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen')}}">Depkominfo</a></li>
+                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen')}}">Depsenbud</a></li>
                               </ul>
                             </li>
                             <li class="w-100">
@@ -71,7 +71,7 @@
                         <a class="nav-link" href="{{ route('activity') }}">Kegiatan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Prestasi</a>
+                        <a class="nav-link" href="{{ route('prestasi') }}">Prestasi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('forum') }}">FAQ</a>
