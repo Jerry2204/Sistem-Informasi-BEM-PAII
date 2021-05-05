@@ -83,7 +83,7 @@ class User extends Authenticatable
     public function gambar ()
     {
         if ($this->role == 'admin'){
-            return;
+            return asset('assets/images/photo1.jpg');
         } else if ($this->role == 'bph') {
             return $this->bph->foto();
         } else if ($this->role == 'kadep') {

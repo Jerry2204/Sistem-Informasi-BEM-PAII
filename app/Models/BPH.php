@@ -11,7 +11,7 @@ class BPH extends Model
 
     protected $table = 'bph';
 
-    protected $fillable = ['nim', 'jenis_kelamin', 'no_hp', 'alamat', 'user_id', 'program_studi_id', 'foto'];
+    protected $fillable = ['nim', 'jenis_kelamin', 'no_hp', 'alamat', 'user_id', 'program_studi_id', 'foto', 'jabatan_id'];
 
     public function user () {
         return $this->belongsTo(User::class);
@@ -29,5 +29,10 @@ class BPH extends Model
         } else {
             return asset('assets/images/photo1.jpg');
         }
+    }
+
+    public function jabatan ()
+    {
+        return $this->belongsTo(Jabatan::class);
     }
 }

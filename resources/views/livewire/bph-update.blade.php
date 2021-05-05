@@ -79,6 +79,20 @@
                 @enderror
             </div>
         </div>
+        <div class="form-group row @error('jabatan_id') has-danger @enderror">
+            <label class="col-sm-12 col-md-2 col-form-label">Program Studi</label>
+            <div class="col-sm-12 col-md-10">
+                <select wire:model="jabatan_id" name="jabatan_id" class="custom-select col-12 @error('jabatan_id') form-control-danger @enderror">
+                    <option value="">Pilih Jabatan</option>
+                    @foreach ($jabatan as $position)
+                    <option value="{{ $position->id }}">{{ $position->jabatan }}</option>
+                    @endforeach
+                </select>
+                @error('jabatan_id')
+                <div class="form-control-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Ubah</button>
         </div>

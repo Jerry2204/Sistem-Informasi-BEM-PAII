@@ -48,6 +48,7 @@
                                         <th scope="col">No. HP</th>
                                         <th scope="col">Alamat</th>
                                         <th scope="col">Program Studi</th>
+                                        <th scope="col">Jabatan</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -61,6 +62,7 @@
                                         <td>{{ $bph->no_hp }}</td>
                                         <td>{{ $bph->alamat }}</td>
                                         <td>{{ $bph->programStudi->nama_program_studi }}</td>
+                                        <td>{{ $bph->jabatan->jabatan }}</td>
                                         <td>
                                             <button wire:click="getBPH({{ $bph->id }}, {{ $bph->user_id }})" class="btn btn-sm btn-primary">Ubah</button>
                                             <button wire:click="confirmation({{ $bph->id }})" class="btn btn-sm btn-danger">Hapus</button>

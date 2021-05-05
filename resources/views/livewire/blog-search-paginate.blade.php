@@ -20,9 +20,7 @@
                                 {!! substr($item->content, 0, 150) !!}
                             </div>
                             <p class="text font-14 text-secondary text-right"><i class="fas fa-calendar-alt"></i>&nbsp;
-                                29
-                                February 2021 |
-                                Prestasi</p>
+                                {{ $item->updated_at->format('d M Y') }} | {{ $item->kategori_id() }}</p>
                         </div>
                     </div>
                 @endforeach

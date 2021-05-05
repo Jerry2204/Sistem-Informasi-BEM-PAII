@@ -19,6 +19,10 @@
     box-shadow: none;
     margin: 0 !important;
     padding: 0 !important;
-    display: flex !important; 
+    display: flex !important;
     justify-content: center !important;
+}
+
+.radius-10{
+    border-radius: 10px;
 }

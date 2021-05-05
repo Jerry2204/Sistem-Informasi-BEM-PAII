@@ -17,6 +17,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\Forum\ForumController;
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
@@ -50,8 +51,16 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan,
     Route::post('/account/setting', [UserController::class, 'accountUpdate'])->name('account.setting');
 });
 
-// Kadep, BPH, and Kemahasiswaan
-Route::group(['middleware' => ['auth', 'checkRole:bph,kadep,kemahasiswaan']], function(){
+// BPH, Kadep
+Route::group(['middleware' => ['auth', 'checkRole:bph,kadep']], function(){
+    Route::get('/calendar', [AdminActivityController::class, 'index'])->name('calendar');
+    Route::post('/calendar/add', [AdminActivityController::class, 'store'])->name('add_calendar');
+    Route::delete('/calendar/delete', [AdminActivityController::class, 'destroy'])->name('delete_calendar');
+    Route::post('/calendar/update/{id}', [AdminActivityController::class, 'update'])->name('update_calendar');
+});
+
+// Kadep, BPH, anggota, and Kemahasiswaan
+Route::group(['middleware' => ['auth', 'checkRole:bph,kadep,kemahasiswaan,anggota']], function(){
     Route::post('/update_foto/{user}', [UserController::class, 'changeImage'])->name('ubah_foto');
 });
 
@@ -65,11 +74,17 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan'
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 });
 
+// Admin, Kemahasiswaan, BPH
+// Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], function(){
+//     Route::get('/about_page', [])
+// });
+
 // Admin
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function(){
     Route::get('/bph', [BPHController::class, 'index'])->name('bph');
     Route::get('/program_studi', [ProgramStudiController::class, 'index'])->name('program_studi');
     Route::get('/kemahasiswaan', [KemahasiswaanController::class, 'index'])->name('kemahasiswaan');
+    Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
 });
 
 // BPH
@@ -106,12 +121,7 @@ Route::get('/blog',  [BlogController::class, 'index'])->name('blog');
 Route::get('/activity', [ActivityController::class, 'index'])->name('activity');
 Route::get('/activity/data', [ActivityController::class, 'getData']);
 Route::get('/about', [BlogController::class, 'about'])->name('about_us');
-ROute::get('/keuangan', [PemasukanController::class, 'publicView'])->name('keuangan');
-
-Route::get('/calendar', [AdminActivityController::class, 'index'])->name('calendar');
-Route::post('/calendar/add', [AdminActivityController::class, 'store'])->name('add_calendar');
-Route::delete('/calendar/delete', [AdminActivityController::class, 'destroy'])->name('delete_calendar');
-Route::post('/calendar/update/{id}', [AdminActivityController::class, 'update'])->name('update_calendar');
+Route::get('/keuangan', [PemasukanController::class, 'publicView'])->name('keuangan');
 
 Route::get('/forum', [ForumController::class, 'index'])->name('forum');
 Route::get('/forums/{id}', [ForumController::class, 'detail'])->name('forum_detail');

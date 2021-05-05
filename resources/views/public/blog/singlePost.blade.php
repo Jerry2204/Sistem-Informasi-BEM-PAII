@@ -18,7 +18,7 @@
                     <p class="text font-14 text-secondary mb-2"><i class="fas fa-user-alt"></i>&nbsp; {{ $post->user->name }}</p>
                     <p class="text font-14 text-secondary"><i class="fas fa-calendar-alt"></i>&nbsp; {{ $post->updated_at->format('D, d M Y') }} | {{ $post->kategori ? $post->kategori->nama_kategori : 'Tidak ada kategori' }}</p>
                     <img src="{{ $post->thumbnail() }}"
-                        class="img-fluid" alt="Responsive image">
+                        class="img-fluid radius-10" alt="Responsive image">
                     <div class="my-4 text-justify text font-14">
                         {!! $post->content !!}
                     </div>
