@@ -4869,3 +4869,7 @@ body.IE .register-page-wrap .container {
     height: 170px;
     border-radius: 100%;
 }
+
+.ck-editor__editable_inline {
+    min-height: 250px;
+}

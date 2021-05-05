@@ -80,6 +80,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], fu
     Route::get('/about_page', [AboutController::class, 'index'])->name('about_page');
     Route::post('/about_page', [AboutController::class, 'store'])->name('about_page');
     Route::get('/about_page/{about}/detail', [AboutController::class, 'detail'])->name('about_page_update');
+    Route::post('/about_page/{about}/update', [AboutController::class, 'update'])->name('about_page_update');
+    Route::delete('/about_page/{about}/delete', [AboutController::class, 'destroy'])->name('about_page.delete');
 });
 
 // Admin
