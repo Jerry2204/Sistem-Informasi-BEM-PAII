@@ -61,7 +61,6 @@ class PostController extends Controller
     }
 
     public function detail (Post $post) {
-
         $kategori = Kategori::all();
         return view('post.update', compact('post', 'kategori'));
     }
