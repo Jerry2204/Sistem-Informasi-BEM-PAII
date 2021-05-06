@@ -21,7 +21,7 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    
+
     @livewireStyles
     @yield('styles')
 
@@ -54,8 +54,8 @@
                             <li class="dropdown-submenu w-100">
                               <a class="dropdown-item dropdown-toggle text py-2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departemen</a>
                               <ul class="dropdown-menu">
-                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen')}}">Depkominfo</a></li>
-                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen')}}">Depsenbud</a></li>
+                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen.about')}}">Depkominfo</a></li>
+                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen.about')}}">Depsenbud</a></li>
                               </ul>
                             </li>
                             <li class="w-100">
@@ -134,7 +134,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
-    
+
 	<script src="{{ asset('assets/js/home.js') }}"></script>
     @livewireScripts
     @yield('script')
