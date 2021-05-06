@@ -20,7 +20,9 @@
                 <div class="col-md-12 bg-white shadow-sm p-4">
                     <h3 class="heading font-weight-bold">Sejarah</h3>
                     <div class="text mt-3 font-14">
+                        @if ($about)
                         {!! $about->sejarah !!}
+                        @endif
                     </div>
                 </div>
 
@@ -29,13 +31,14 @@
                         <h3 class="heading font-weight-bold p-0 m-0">PENGURUS INTI</h3>
                     </div>
                     <div class="row mt-5">
+                        @if ($ketua)
                         <div class="col-12 col-md-6">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="text-center">
                                         <img class="image_about"
-                                            src="{{ $ketua->foto() }}"
-                                            alt="" srcset="">
+                                        src="{{ $ketua->foto() }}"
+                                        alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="py-3 col-12 text-center">
@@ -47,6 +50,8 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
+                        @if ($wakil)
                         <div class="col-12 col-md-6">
                             <div class="row">
                                 <div class="col-12">
@@ -65,6 +70,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -73,6 +79,7 @@
 
     <div class="col-md-12 visimisi">
         <div class="container py-5">
+            @if ($about)
             <div class="row">
                 <div class="col-12 col-md-6">
                     <h3 class="heading font-weight-bold">VISI</h3>
@@ -87,6 +94,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 
@@ -94,7 +102,9 @@
         <div class="d-flex flex-column justify-content-center align-items-center">
             <h3 class="heading font-weight-bold text-center">TUJUAN KM IT DEL</h3>
             <div class="text mt-3 font-14">
+                @if ($about)
                 {!! $about->tujuan !!}
+                @endif
             </div>
         </div>
     </div>

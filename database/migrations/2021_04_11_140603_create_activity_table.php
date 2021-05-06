@@ -21,6 +21,7 @@ class CreateActivityTable extends Migration
             $table->date('end')->nullable();
             $table->char('color', 255)->nullable();
             $table->char('description', 255);
+            $table->string('icon');
             $table->timestamps();
         });
     }

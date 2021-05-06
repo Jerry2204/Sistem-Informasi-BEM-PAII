@@ -118,7 +118,6 @@
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a href="{{ route('profile') }}" class="dropdown-item"><i class="dw dw-user1"></i> Profile</a>
                     <a class="dropdown-item" href="{{ route('account.setting') }}"><i class="dw dw-settings2"></i> Account Setting</a>
-                    <a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"><i class="dw dw-logout"></i> Log Out</a>
                 </div>
             </div>
