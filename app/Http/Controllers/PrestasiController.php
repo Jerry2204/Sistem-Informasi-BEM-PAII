@@ -9,7 +9,8 @@ class PrestasiController extends Controller
 {
     public function index()
     {
-        return view('public.prestasi.index');
+        $prestasis = Prestasi::all();
+        return view('public.prestasi.index', compact('prestasis'));
     }
 
     public function index_admin ()

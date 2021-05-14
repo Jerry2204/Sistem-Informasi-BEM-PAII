@@ -14,7 +14,7 @@ class AddJabatanIdToBphTable extends Migration
     public function up()
     {
         Schema::table('bph', function (Blueprint $table) {
-            $table->foreignId('jabatan_id')->unique()->constrained('jabatan')->onDlete('cascade');
+            $table->foreignId('jabatan_id')->unique()->constrained('jabatan')->onDelete('cascade');
         });
     }
 

@@ -23,22 +23,18 @@
                                             <th scope="col">Prodi</th>
                                             <th scope="col">Prestasi</th>
                                             <th scope="col">Tanggal</th>
-                                            <th scope="col">Source</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($i = 0; $i < 7; $i++)
+                                        @foreach ($prestasis as $prestasi)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>D4 TRPL 19</td>
-                                                <td>CP Hacker Rank 1st Grade</td>
-                                                <td>30 February 2021</td>
-                                                <td>
-                                                    <a href="a">Link</a>
-                                                </td>
+                                                <th scope="row">{{ $loop->iteration }}</th>
+                                                <td>{{ $prestasi->name }}</td>
+                                                <td>{{ $prestasi->program_studi }}</td>
+                                                <td>{{ $prestasi->prestasi }}</td>
+                                                <td>{{ $prestasi->tanggal->format('d M Y') }}</td>
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
