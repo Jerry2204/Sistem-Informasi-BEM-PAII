@@ -81,7 +81,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan'
 Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], function(){
     Route::get('/about_page', [AboutController::class, 'index'])->name('about_page');
     Route::post('/about_page', [AboutController::class, 'store'])->name('about_page');
-    Route::get('/about_page/{about}/detail', [AboutController::class, 'detail'])->name('about_page_update');
+    Route::get('/about_page/{about}/detail', [AboutController::class, 'detail'])->name('about_page_detail');
     Route::post('/about_page/{about}/update', [AboutController::class, 'update'])->name('about_page_update');
     Route::delete('/about_page/{about}/delete', [AboutController::class, 'destroy'])->name('about_page.delete');
 });
@@ -115,6 +115,11 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/pengeluaran/{pengeluaran}/ubah', [PengeluaranController::class, 'detail'])->name('pengeluaran.ubah');
     Route::post('/pengeluaran/{pengeluaran}/ubah', [PengeluaranController::class, 'update'])->name('pengeluaran.ubah');
     Route::delete('/pengeluaran/{pengeluaran}/hapus', [PengeluaranController::class, 'delete'])->name('pengeluaran.hapus');
+    Route::get('/daftar_prestasi', [PrestasiController::class, 'index_admin'])->name('admin_prestasi');
+    Route::post('/daftar_prestasi', [PrestasiController::class, 'store'])->name('admin_prestasi');
+    Route::get('/prestasi/{prestasi}/detail', [PrestasiController::class, 'detail'])->name('prestasi_detail');
+    Route::post('/prestasi/{prestasi}/update', [PrestasiController::class, 'update'])->name('prestasi_update');
+    Route::delete('/prestasi/{prestasi}/delete', [PrestasiController::class, 'delete'])->name('prestasi_delete');
 });
 
 // Kadep

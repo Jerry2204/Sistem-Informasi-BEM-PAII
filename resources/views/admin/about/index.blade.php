@@ -59,7 +59,7 @@
                                         <td>{!! substr($about->misi, 0, 30) !!}...</td>
                                         <td>{!! substr($about->tujuan, 0, 30) !!}...</td>
                                         <td style="width: 20%">
-                                            <a href="{{ route('about_page_update', $about->id) }}" class="btn btn-sm btn-primary">Ubah</a>
+                                            <a href="{{ route('about_page_detail', $about->id) }}" class="btn btn-sm btn-primary">Ubah</a>
                                             <form style="display: inline" action="{{ route('about_page.delete', $about->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')

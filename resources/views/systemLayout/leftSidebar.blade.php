@@ -48,6 +48,11 @@
                         <span class="micon dw dw-calendar1"></span><span class="mtext">Kegiatan</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('admin_prestasi') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notepad-1"></span><span class="mtext">Prestasi</span>
+                    </a>
+                </li>
                 @endif
                 @if (auth()->user()->role == 'admin')
                 <li>
