@@ -106,6 +106,13 @@
                     </li>
                     @endif
                 @endif
+                @if (auth()->user()->role == 'kadep')
+                <li>
+                    <a href="{{ route('program_kerja', auth()->user()->kadep->departemen->id) }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notepad-1"></span><span class="mtext">Program Kerja</span>
+                    </a>
+                </li>
+                @endif
             </ul>
         </div>
     </div>

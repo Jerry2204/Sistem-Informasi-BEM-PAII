@@ -26,6 +26,7 @@ use App\Http\Controllers\KemahasiswaanController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
 use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\ProgramKerjaController;
 use App\Http\Controllers\UserController;
 use App\Models\AnggotaDepartemen;
 use App\Models\Pengeluaran;
@@ -131,6 +132,8 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
 // Kadep
 Route::group(['middleware' => ['auth', 'checkRole:kadep']], function () {
     Route::get('/anggotaDepartemen', [AnggotaDepartemenController::class, 'index'])->name('anggotaDepartemen');
+    Route::get('/program_kerja/{departemen}', [ProgramKerjaController::class, 'index'])->name('program_kerja');
+    Route::post('/program_kerja/{departemen}', [ProgramKerjaController::class, 'store'])->name('program_kerja');
 });
 
 Route::get('/blog',  [BlogController::class, 'index'])->name('blog');

@@ -25,4 +25,9 @@ class Departemen extends Model
     {
         return $this->hasOne(Departemen_description::class);
     }
+
+    public function program_kerja ()
+    {
+        return $this->hasMany(ProgramKerja::class);
+    }
 }
