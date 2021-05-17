@@ -134,6 +134,9 @@ Route::group(['middleware' => ['auth', 'checkRole:kadep']], function () {
     Route::get('/anggotaDepartemen', [AnggotaDepartemenController::class, 'index'])->name('anggotaDepartemen');
     Route::get('/program_kerja/{departemen}', [ProgramKerjaController::class, 'index'])->name('program_kerja');
     Route::post('/program_kerja/{departemen}', [ProgramKerjaController::class, 'store'])->name('program_kerja');
+    Route::get('/program_kerja/{program_kerja}/detail', [ProgramKerjaController::class, 'detail'])->name('program_kerja.detail');
+    Route::post('/program_kerja/{program_kerja}/update', [ProgramKerjaController::class, 'update'])->name('program_kerja.update');
+    Route::delete('/program_kerja/{program_kerja}/delete', [ProgramKerjaController::class, 'destroy'])->name('program_kerja.delete');
 });
 
 Route::get('/blog',  [BlogController::class, 'index'])->name('blog');

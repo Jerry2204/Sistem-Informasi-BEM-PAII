@@ -54,14 +54,14 @@
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $program_kerja->judul }}</td>
                                         <td>{!! substr($program_kerja->deskripsi, 0, 30) !!}...</td>
-                                        {{-- <td style="width: 30%">
-                                            <a href="{{ route('departemen_description.detail', $description->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <form style="display: inline" action="{{ route('departemen_description.delete', $description->id) }}" method="post">
+                                        <td style="width: 30%">
+                                            <a href="{{ route('program_kerja.detail', $program_kerja->id) }}" class="btn btn-sm btn-primary">Ubah</a>
+                                            <form style="display: inline" action="{{ route('program_kerja.delete', $program_kerja->id) }}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
                                             </form>
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
