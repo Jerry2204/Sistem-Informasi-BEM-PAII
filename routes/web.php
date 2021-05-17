@@ -150,7 +150,7 @@ Route::get('/bph', [BPHController::class, 'index'])->name('bph');
 Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');
 
 Route::post('/comment/add/{blog_id}', [CommentController::class, 'store'])->name('add_comment_blog');
-Route::get('/departemen_about', [DepartemenController::class, 'public'])->name('departemen.about');
+Route::get('/departemen_about/{departemen}', [DepartemenController::class, 'public'])->name('departemen.about');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');

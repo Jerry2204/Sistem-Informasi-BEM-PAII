@@ -54,9 +54,16 @@
                             <li class="dropdown-submenu w-100">
                               <a class="dropdown-item dropdown-toggle text py-2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departemen</a>
                               <ul class="dropdown-menu">
-                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen.about')}}">Depkominfo</a></li>
-                                <li class="w-100"><a class="dropdown-item text py-2" href="{{ route('departemen.about')}}">Depsenbud</a></li>
-                              </ul>
+                                @php
+                                use App\Models\Departemen;
+                                $departemens = Departemen::all();
+                                @endphp
+                                @foreach ($departemens as $departemen)
+                                <li class="w-100">
+                                    <a class="dropdown-item text py-2" href="{{ route('departemen.about', $departemen->id)}}">{{ $departemen->name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                             </li>
                             <li class="w-100">
                                 <a class="dropdown-item text py-2" href="#">History</a>

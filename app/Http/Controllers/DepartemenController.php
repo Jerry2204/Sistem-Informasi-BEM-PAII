@@ -63,7 +63,7 @@ class DepartemenController extends Controller
         }
     }
 
-    public function public(){
-        return view('public.departemen.index');
+    public function public(Departemen $departemen){
+        return view('public.departemen.index', compact('departemen'));
     }
 }
