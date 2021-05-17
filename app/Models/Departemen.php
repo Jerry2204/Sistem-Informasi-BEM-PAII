@@ -20,4 +20,9 @@ class Departemen extends Model
     public function anggota_departemen () {
         return $this->hasMany(AnggotaDepartemen::class);
     }
+
+    public function description ()
+    {
+        return $this->hasOne(Departemen_description::class);
+    }
 }

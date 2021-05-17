@@ -13,6 +13,7 @@ use App\Http\Controllers\BPHController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\DepartemenDescriptionController;
 use App\Http\Controllers\Forum\AnswerForumsController;
 use App\Http\Controllers\KadepController;
 use App\Http\Controllers\PageController;
@@ -120,6 +121,11 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/prestasi/{prestasi}/detail', [PrestasiController::class, 'detail'])->name('prestasi_detail');
     Route::post('/prestasi/{prestasi}/update', [PrestasiController::class, 'update'])->name('prestasi_update');
     Route::delete('/prestasi/{prestasi}/delete', [PrestasiController::class, 'delete'])->name('prestasi_delete');
+    Route::get('/departemen_description', [DepartemenDescriptionController::class, 'index'])->name('departemen_description');
+    Route::post('/departemen_description', [DepartemenDescriptionController::class, 'store'])->name('departemen_description');
+    Route::get('/departemen_description/{description}/detail', [DepartemenDescriptionController::class, 'show'])->name('departemen_description.detail');
+    Route::post('/departemen_description/{description}/update', [DepartemenDescriptionController::class, 'update'])->name('departemen_description.update');
+    Route::delete('/departemen_description/{description}/delete', [DepartemenDescriptionController::class, 'destroy'])->name('departemen_description.delete');
 });
 
 // Kadep

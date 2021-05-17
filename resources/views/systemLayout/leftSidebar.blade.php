@@ -36,10 +36,18 @@
                 </li>
                 @endif
                 @if (auth()->user()->role == 'bph')
-                <li>
-                    <a href="{{ route('departemen') }}" class="dropdown-toggle no-arrow">
+                <li class="dropdown">
+                    <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-notebook"></span><span class="mtext">Departemen</span>
                     </a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('departemen') }}" class="dropdown-toggle no-arrow">Departemen</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('departemen_description') }}" class="dropdown-toggle no-arrow">Deskripsi Dept</a>
+                        </li>
+                    </ul>
                 </li>
                 @endif
                 @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kadep')
