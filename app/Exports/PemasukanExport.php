@@ -3,26 +3,47 @@
 namespace App\Exports;
 
 use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use App\Exports\Sheets\PemasukkanPerMonthSheet;
+use App\Exports\Sheets\PengeluaranPerMonthSheet;
 
-class PemasukanExport implements FromCollection, WithMapping
+class PemasukanExport implements WithMultipleSheets
 {
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
-    {
-        return Pemasukan::all();
-    }
+    // public function collection()
+    // {
+    //     $pemasukkan = Pemasukan::all();
+    //     $pengeluaran = Pengeluaran::all();
 
-    public function map($pemasukkan): array
+    //     $mergedCollection = $pemasukkan->toBase()->merge($pengeluaran);
+    //     // dd($mergedCollection);
+
+    //     return $mergedCollection;
+    // }
+
+    public function sheets(): array
     {
-        return [
-            $pemasukkan->jumlah_pemasukan,
-            $pemasukkan->keterangan,
-            $pemasukkan->tanggal,
-            $pemasukkan->saldo(),
-        ];
+        $sheets = [];
+
+        for ($month = 0; $month <= 1; $month++) {
+            if($month == 0) {
+                $now = now();
+                $current_year = now()->year;
+                $current_month = $now->month;
+                $sheets[] = new PemasukkanPerMonthSheet($current_year, $current_month);
+            } else if ($month == 1){
+                $now = now();
+                $current_year = now()->year;
+                $current_month = $now->month;
+                $sheets[] = new PengeluaranPerMonthSheet($current_year, $current_month);
+            }
+        }
+
+        return $sheets;
     }
 }

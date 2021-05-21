@@ -14,8 +14,8 @@
             </div>
             <div class="col-12 col-md-9">
                 <h3 class="mb-4 heading font-weight-bold">Keuangan Badan Eksekutif Mahasiswa IT Del Bulan ini</h3>
-                <p class="text font-14 text-secondary mb-2"><i class="fas fa-user-alt"></i>&nbsp; Zico Andreas Aritonang</p>
-                <p class="text font-14 text-secondary"><i class="fas fa-calendar-alt"></i>&nbsp; 29 February 2021 | Prestasi</p>
+                <p class="text font-14 text-secondary mb-2"><i class="fas fa-money-bill-wave"></i></i>&nbsp; Jumlah saldo: <span class="font-weight-bold" style="color: black">Rp. {{ number_format($saldo, 2, ',', '.') }}</span></p>
+                <p class="text font-14 text-secondary"><i class="fas fa-calendar-alt"></i>&nbsp; update: {{ now()->format('d M Y') }}</p>
                 <h4 class="heading font-weight-bold mt-5 mb-4">Pemasukan </h4>
                 <table class="table table-hover">
                     <thead class="thead-dark">

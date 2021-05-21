@@ -6,6 +6,7 @@ use App\Exports\PemasukanExport;
 use App\Models\Pemasukan;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
+use App\Models\Pengeluaran;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PemasukanController extends Controller
@@ -20,10 +21,12 @@ class PemasukanController extends Controller
     public function publicView ()
     {
         $now = now();
+        $current_year = now()->year;
         $current_month = $now->month;
-        $pemasukans = Pemasukan::whereMonth('tanggal', $current_month)->orderBy('tanggal')->get();
+        $pemasukans = Pemasukan::whereMonth('tanggal', $current_month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->get();
+        $saldo = Pemasukan::saldo();
 
-        return view('public.keuangan.index', compact('pemasukans', 'current_month'));
+        return view('public.keuangan.index', compact('pemasukans', 'current_month', 'saldo'));
     }
 
     public function add ()

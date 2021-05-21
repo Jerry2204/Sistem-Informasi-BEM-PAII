@@ -14,7 +14,7 @@ class Pemasukan extends Model
 
     protected $fillable = ['jumlah_pemasukan', 'keterangan', 'tanggal'];
 
-    public function saldo ()
+    public static function saldo ()
     {
         $pemasukan = Pemasukan::sum('jumlah_pemasukan');
         $pengeluaran = Pengeluaran::sum('jumlah');

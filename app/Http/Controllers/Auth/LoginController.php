@@ -17,7 +17,8 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function store(Request $request) {
+    public function store(Request $request) 
+    {
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required'

@@ -51,6 +51,9 @@
                             <li class="w-100">
                                 <a class="dropdown-item text py-2" href="{{ route('about_us') }}">Tentang Kami</a>
                             </li>
+                            <li class="w-100">
+                                <a class="dropdown-item text py-2" href="{{ route('keuangan') }}">Keuangan</a>
+                            </li>
                             <li class="dropdown-submenu w-100">
                               <a class="dropdown-item dropdown-toggle text py-2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departemen</a>
                               <ul class="dropdown-menu">
