@@ -162,7 +162,7 @@ Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');
 
-Route::group(['middleware' => ['auth', 'checkRole:kemahasiswaan,bph']], function(){
+Route::group(['middleware' => ['auth', 'checkRole:kemahasiswaan,bph,kadep,anggota,admin']], function(){
     Route::get('/forum_bph', [ForumBPHKemahasiswaan::class, 'index'])->name('forum_bph');
     Route::get('/detail_forum_bph', [ForumBPHKemahasiswaan::class, 'detail'])->name('detail_forum_bph');
 
