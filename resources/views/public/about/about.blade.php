@@ -98,13 +98,15 @@
         </div>
     </div>
 
-    <div class="col-md-12 mt-5">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <h3 class="heading font-weight-bold text-center">TUJUAN KM IT DEL</h3>
-            <div class="text mt-3 font-14">
-                @if ($about)
-                {!! $about->tujuan !!}
-                @endif
+    <div class="d-flex justify-content-center">
+        <div class="col-md-7 col-12 mt-5">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <h3 class="heading font-weight-bold text-center">TUJUAN KM IT DEL</h3>
+                <div class="text mt-3 font-14 text-center">
+                    @if ($about)
+                        {!! $about->tujuan !!}
+                    @endif
+                </div>
             </div>
         </div>
     </div>

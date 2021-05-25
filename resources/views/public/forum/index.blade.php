@@ -119,8 +119,7 @@
                         <div class="d-flex flex-column">
                             <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
                                 echo count($item->answer_forums);
-                            @endphp Answer&nbsp;<i
-                                    class="fa fa-eye"></i> &nbsp;5 Views </p>
+                            @endphp Answer
                         </div>
                     </div>
                 </div>

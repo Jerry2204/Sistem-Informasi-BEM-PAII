@@ -96,4 +96,8 @@ class User extends Authenticatable
             return 'Umum';
         }
     }
+
+    public function chats() {
+        return $this->hasMany(Chat::class);
+    }
 }
