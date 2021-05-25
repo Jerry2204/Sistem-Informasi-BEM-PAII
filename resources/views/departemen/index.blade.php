@@ -1,6 +1,23 @@
 @extends('systemLayout.app')
 
+@section('styles')
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
+@endsection
+
 @section('content')
+{{-- Session --}}
+@if (session()->has('sukses'))
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Sukses',
+        text: "{{ session('sukses') }}",
+        showConfirmButton: false,
+        timer: 1500
+    })
+</script>
+@endif
 <div class="page-header">
     <div class="row">
 
@@ -54,7 +71,13 @@
                                         <td>{{ $department->name }}</td>
                                         <td>
                                             <a href="{{ route('departemen.detail', $department->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <a href="{{ route('departemen.delete', $department->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                                            <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $department->id }}">
+                                                <form action="{{ route('departemen.delete', $department->id) }}" method="POST" id="delete{{ $department->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                Hapus
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -97,18 +120,30 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
-{{-- Session --}}
-@if (session()->has('sukses'))
 <script>
+    $('.delete-confirm').click(function(e) {
+    id = e.target.dataset.id
+
     Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Sukses',
-        text: "{{ session('sukses') }}",
-        showConfirmButton: false,
-        timer: 1500
+        title: 'Apakah anda yakin akan menghapus data ini?',
+        text: "Kamu tidak dapat mengembalikan data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(`#delete${id}`).submit();
+                
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+        })
     })
 </script>
-@endif
 @endsection

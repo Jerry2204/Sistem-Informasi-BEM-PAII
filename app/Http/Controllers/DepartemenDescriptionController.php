@@ -101,6 +101,6 @@ class DepartemenDescriptionController extends Controller
     {
         $description->delete();
 
-        return back()->with('sukses', 'Data berhasil dihapus');
+        return back();
     }
 }

@@ -1,6 +1,23 @@
 @extends('systemLayout.app')
 
+@section('styles')
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
+@endsection
+
 @section('content')
+{{-- Session --}}
+@if (session()->has('sukses'))
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Sukses',
+        text: "{{ session('sukses') }}",
+        showConfirmButton: false,
+        timer: 1500
+    })
+</script>
+@endif
 <div class="page-header">
     <div class="row">
 
@@ -60,11 +77,13 @@
                                         <td>{{ $prestasi->tanggal }}</td>
                                         <td style="width: 20%">
                                             <a href="{{ route('prestasi_detail', $prestasi->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <form style="display: inline" action="{{ route('prestasi_delete', $prestasi->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
-                                            </form>
+                                            <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $prestasi->id }}">
+                                                <form action="{{ route('prestasi_delete', $prestasi->id) }}" method="POST" id="delete{{ $prestasi->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                Hapus
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -132,6 +151,30 @@
 @section('scripts')
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
 <script>
+    $('.delete-confirm').click(function(e) {
+    id = e.target.dataset.id
+
+    Swal.fire({
+        title: 'Apakah anda yakin akan menghapus data ini?',
+        text: "Kamu tidak dapat mengembalikan data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(`#delete${id}`).submit();
+                
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+        })
+    })
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {

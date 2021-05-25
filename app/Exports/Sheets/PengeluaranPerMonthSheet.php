@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Exports\Sheets;
 
 use App\Models\Pengeluaran;

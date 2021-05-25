@@ -60,11 +60,13 @@
                                         <td>{!! substr($about->tujuan, 0, 30) !!}...</td>
                                         <td style="width: 20%">
                                             <a href="{{ route('about_page_detail', $about->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <form style="display: inline" action="{{ route('about_page.delete', $about->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
-                                            </form>
+                                            <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $about->id }}">
+                                                <form action="{{ route('about_page.delete', $about->id) }}" method="POST" id="delete{{ $about->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                Hapus
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -118,8 +120,34 @@
 </div>
 @endsection
 @section('scripts')
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
 <script>
+    $('.delete-confirm').click(function(e) {
+        id = e.target.dataset.id
+
+        Swal.fire({
+            title: 'Apakah anda yakin akan menghapus data ini?',
+            text: "Kamu tidak dapat mengembalikan data!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(`#delete${id}`).submit();
+                    
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                }
+            })
+    })
+
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {

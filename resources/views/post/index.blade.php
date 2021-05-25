@@ -65,7 +65,13 @@
                                         <td style="width: 30%">
                                             <a target="_blank" href="{{ route('single.post', $post->slug) }}" class="btn btn-sm btn-info">Lihat</a>
                                             <a href="{{ route('post.detail', $post->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <a href="{{ route('post.delete', $post->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                                            <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $post->id }}">
+                                                <form action="{{ route('post.delete', $post->id) }}" method="POST" id="delete{{ $post->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                Hapus
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -128,7 +134,34 @@
 @endsection
 @section('scripts')
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 <script>
+
+    $('.delete-confirm').click(function(e) {
+        id = e.target.dataset.id
+
+        Swal.fire({
+            title: 'Apakah anda yakin akan menghapus data ini?',
+            text: "Kamu tidak dapat mengembalikan data!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Batal',
+            confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $(`#delete${id}`).submit();
+                    
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                }
+            })
+    })
+
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {

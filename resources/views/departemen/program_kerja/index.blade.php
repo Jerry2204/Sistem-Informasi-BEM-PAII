@@ -1,6 +1,23 @@
 @extends('systemLayout.app')
 
+@section('styles')
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
+@endsection
+
 @section('content')
+{{-- Session --}}
+@if (session()->has('sukses'))
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Sukses',
+        text: "{{ session('sukses') }}",
+        showConfirmButton: false,
+        timer: 1500
+    })
+</script>
+@endif
 <div class="page-header">
     <div class="row">
 
@@ -56,11 +73,13 @@
                                         <td>{!! substr($program_kerja->deskripsi, 0, 30) !!}...</td>
                                         <td style="width: 30%">
                                             <a href="{{ route('program_kerja.detail', $program_kerja->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                            <form style="display: inline" action="{{ route('program_kerja.delete', $program_kerja->id) }}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
-                                            </form>
+                                            <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $program_kerja->id }}">
+                                                <form action="{{ route('program_kerja.delete', $program_kerja->id) }}" method="POST" id="delete{{ $program_kerja->id }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                </form>
+                                                Hapus
+                                            </a>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -87,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row @error('deskripsi') has-danger @enderror">
-                                    <label class="col-sm-12 col-md-2 col-form-label" for="deskripsi">Program Kerja</label>
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="deskripsi">Deskripsi Program Kerja</label>
                                     <div class="col-sm-12 col-md-10">
                                         <textarea wire:model="deskripsi" class="form-control @error('deskripsi') form-control-danger @enderror" type="text" id="deskripsi" name="deskripsi" placeholder="Deskripsi Program Kerja">{{ old('deskripsi') }}</textarea>
                                         @error('deskripsi')
@@ -110,6 +129,31 @@
 @section('scripts')
 <script src="{{ asset('assets/js/ckeditor.js') }}"></script>
 <script>
+    $('.delete-confirm').click(function(e) {
+    id = e.target.dataset.id
+
+    Swal.fire({
+        title: 'Apakah anda yakin akan menghapus data ini?',
+        text: "Kamu tidak dapat mengembalikan data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(`#delete${id}`).submit();
+                
+                Swal.fire(
+                'Dihapus!',
+                'Data berhasil dihapus',
+                'success'
+                )
+            }
+        })
+    })
+
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {

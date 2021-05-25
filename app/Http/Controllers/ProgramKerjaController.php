@@ -56,6 +56,6 @@ class ProgramKerjaController extends Controller
     {
         $programKerja->delete();
 
-        return back()->with('sukses', 'Program Kerja berhasil dihapus');
+        return back();
     }
 }

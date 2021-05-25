@@ -66,6 +66,6 @@ class PrestasiController extends Controller
     {
         $prestasi->delete();
 
-        return back()->with('sukses', 'Data berhasil dihapus');
+        return back();
     }
 }

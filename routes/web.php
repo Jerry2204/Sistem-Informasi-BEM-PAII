@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan'
     Route::post('/posts', [PostController::class, 'store'])->name('post');
     Route::get('/post/{post}/detail', [PostController::class, 'detail'])->name('post.detail');
     Route::post('/post/{post}/update', [PostController::class, 'update'])->name('post.update');
-    Route::get('/post/{post}/delete', [PostController::class, 'delete'])->name('post.delete');
+    Route::delete('/post/{post}/delete', [PostController::class, 'delete'])->name('post.delete');
     Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori');
 });
 
@@ -103,7 +103,7 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::post('/departemen', [DepartemenController::class, 'store'])->name('departemen');
     Route::get('/departemen/{departemen}/detail', [DepartemenController::class, 'showDepartemen'])->name('departemen.detail');
     Route::post('/departemen/{departemen}/update', [DepartemenController::class, 'updateDepartemen'])->name('departemen.update');
-    Route::get('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
+    Route::delete('/departemen/{departemen}/delete', [DepartemenController::class, 'deleteDepartemen'])->name('departemen.delete');
     Route::get('/pemasukan', [PemasukanController::class, 'index'])->name('keuangan.pemasukan');
     Route::get('/pemasukan/tambah', [PemasukanController::class, 'add'])->name('pemasukan.tambah');
     Route::post('/pemasukan/tambah', [PemasukanController::class, 'store'])->name('pemasukan.tambah');
