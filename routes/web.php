@@ -15,6 +15,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\DepartemenDescriptionController;
 use App\Http\Controllers\Forum\AnswerForumsController;
+use App\Http\Controllers\Forum\ForumBPHKemahasiswaan;
 use App\Http\Controllers\KadepController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
@@ -160,3 +161,11 @@ Route::get('/departemen_about/{departemen}', [DepartemenController::class, 'publ
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');
+
+Route::group(['middleware' => ['auth', 'checkRole:kemahasiswaan,bph']], function(){
+    Route::get('/forum_bph', [ForumBPHKemahasiswaan::class, 'index'])->name('forum_bph');
+    Route::get('/detail_forum_bph', [ForumBPHKemahasiswaan::class, 'detail'])->name('detail_forum_bph');
+
+    Route::get('/store/chats', [ForumBPHKemahasiswaan::class, 'detail']);
+
+});

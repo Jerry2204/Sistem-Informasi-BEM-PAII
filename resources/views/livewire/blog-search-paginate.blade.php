@@ -38,7 +38,7 @@
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            @for ($i = 1; $i <= $posts->total(); $i++)
+            @for ($i = 1; $i <= $posts->lastPage(); $i++)
                 <li class="page-item">
                     <a class="page-link" href="/blog?page={{ $i }}">{{ $i }}</a>
                 </li>

@@ -9,16 +9,8 @@
                 >
             </div>
             @if (!empty($query))
-                <div class="position-absolute list-group bg-white w-100 rounded shadow m-0" style="z-index: 100">
+                <div class="position-absolute list-group bg-white w-100 rounded shadow m-0" style="z-index: 100; max-height: 400px; overflow-y: scroll;">
                     @if (!empty($forum_search))
-                        @foreach ($forum_search as $item)
-                        <div class="list-group-item text font-14 pb-0">
-                            <a href="{{ route('forum_detail', $item['id'])}}" class=" text font-14">{{ substr($item['question'], 0, 150) . "..."}}</a>
-                            <div class="dropdown-divider"></div>
-                            <p class="text font-12 text-secondary font-weight-regular mt-2" style="opacity: 1"><i class="fas fa-user-alt"></i> &nbsp;{{ $item['name'] }} | 
-                                {{ Carbon\Carbon::parse($item['created_at'])->format('d M Y') }}</p>
-                        </div>
-                        @endforeach
                         @foreach ($forum_search as $item)
                         <div class="list-group-item text font-14 pb-0">
                             <a href="{{ route('forum_detail', $item['id'])}}" class=" text font-14">{{ substr($item['question'], 0, 150) . "..."}}</a>
