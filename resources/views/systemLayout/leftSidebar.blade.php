@@ -76,7 +76,7 @@
                         </a>
                     </li>
                 @endif
-                @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan')
+                @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan' || auth()->user()->role == 'admin' || auth()->user()->role == 'kadep' || auth()->user()->role == 'anggota')
                     <li>
                         <a href="{{ route('forum_bph') }}" class="dropdown-toggle no-arrow">
                             <span class="micon dw dw-calendar1"></span><span class="mtext">Forums</span>
