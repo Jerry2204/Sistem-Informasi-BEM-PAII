@@ -36,7 +36,6 @@ use Illuminate\Support\Facades\Route;
 // All
 Route::get('/', [PageController::class, 'index'])->name('home');
 
-
 Route::get('/blog_detail', function () {
     return view('public.blog.blog_detail');
 })->name('blog_detail');
@@ -48,6 +47,8 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/register', [RegistrationController::class, 'index'])->name('register');
 Route::post('/register', [RegistrationController::class, 'store'])->name('register');
+Route::get('/register/umum', [RegistrationController::class, 'index_umum'])->name('register.umum');
+Route::post('/register/umum', [RegistrationController::class, 'store_umum'])->name('register.umum');
 
 // Admin, Kadep, BPH, and Kemahasiswaan, anggota
 Route::group(['middleware' => ['auth', 'checkRole:admin,bph,kadep,kemahasiswaan,anggota']], function(){

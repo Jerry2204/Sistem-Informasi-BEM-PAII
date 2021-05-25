@@ -27,7 +27,7 @@
                                     <div class="chat-body clearfix">
                                         <p>{{ $item->pesan }}</p>
                                         <div class="chat_time">
-                                            {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('H:i') }}
+                                            {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->diffForHumans() }}
                                         </div>
                                     </div>
                                 </li>
@@ -39,7 +39,7 @@
                                     <div class="chat-body clearfix">
                                         <p>{{ $item->pesan }}</p>
                                         <div class="chat_time">
-                                            {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->format('H:i') }}
+                                            {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->diffForHumans() }}
                                         </div>
                                     </div>
                                 </li>

@@ -40,7 +40,7 @@
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="{{ route('register') }}">Register</a></li>
+					<li><a href="{{ route('register.umum') }}">Register</a></li>
 				</ul>
 			</div>
 		</div>
@@ -98,7 +98,7 @@
 									</div>
 									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
 									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register') }}">Register To Create Account</a>
+										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register.umum') }}">Register To Create Account</a>
 									</div>
 								</div>
 							</div>

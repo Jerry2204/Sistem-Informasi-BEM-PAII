@@ -86,10 +86,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('forum') }}">FAQ</a>
                     </li>
-                    @auth
+                    @auth  
+                    @if(auth()->user()->role == 'umum')
+                        <li class="nav-item m-0">
+                            <a href="{{ route('logout') }}" class="btn btn-primary btn-masuk">Keluar</a>
+                        </li>
+                    @else
                         <li class="nav-item m-0">
                             <a href="{{ route('login') }}" class="btn btn-primary btn-masuk">Masuk</a>
                         </li>
+                    @endif
                     @endauth
                     @guest
                         <li class="nav-item m-0">
