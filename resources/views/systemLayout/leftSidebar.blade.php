@@ -97,6 +97,13 @@
                         <li><a href="{{ route('kategori') }}">Kategori</a></li>
                     </ul>
                 </li>
+                @if (auth()->user()->role == 'admin' || auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan')
+                <li>
+                    <a href="{{ route('history') }}" class="dropdown-toggle no-arrow">
+                        <span class="micon dw dw-notebook"></span><span class="mtext">Sejarah</span>
+                    </a>
+                </li>
+                @endif
                 @if (auth()->user()->role == 'bph')
                     @if (auth()->user()->bph->jabatan->jabatan == 'Bendahara I')
                         <li class="dropdown">

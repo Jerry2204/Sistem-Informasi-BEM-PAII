@@ -21,6 +21,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\Forum\ForumController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\KemahasiswaanController;
@@ -88,6 +89,7 @@ Route::group(['middleware' => ['auth', 'checkRole:admin,kemahasiswaan,bph']], fu
     Route::get('/about_page/{about}/detail', [AboutController::class, 'detail'])->name('about_page_detail');
     Route::post('/about_page/{about}/update', [AboutController::class, 'update'])->name('about_page_update');
     Route::delete('/about_page/{about}/delete', [AboutController::class, 'destroy'])->name('about_page.delete');
+    Route::get('/sejarah', [HistoryController::class, 'index'])->name('history');
 });
 
 // Admin
