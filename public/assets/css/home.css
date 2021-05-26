@@ -54,6 +54,16 @@
         margin-top: 30px;
         display: none;
     }
+
+    .dropdown-home{
+        background: transparent;
+        border: none;
+    }
+
+    .dropdown-home .dropdown-item{
+        padding-left: 0;
+        margin-left: 0;
+    }
 }
 
 .card-text-news {

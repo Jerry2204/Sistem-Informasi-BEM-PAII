@@ -90,48 +90,72 @@
                             <div class="modal-body">
                                 <div class="alert alert-danger" role="alert">
                                     Silahkan login terlebih dahulu
-                                  </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary font-14" data-dismiss="modal">Close</button>
-                                <a href="{{ route('login') }}" class="btn btn-primary btn-masuk font-14 font-weight-light">Login</a>
+                                <a href="{{ route('login') }}"
+                                    class="btn btn-primary btn-masuk font-14 font-weight-light">Login</a>
                             </div>
                         </div>
                     </div>
             @endif
         </div>
 
-        <div class="col-md-12 p-4 mt-3 bg-white">
-            @foreach ($forum as $item)
-            <div>
-                <div class="row">
-                    <div class="col-md-1 d-flex justify-content-start">
-                        <div class="rounded-circle border box-image">
-                            <img class="image-child"
-                                src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
-                                alt="...">
+        <div class="col-md-12 p-4 pb-0 mt-3 mb-0 bg-white">
+            @forelse ($forum as $item)
+                <div>
+                    <div class="row">
+                        <div class="col-md-1 d-flex justify-content-start">
+                            <div class="rounded-circle border box-image">
+                                <img class="image-child"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                    alt="...">
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-11 pl-0 forum-desc">
-                        <p class="text font-14 font-weight-bold my-1">{{ $item->name }}</p>
-                        <a class="text font-14" href="/forums/{{ $item->id }}">{{ $item->question }}</a>
-                        <p class="text font-12 text-secondary mt-2 font-weight-regular" style="opacity: 1">{{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
-                        <div class="d-flex flex-column">
-                            <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
-                                echo count($item->answer_forums);
-                            @endphp Answer
+                        <div class="col-md-11 pl-0 forum-desc">
+                            <p class="text font-14 font-weight-bold my-1">{{ $item->name }}</p>
+                            <a class="text font-14" href="/forums/{{ $item->id }}">{{ $item->question }}</a>
+                            <p class="text font-12 text-secondary mt-2 font-weight-regular" style="opacity: 1">
+                                {{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
+                            <div class="d-flex flex-column">
+                                <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
+                                    echo count($item->answer_forums);
+                                @endphp
+                                    Answer
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr>
-            @endforeach
+                <hr>
+            @empty
+                <p class="text font-14 text-danger">Forum Belum Ada</p>
+            @endforelse
         </div>
     </div>
+    <nav aria-label="Page navigation example" class="navs-search">
+        <ul class="pagination mt-5">
+            <li class="page-item @if ($forum->currentPage() === 1) disabled @endif">
+                <a class="page-link" href="/forum?page={{ $forum->currentPage() - 1 }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for ($i = 1; $i <= $forum->lastPage(); $i++)
+                <li class="page-item">
+                    <a class="page-link" href="/forum?page={{ $i }}">{{ $i }}</a>
+                </li>
+            @endfor
+            <li class="page-item @if ($forum->currentPage() === $forum->total()) disabled @endif">
+                <a class="page-link" href="/forum?page={{ $forum->currentPage() + 1 }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
     </div>
 @endsection
 
 
 @section('script')
-    <script src="{{ asset('assets/js/forums-faq.js') }}"></script>
+<script src="{{ asset('assets/js/forums-faq.js') }}"></script>
 @endsection

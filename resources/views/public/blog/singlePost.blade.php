@@ -203,7 +203,7 @@
                         @else
                             <div class="text">
                                 <p class="alert alert-danger text font-14">Anda
-                                    harus login terlebih dahulu jika ingin menjawab pertanyaan ini !!</p>
+                                    harus login terlebih dahulu jika ingin menambah komentar !!</p>
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <a href="{{ route('login') }}"
@@ -222,7 +222,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-md-4 blog-archieve">
+                <div class="col-12 col-md-4 blog-archieve border-left pl-5">
                     <div class="blog_post">
                         <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
                         @foreach ($new_posts as $new_post)
