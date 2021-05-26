@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth', 'checkRole:bph']], function() {
     Route::get('/keuangan/export', [PemasukanController::class, 'export'])->name('keuangan.export');
     Route::get('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'detail'])->name('pemasukan.ubah');
     Route::post('/pemasukan/{pemasukan}/ubah', [PemasukanController::class, 'update'])->name('pemasukan.ubah');
-    Route::get('/pemasukan/{pemasukan}/delete', [PemasukanController::class, 'deletePemasukan'])->name('pemasukan.delete');
+    Route::delete('/pemasukan/{pemasukan}/delete', [PemasukanController::class, 'deletePemasukan'])->name('pemasukan.delete');
     Route::get('/pengeluaran', [PengeluaranController::class, 'index'])->name('keuangan.pengeluaran');
     Route::get('/pengeluaran/tambah', [PengeluaranController::class, 'add'])->name('pengeluaran.tambah');
     Route::post('/pengeluaran/tambah', [PengeluaranController::class, 'store'])->name('pengeluaran.tambah');

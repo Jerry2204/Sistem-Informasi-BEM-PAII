@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'BPH')
+
 @section('content')
 <div class="page-header">
     <div class="row">
@@ -19,6 +21,6 @@
 </div>
 
 <div class="pd-20 card-box mb-30">
-    
+
 </div>
 @endsection

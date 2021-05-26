@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'User')
+
 @section('content')
 
 <div class="min-height-200px">
@@ -24,7 +26,7 @@
                 <h4 class="text-blue h4 mb-30">Pengaturan Akun</h4>
             </div>
         </div>
-        @if (session('sukses')) 
+        @if (session('sukses'))
         <div class="alert alert-success">{{ session('sukses') }}</div>
         @endif
         <form method="POST" action="{{ route('account.setting') }}">

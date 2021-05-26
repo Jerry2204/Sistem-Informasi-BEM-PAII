@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Forums')
+
 @section('content')
     <div class="page-header">
         <div class="row">
@@ -23,7 +25,7 @@
         <div class="card card-box mt-3">
             <div class="card-body">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    @livewire('chats')             
+                    @livewire('chats')
                 </div>
             </div>
         </div>

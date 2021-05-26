@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pemasukan;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,9 @@ class PengeluaranController extends Controller
     public function index ()
     {
         $pengeluarans = Pengeluaran::orderBy('tanggal', 'desc')->get();
+        $saldo = Pemasukan::saldo();
 
-        return view('keuangan.pengeluaran', compact('pengeluarans'));
+        return view('keuangan.pengeluaran', compact('pengeluarans', 'saldo'));
     }
 
     public function add ()
@@ -54,6 +56,6 @@ class PengeluaranController extends Controller
     {
         $pengeluaran->delete();
 
-        return back()->with('sukses', 'Pengeluaran berhasil dihapus');
+        return back();
     }
 }

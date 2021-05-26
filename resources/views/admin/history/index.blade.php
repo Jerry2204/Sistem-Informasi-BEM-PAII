@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Sejarah')
+
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/responsive.bootstrap4.min.css') }}">

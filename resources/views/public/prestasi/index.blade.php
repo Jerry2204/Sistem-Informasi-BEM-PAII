@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'DEPKOMINFO')
+@section('title', 'Prestasi')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/prestasi.css') }}">

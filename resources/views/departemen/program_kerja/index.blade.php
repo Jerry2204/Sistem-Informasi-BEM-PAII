@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Program Kerja')
+
 @section('styles')
 <script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 @endsection
@@ -144,7 +146,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $(`#delete${id}`).submit();
-                
+
                 Swal.fire(
                 'Dihapus!',
                 'Data berhasil dihapus',

@@ -16,8 +16,9 @@ class PemasukanController extends Controller
     public function index ()
     {
         $pemasukans = Pemasukan::orderBy('tanggal', 'desc')->get();
+        $saldo = Pemasukan::saldo();
 
-        return view('keuangan.pemasukan', compact('pemasukans'));
+        return view('keuangan.pemasukan', compact('pemasukans', 'saldo'));
     }
 
     public function publicView ()
@@ -79,6 +80,6 @@ class PemasukanController extends Controller
             $pemasukan->delete();
         }
 
-        return back()->with('sukses', 'Pemasukan berhasil dihapus');
+        return back();
     }
 }

@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Post')
+
 @section('styles')
 <style>
     .ck-editor__editable_inline {

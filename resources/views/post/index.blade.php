@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Post')
+
 @section('styles')
 <style>
     .ck-editor__editable_inline {
@@ -152,7 +154,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $(`#delete${id}`).submit();
-                    
+
                     Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',

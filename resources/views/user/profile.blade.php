@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'User')
+
 @section('content')
 <div class="min-height-200px">
     <div class="page-header">

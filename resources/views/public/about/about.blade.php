@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Kegiatan')
+@section('title', 'Tentang Kami')
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/about.css') }}">
