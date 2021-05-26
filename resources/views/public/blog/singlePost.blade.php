@@ -203,7 +203,7 @@
                         @else
                             <div class="text">
                                 <p class="alert alert-danger text font-14">Anda
-                                    harus login terlebih dahulu jika ingin menjawab pertanyaan ini !!</p>
+                                    harus login terlebih dahulu jika ingin menambah komentar !!</p>
                                 <div class="d-flex align-items-center">
                                     <div>
                                         <a href="{{ route('login') }}"
@@ -222,12 +222,12 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-12 col-md-4 blog-archieve">
+                <div class="col-12 col-md-4 blog-archieve border-left pl-5">
                     <div class="blog_post">
                         <h3 class="heading font-weight-bold mb-4">Postingan Terbaru</h3>
                         @foreach ($new_posts as $new_post)
                             <div class="my-2 border-bottom">
-                                <a class="heading text-heading-child-post font-14 href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
+                                <a class="heading text-heading-child-post font-14" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
                                 <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                             </div>
                         @endforeach

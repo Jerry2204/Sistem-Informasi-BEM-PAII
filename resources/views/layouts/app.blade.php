@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top position-sticky  w-100">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -47,16 +47,16 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Profile
                           </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <ul class="dropdown-menu dropdown-home" aria-labelledby="navbarDropdownMenuLink">
                             <li class="w-100">
                                 <a class="dropdown-item text py-2" href="{{ route('about_us') }}">Tentang Kami</a>
                             </li>
                             <li class="w-100">
                                 <a class="dropdown-item text py-2" href="{{ route('keuangan') }}">Keuangan</a>
                             </li>
-                            <li class="dropdown-submenu w-100">
+                            <li class="dropdown-submenu w-100 dropdownku">
                               <a class="dropdown-item dropdown-toggle text py-2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departemen</a>
-                              <ul class="dropdown-menu">
+                              <ul class="dropdown-menu dropdown-departemen">
                                 @php
                                 use App\Models\Departemen;
                                 $departemens = Departemen::all();

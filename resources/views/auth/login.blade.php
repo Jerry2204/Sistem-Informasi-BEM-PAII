@@ -3,7 +3,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+	<title>BEM IT DEL</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/apple-touch-icon.png') }}">
@@ -29,13 +29,20 @@
 
 		gtag('config', 'UA-119386393-1');
 	</script>
+
+	<style>
+		.logo-gambar{
+			width: 50px;
+		}
+	</style>
 </head>
 <body class="login-page">
 	<div class="login-header box-shadow">
 		<div class="container-fluid d-flex justify-content-between align-items-center">
 			<div class="brand-logo">
-				<a href="login.html">
-					<img src="{{ asset('assets/images/deskapp-logo.svg') }}" alt="">
+				<a href="{{ route('home') }}">
+					<img class="logo-gambar" src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" alt="">
+					<h5 class="mx-3">BEM IT DEL</h5>
 				</a>
 			</div>
 			<div class="login-menu">
@@ -54,7 +61,7 @@
 				<div class="col-md-6 col-lg-5">
 					<div class="login-box bg-white box-shadow border-radius-10">
 						<div class="login-title">
-							<h2 class="text-center text-primary">Login To DeskApp</h2>
+							<h2 class="text-center text-primary">Login</h2>
 						</div>
 						<form action="{{ route('login') }}" method="POST">
                             @csrf
