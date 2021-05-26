@@ -69,7 +69,7 @@
                             </ul>
                             </li>
                             <li class="w-100">
-                                <a class="dropdown-item text py-2" href="#">History</a>
+                                <a class="dropdown-item text py-2" href="{{ route('sejarah_kepengurusan') }}">Sejarah Kepengurusan</a>
                             </li>
                           </ul>
                         </a>
@@ -86,7 +86,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('forum') }}">FAQ</a>
                     </li>
-                    @auth  
+                    @auth
                     @if(auth()->user()->role == 'umum')
                         <li class="nav-item m-0">
                             <a href="{{ route('logout') }}" class="btn btn-primary btn-masuk">Keluar</a>

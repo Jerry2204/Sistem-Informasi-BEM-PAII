@@ -163,6 +163,8 @@ Route::post('/comment/add/{blog_id}', [CommentController::class, 'store'])->name
 Route::get('/departemen_about/{departemen}', [DepartemenController::class, 'public'])->name('departemen.about');
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
+Route::get('/sejarah-kepengurusan', [HistoryController::class, 'public_index'])->name('sejarah_kepengurusan');
+
 Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');
 
 Route::group(['middleware' => ['auth', 'checkRole:kemahasiswaan,bph,kadep,anggota,admin']], function(){
