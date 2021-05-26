@@ -225,12 +225,14 @@
                 <div class="col-12 col-md-4 blog-archieve border-left pl-5">
                     <div class="blog_post">
                         <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
-                        @foreach ($new_posts as $new_post)
+                        @forelse ($new_posts as $new_post)
                             <div class="my-2 border-bottom">
                                 <a class="heading text-heading-child-post font-14" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
                                 <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                             </div>
-                        @endforeach
+                        @empty
+                            <p class="text">Tidak ada postingan</p>
+                        @endforelse
                     </div>
 
                     <div class="archieve mt-4">

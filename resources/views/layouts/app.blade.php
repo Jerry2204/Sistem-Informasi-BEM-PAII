@@ -84,7 +84,7 @@
                         <a class="nav-link" href="{{ route('prestasi') }}">Prestasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('forum') }}">FAQ</a>
+                        <a class="nav-link" href="{{ route('forum') }}">Forum</a>
                     </li>
                     @auth
                     @if(auth()->user()->role == 'umum')

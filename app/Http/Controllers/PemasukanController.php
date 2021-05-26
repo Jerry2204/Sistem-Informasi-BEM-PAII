@@ -28,10 +28,11 @@ class PemasukanController extends Controller
         $current_month = $now->month;
         $new_posts = Post::orderBy('updated_at', 'desc')->limit(5)->get();
         $pemasukans = Pemasukan::whereMonth('tanggal', $current_month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->get();
+        $pengeluarans = Pengeluaran::whereMonth('tanggal', $current_month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->get();
         $saldo = Pemasukan::saldo();
         $category = Kategori::all();
 
-        return view('public.keuangan.index', compact('pemasukans', 'current_month', 'saldo', 'new_posts', 'category'));
+        return view('public.keuangan.index', compact('pemasukans', 'current_month', 'saldo', 'new_posts', 'category', 'pengeluarans'));
     }
 
     public function add ()

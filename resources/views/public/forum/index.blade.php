@@ -19,18 +19,8 @@
 
             <div class="col-md-12 bg-white shadow-sm p-4">
                 <h3 class="heading font-weight-bold">Forum Diskusi</h3>
-                <p class="text mt-3 font-14">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor tellus
-                    porttitor non nullam dui.
-                    Consectetur in aliquet tellus risus elit pretium. In nunc tincidunt sagittis sit massa odio. Viverra
-                    quam nec diam tincidunt donec suspendisse consectetur. Praesent odio malesuada eu quis nisl nisl
-                    fringilla neque adipiscing. Ridiculus eu velit euismod porttitor mauris aenean vitae donec.
+                <p class="text mt-3 font-14">Fitur pada Forum Diskusi ini diberikan kepada pengguna untuk melakukan diskusi kepada Badan Pengurus Harian BEM IT DEL secara online dimana bertujuan agar masyarakat atau pengguna mendapatkan informasi yang lebih mengenai apa saja yang ada di Badan Eksekutif Mahasiswa Institut Teknologi Del.
                 </p>
-                <p class="text font-14"> A sit metus tellus sed justo est nisi. Molestie et vulputate hac malesuada. Lacinia
-                    ultrices lectus sed
-                    tempor. Ipsum convallis facilisi sagittis neque ut aliquam urna faucibus. Tellus, mi integer dolor nulla
-                    nunc consectetur turpis. Id velit convallis massa aliquet. Tristique faucibus commodo, sed quis cursus a
-                    et praesent sit. Leo odio morbi id est. Mi iaculis tortor amet lacus. Phasellus tempus nunc semper
-                    pellentesque sit nulla nibh.</p>
             </div>
 
             <div class="col-md-12 form-forum">

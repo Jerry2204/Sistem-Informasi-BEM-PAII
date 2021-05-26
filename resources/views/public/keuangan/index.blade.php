@@ -37,16 +37,39 @@
                         @endforeach
                     </tbody>
                 </table>
+                <h4 class="heading font-weight-bold mt-5 mb-4">Pengeluaran </h4>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>No</th>
+                            <th>Jumlah Pengeluaran</th>
+                            <th>Keperluan</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pengeluarans as $pengeluaran)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>Rp. {{ number_format($pengeluaran->jumlah, 2, ',', '.') }}</td>
+                            <td>{{ $pengeluaran->keperluan }}</td>
+                            <td>{{ $pengeluaran->tanggal->format('d M Y') }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
             <div class="col-12 col-md-3 blog-archieve">
                 <div class="blog_post">
                     <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
-                    @foreach ($new_posts as $new_post)
+                    @forelse ($new_posts as $new_post)
                         <div class="my-2 border-bottom">
                             <a class="heading text-heading-child-post font-14" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
                             <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text">Tidak ada postingan</p>
+                    @endforelse
                 </div>
 
                 <div class="archieve mt-4">
@@ -55,7 +78,7 @@
                         @forelse ($category as $item)
                         <a class="text-secondary text-parag-child-archieve font-14" href="{{ route('blog_kategori', $item->id) }}">{{ $item->nama_kategori }}</a>
                         @empty
-                        <p>No Category</p>
+                        <p class="text">No Category</p>
                         @endforelse
                     </div>
                 </div>

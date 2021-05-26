@@ -13,7 +13,7 @@
                 <h6>Forum Detail</h6>
                 <ol class="breadcrumb pl-0" style="background: transparent">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                    <li class="breadcrumb-item active" aria-current="page">Forum</li>
                 </ol>
             </div>
             <div class="col-md-12 p-4 mt-3 bg-white">
