@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Home')
 
 @section('content')
     <div class="col-12 p-0 position-relative overflow-hidden carousel-home d-flex align-items-center">
