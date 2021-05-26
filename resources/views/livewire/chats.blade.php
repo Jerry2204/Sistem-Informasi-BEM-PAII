@@ -37,6 +37,7 @@
                                         <img src="{{ auth()->user()->gambar() }}" alt="">
                                     </span>
                                     <div class="chat-body clearfix">
+                                        <span style="font-size: 14px; font-weight: bold;">{{ $item->name }}</span>
                                         <p>{{ $item->pesan }}</p>
                                         <div class="chat_time">
                                             {{ Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $item->created_at)->diffForHumans() }}
@@ -50,19 +51,24 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-12 mb-30 ml-0 pb-3 px-0">
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <div class="chat-footer mt-3">
-                <form wire:submit.prevent="store">
-                    <div class="file-upload"><a href="#"><i class="fa fa-paperclip"></i></a></div>
-                    <div class="chat_text_area">
-                        <textarea placeholder="Type your message…" wire:model="pesan"></textarea>
-                    </div>
-                    <div class="chat_send">
-                        <button class="btn btn-link" type="submit"><i class="icon-copy ion-paper-airplane"></i></button>
-                    </div>
-                </form>
+    @if (auth()->user()->role === 'kemahasiswaan' || auth()->user()->role === 'bph')
+        <div class="col-sm-12 col-md-12 mb-30 ml-0 pb-3 px-0">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="chat-footer mt-3">
+                    <form wire:submit.prevent="store">
+                        <div class="file-upload"><a href="#"><i class="fa fa-paperclip"></i></a></div>
+                        <div class="chat_text_area">
+                            <textarea placeholder="Type your message…" wire:model="pesan"></textarea>
+                        </div>
+                        <div class="chat_send">
+                            <button class="btn btn-link" type="submit"><i class="icon-copy ion-paper-airplane"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
+    @else
+
+    @endif
+    
 </div>
