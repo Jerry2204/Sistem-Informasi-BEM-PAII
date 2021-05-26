@@ -20,7 +20,7 @@
                     <div class="col mb-4">
                         <div class="card text-center shadow-sm">
                             <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
-                                class="card-img-top" alt="...">
+                                class="card-img-top image-3m" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title heading font-weight-bold">Martuhan</h5>
                                 <p class="card-text text">“Kasihinilah Tuhan Allahmu, dengan segenap hatimu dan dengan
@@ -30,23 +30,21 @@
                     </div>
                     <div class="col mb-4">
                         <div class="card text-center shadow-sm">
-                            <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
-                                class="card-img-top" alt="...">
+                            <img src="{{ asset('assets/images/marroha.jpg') }}"
+                                class="card-img-top image-3m" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title heading font-weight-bold">Marroha</h5>
-                                <p class="card-text text">“Kasihinilah Tuhan Allahmu, dengan segenap hatimu dan dengan
-                                    segenap jiwamu dan dengan segenap akal budimu.”</p>
+                                <p class="card-text text">“Ajarlah kami menghitung hari-hari kami sedemikian, hingga kami beroleh hati yang bijaksana.”</p>
                             </div>
                         </div>
                     </div>
                     <div class="col mb-4">
                         <div class="card text-center shadow-sm">
-                            <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
-                                class="card-img-top" alt="...">
+                            <img src="{{ asset('assets/images/marbisuk.jpg') }}"
+                                class="card-img-top image-3m" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title heading font-weight-bold">Marbisuk</h5>
-                                <p class="card-text text">“Kasihinilah Tuhan Allahmu, dengan segenap hatimu dan dengan
-                                    segenap jiwamu dan dengan segenap akal budimu.”</p>
+                                <p class="card-text text">“Berbahagialah orang yang mendapat hikmat, orang yang memperoleh kepandaian.”</p>
                             </div>
                         </div>
                     </div>

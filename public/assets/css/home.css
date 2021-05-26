@@ -101,3 +101,7 @@
 .dropdown-toggle::after {
     content: none;
 }
+.image-3m{
+    height: 220px;
+    object-fit: cover;
+}
