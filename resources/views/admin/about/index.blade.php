@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Tentang >> index')
+
 @section('content')
 <div class="page-header">
     <div class="row">
@@ -138,7 +140,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $(`#delete${id}`).submit();
-                    
+
                     Swal.fire(
                     'Deleted!',
                     'Your file has been deleted.',

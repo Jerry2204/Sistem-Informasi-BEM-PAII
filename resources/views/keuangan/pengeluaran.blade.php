@@ -1,17 +1,32 @@
 @extends('systemLayout.app')
 
+@section('title', 'Keuangan')
+
 @section('styles')
 <link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('datatables/css/responsive.bootstrap4.min.css') }}">
+<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 @endsection
 
 @section('content')
-
+{{-- Session --}}
+@if (session()->has('sukses'))
+<script>
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Sukses',
+        text: "{{ session('sukses') }}",
+        showConfirmButton: false,
+        timer: 1500
+    })
+</script>
+@endif
 <div class="page-header">
     <div class="row">
         <div class="col-md-6 col-sm-12">
             <div class="title">
-                <h4>Pemasukan Keuangan BEM IT Del</h4>
+                <h4>Pengeluaran Keuangan BEM IT Del</h4>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -30,6 +45,7 @@
                     <div class="pull-left">
                         <h4 class="text-blue h4">Daftar Pengeluaran Keuangan</h4>
                         <p>Berikut ini merupakan daftar Pengeluaran Keuangan Badan Eksekutif Mahasiswa Institut Teknologi Del</p>
+                        <p><b>Saldo = Rp. {{ number_format($saldo, 2, ',', '.') }}</b></p>
                         <a href="{{ route('pengeluaran.tambah') }}" class="btn btn-primary">
                             Tambah Pengeluaran
                         </a>
@@ -59,11 +75,13 @@
                             <td>{{ $pengeluaran->tanggal->format('d M Y') }}</td>
                             <td style="width: 20%">
                                 <a href="{{ route('pengeluaran.ubah', $pengeluaran->id) }}" class="btn btn-sm btn-primary">Ubah</a>
-                                <form style="display: inline" action="{{ route('pengeluaran.hapus', $pengeluaran->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
-                                </form>
+                                <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $pengeluaran->id }}">
+                                    <form action="{{ route('pengeluaran.hapus', $pengeluaran->id) }}" method="POST" id="delete{{ $pengeluaran->id }}">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                                    Hapus
+                                </a>
                             </td>
                         </tr>
                         @endforeach
@@ -76,43 +94,30 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
-{{-- Session --}}
-@if (session()->has('sukses'))
 <script>
+    $('.delete-confirm').click(function(e) {
+    id = e.target.dataset.id
+
     Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Sukses',
-        text: "{{ session('sukses') }}",
-        showConfirmButton: false,
-        timer: 1500
-    })
-</script>
-@endif
-<script>
-    window.addEventListener('swal:confirm', event => {
-        Swal.fire({
-            title: event.detail.title,
-            text: event.detail.text,
-            icon: event.detail.icon,
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, hapus!',
-            cancelButtonText: 'Batal'
-            }).then((willDelete) => {
-                if (willDelete.isConfirmed) {
-                    window.livewire.emit('destroy', event.detail.id);
-                    Swal.fire({
-                        title: 'Sukses',
-                        text: "Data Berhasil dihapus",
-                        icon: 'success',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
-                }
-            })
+        title: 'Apakah anda yakin akan menghapus data ini?',
+        text: "Kamu tidak dapat mengembalikan data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(`#delete${id}`).submit();
+
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+        })
     })
 </script>
 <script src="{{ asset('assets/datatables/js/jquery.dataTables.min.js') }}"></script>

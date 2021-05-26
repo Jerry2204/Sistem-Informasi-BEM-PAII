@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Departemen')
+
 @section('styles')
 <script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 @endsection
@@ -146,7 +148,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $(`#delete${id}`).submit();
-                
+
                 Swal.fire(
                 'Deleted!',
                 'Your file has been deleted.',

@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Exports\Sheets;
 
 use App\Models\Pemasukan;
@@ -14,13 +14,13 @@ class PemasukkanPerMonthSheet implements FromQuery, WithTitle, WithHeadings, Wit
     {
         private $month;
         private $year;
-    
+
         public function __construct(int $year, int $month)
         {
             $this->month = $month;
             $this->year  = $year;
         }
-    
+
         /**
          * @return Builder
          */
@@ -35,13 +35,13 @@ class PemasukkanPerMonthSheet implements FromQuery, WithTitle, WithHeadings, Wit
         {
             return [
                 [
+                    $pemasukan->tanggal->format('d M Y'),
                     $pemasukan->jumlah_pemasukan,
                     $pemasukan->keterangan,
-                    $pemasukan->tanggal
                 ]
             ];
         }
-    
+
         /**
          * @return string
          */
@@ -53,9 +53,9 @@ class PemasukkanPerMonthSheet implements FromQuery, WithTitle, WithHeadings, Wit
         public function headings(): array
         {
             return [
+                'Tanggal',
                 'Jumlah Pemasukan',
                 'Keterangan',
-                'Tanggal'
             ];
         }
 

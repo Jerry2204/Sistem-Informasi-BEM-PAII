@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Jabatan')
+
 @section('content')
 <div class="page-header">
     <div class="row">

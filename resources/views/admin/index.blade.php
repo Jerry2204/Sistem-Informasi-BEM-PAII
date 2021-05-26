@@ -1,5 +1,7 @@
 @extends('systemLayout.app')
 
+@section('title', 'Dashboard')
+
 @section('content')
 <div class="card-box pd-20 height-100-p mb-30">
     <div class="row align-items-center">

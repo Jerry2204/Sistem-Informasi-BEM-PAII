@@ -36,9 +36,9 @@ class PengeluaranPerMonthSheet implements FromQuery, WithTitle, WithStyles, With
         {
             return [
                 [
+                    $pengeluaran->tanggal->format('d M Y'),
                     $pengeluaran->jumlah,
                     $pengeluaran->keperluan,
-                    $pengeluaran->tanggal
                 ]
             ];
         }
@@ -54,9 +54,9 @@ class PengeluaranPerMonthSheet implements FromQuery, WithTitle, WithStyles, With
     public function headings(): array
     {
         return [
+            'Tanggal',
             'Jumlah Pengeluaran',
             'Keperluan',
-            'Tanggal'
         ];
     }
 

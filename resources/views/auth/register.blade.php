@@ -7,9 +7,8 @@
     <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
 
     <!-- Site favicon -->
-    {{-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/apple-touch-icon.png') }}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon-32x32.png') }}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-16x16.png') }}"> --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}">
 
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -36,16 +35,21 @@
         gtag('config', 'UA-119386393-1');
 
     </script>
-
+    <style>
+        .logo-gambar{
+            width: 50px;
+        }
+    </style>
 </head>
 
 <body class="login-page">
     <div class="login-header box-shadow">
         <div class="container-fluid d-flex justify-content-between align-items-center">
             <div class="brand-logo">
-                <a href="login.html">
-                    <img src="{{ asset('assets/images/deskapp-logo.svg') }}" alt="">
-                </a>
+                <a href="{{ route('home') }}">
+					<img class="logo-gambar" src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" alt="">
+					<h5 class="mx-3">BEM IT DEL</h5>
+				</a>
             </div>
             <div class="login-menu">
                 <ul>
