@@ -6,7 +6,9 @@ use App\Exports\PemasukanExport;
 use App\Models\Pemasukan;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
+use App\Models\Kategori;
 use App\Models\Pengeluaran;
+use App\Models\Post;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PemasukanController extends Controller
@@ -23,10 +25,12 @@ class PemasukanController extends Controller
         $now = now();
         $current_year = now()->year;
         $current_month = $now->month;
+        $new_posts = Post::orderBy('updated_at', 'desc')->limit(5)->get();
         $pemasukans = Pemasukan::whereMonth('tanggal', $current_month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->get();
         $saldo = Pemasukan::saldo();
+        $category = Kategori::all();
 
-        return view('public.keuangan.index', compact('pemasukans', 'current_month', 'saldo'));
+        return view('public.keuangan.index', compact('pemasukans', 'current_month', 'saldo', 'new_posts', 'category'));
     }
 
     public function add ()

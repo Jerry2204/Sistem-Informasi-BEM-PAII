@@ -37,88 +37,26 @@
                         @endforeach
                     </tbody>
                 </table>
-                <p class="my-4 text-justify text font-14">
-                    Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed
-                    odio
-                    operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc
-                    posthac,
-                    sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras
-                    mattis
-                    iudicium purus sit amet fermentum.
-                </p>
-                <h5 class="heading font-weight-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo eu
-                    auctor arcu </h5>
-
-                <p class="my-4 text-justify text font-14">
-                    Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed
-                    odio
-                    operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc
-                    posthac,
-                    sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras
-                    mattis
-                    iudicium purus sit amet fermentum. <br>
-                    Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed
-                    odio
-                    operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc
-                    posthac,
-                    sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras
-                    mattis
-                    iudicium purus sit amet fermentum. <br>
-                    Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed
-                    odio
-                    operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc
-                    posthac,
-                    sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras
-                    mattis
-                    iudicium purus sit amet fermentum.
-                </p>
             </div>
             <div class="col-12 col-md-3 blog-archieve">
                 <div class="blog_post">
-                    <h3 class="heading font-weight-bold mb-4">Latest Post</h3>
-                    <div class="my-2 border-bottom">
-                        <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco</a>
-                        <p class="text-secondary text-parag-child-post">Event</p>
-                    </div>
-                    <div class="my-2 border-bottom">
-                        <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco</a>
-                        <p class="text-secondary text-parag-child-post">Event</p>
-                    </div>
-                    <div class="my-2 border-bottom">
-                        <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco</a>
-                        <p class="text-secondary text-parag-child-post">Event</p>
-                    </div>
-                    <div class="my-2 border-bottom">
-                        <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco</a>
-                        <p class="text-secondary text-parag-child-post">Event</p>
-                    </div>
-                    <div class="my-2 border-bottom">
-                        <a class="heading text-heading-child-post font-14" href="#">Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco</a>
-                        <p class="text-secondary text-parag-child-post">Event</p>
-                    </div>
+                    <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
+                    @foreach ($new_posts as $new_post)
+                        <div class="my-2 border-bottom">
+                            <a class="heading text-heading-child-post font-14" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
+                            <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
+                        </div>
+                    @endforeach
                 </div>
 
                 <div class="archieve mt-4">
-                    <h3 class="heading font-weight-bold mb-4">Archieve</h3>
+                    <h4 class="heading font-weight-bold mb-4">Category</h4>
                     <div class="my-2 border-bottom pb-2 pt-0">
-                        <a class="text-secondary text-parag-child-archieve font-14" href="#">January 2021</a>
-                    </div>
-                    <div class="my-2 border-bottom py-2">
-                        <a class="text-secondary text-parag-child-archieve font-14" href="#">February 2021</a>
-                    </div>
-                    <div class="my-2 border-bottom py-2">
-                        <a class="text-secondary text-parag-child-archieve font-14" href="#">March 2021</a>
-                    </div>
-                    <div class="my-2 border-bottom py-2">
-                        <a class="text-secondary text-parag-child-archieve font-14" href="#">May 2021</a>
-                    </div>
-                    <div class="my-2 border-bottom py-2">
-                        <a class="text-secondary text-parag-child-archieve font-14" href="#">June 2021</a>
+                        @forelse ($category as $item)
+                        <a class="text-secondary text-parag-child-archieve font-14" href="{{ route('blog_kategori', $item->id) }}">{{ $item->nama_kategori }}</a>
+                        @empty
+                        <p>No Category</p>
+                        @endforelse
                     </div>
                 </div>
             </div>

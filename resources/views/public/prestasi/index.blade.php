@@ -15,7 +15,7 @@
                         <div class="col-12 col-md-12">
                             <h3 class="heading font-weight-bold">PRESTASI MAHASISWA</h3>
                             <div class="table-responsive-xl">
-                                <table class="table table-striped my-4 text font-14">
+                                <table class="table table-striped my-4 text font-14 table-bordered">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>

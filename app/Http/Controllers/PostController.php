@@ -20,12 +20,13 @@ class PostController extends Controller
     public function singlePost ($slug) {
         $post = Post::where('slug', $slug)->firstOrFail();
         $new_posts = Post::orderBy('updated_at', 'desc')->limit(5)->get();
+        $category = Kategori::all();
 
         if (!$post->count()) {
             abort(404);
         }
 
-        return view('public.blog.singlePost', compact('post', 'new_posts'));
+        return view('public.blog.singlePost', compact('post', 'new_posts', 'category'));
     }
 
     public function store (Request $request) {

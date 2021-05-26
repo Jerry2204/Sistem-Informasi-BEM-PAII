@@ -224,31 +224,23 @@
                 </div>
                 <div class="col-12 col-md-4 blog-archieve">
                     <div class="blog_post">
-                        <h3 class="heading font-weight-bold mb-4">Postingan Terbaru</h3>
+                        <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
                         @foreach ($new_posts as $new_post)
                             <div class="my-2 border-bottom">
-                                <a class="heading text-heading-child-post font-14 href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
+                                <a class="heading text-heading-child-post font-14" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
                                 <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}</p>
                             </div>
                         @endforeach
                     </div>
 
                     <div class="archieve mt-4">
-                        <h3 class="heading font-weight-bold mb-4">Category</h3>
+                        <h4 class="heading font-weight-bold mb-4">Category</h4>
                         <div class="my-2 border-bottom pb-2 pt-0">
-                            <a class="text-secondary text-parag-child-archieve font-14" href="#">Pendidikan</a>
-                        </div>
-                        <div class="my-2 border-bottom py-2">
-                            <a class="text-secondary text-parag-child-archieve font-14" href="#">February 2021</a>
-                        </div>
-                        <div class="my-2 border-bottom py-2">
-                            <a class="text-secondary text-parag-child-archieve font-14" href="#">March 2021</a>
-                        </div>
-                        <div class="my-2 border-bottom py-2">
-                            <a class="text-secondary text-parag-child-archieve font-14" href="#">May 2021</a>
-                        </div>
-                        <div class="my-2 border-bottom py-2">
-                            <a class="text-secondary text-parag-child-archieve font-14" href="#">June 2021</a>
+                            @forelse ($category as $item)
+                        <a class="text-secondary text-parag-child-archieve font-14" href="{{ route('blog_kategori', $item->id) }}">{{ $item->nama_kategori }}</a>
+                        @empty
+                        <p>No Category</p>
+                        @endforelse
                         </div>
                     </div>
                 </div>

@@ -164,6 +164,7 @@ Route::get('/departemen_about/{departemen}', [DepartemenController::class, 'publ
 Route::get('/prestasi', [PrestasiController::class, 'index'])->name('prestasi');
 
 Route::get('/sejarah-kepengurusan', [HistoryController::class, 'public_index'])->name('sejarah_kepengurusan');
+Route::get('/post/kategori/{kategori}', [KategoriController::class, 'blog_kategori'])->name('blog_kategori');
 
 Route::get('/singlePost/{slug}', [PostController::class, 'singlePost'])->name('single.post');
 
