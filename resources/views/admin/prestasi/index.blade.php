@@ -51,7 +51,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane fade active show" id="home" role="tabpanel">
-                        <div class="pd-20">
+                        <div class="pd-20 table-responsive-xl">
                             <div class="clearfix mb-20">
                                 <div class="pull-left">
                                     <h4 class="text-blue h4">Prestasi Mahasiswa</h4>
