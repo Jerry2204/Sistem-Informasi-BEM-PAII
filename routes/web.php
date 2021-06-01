@@ -175,3 +175,5 @@ Route::group(['middleware' => ['auth', 'checkRole:kemahasiswaan,bph,kadep,anggot
     Route::get('/store/chats', [ForumBPHKemahasiswaan::class, 'detail']);
 
 });
+
+Route::get('/getdatachart', [PemasukanController::class, 'getMonthlyKeuanganData']);

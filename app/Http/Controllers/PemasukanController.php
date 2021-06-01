@@ -9,6 +9,7 @@ use App\Exports\UsersExport;
 use App\Models\Kategori;
 use App\Models\Pengeluaran;
 use App\Models\Post;
+use DateTime;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PemasukanController extends Controller
@@ -82,5 +83,80 @@ class PemasukanController extends Controller
         }
 
         return back();
+    }
+
+    public function getMonthName($number_of_month){
+        $dateObj   = DateTime::createFromFormat('!m', $number_of_month);
+        $monthName = $dateObj->format('F');
+        return $monthName;
+    }
+
+    public function getMonth(){
+        $now = now();
+        $current_month = $now->month;
+        $month_array = array();
+        $effectiveDate = date('m', strtotime("+4 months", strtotime(now())));
+        for ($i = $current_month; $i <= $effectiveDate ; $i++) { 
+            $month_no = $i;
+			$month_name = $this->getMonthName($i);
+            $month_array[ $month_no ] = $month_name;
+        }
+        return $month_array;
+    }
+
+	public function getMonthlyPemasukanCountPayment( $month ) {
+        $current_year = now()->year;
+        $pemasukans = Pemasukan::whereMonth('tanggal', $month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->sum('jumlah_pemasukan');
+		return $pemasukans;
+	}
+
+    public function getMonthlyPengeluaranCountPayment( $month ) {
+        $current_year = now()->year;
+        $pemasukans = Pengeluaran::whereMonth('tanggal', $month)->whereYear('tanggal', $current_year)->orderBy('tanggal')->sum('jumlah');
+		return $pemasukans;
+	}
+
+    public function getPemasukanData(){
+        $monthly_keuangan_count_array = array();
+		$month_array = $this->getMonth();
+		$month_name_array = array();
+		if ( ! empty( $month_array ) ) {
+			foreach ( $month_array as $month_no => $month_name ){
+				$monthly_keuangan_count = $this->getMonthlyPemasukanCountPayment( $month_no );
+				array_push( $monthly_keuangan_count_array, $monthly_keuangan_count );
+				array_push( $month_name_array, $month_name );
+			}
+		}
+
+        return $monthly_keuangan_count_array;
+    }
+
+    public function getPengeluaranData(){
+        $monthly_keuangan_count_array = array();
+		$month_array = $this->getMonth();
+		$month_name_array = array();
+		if ( ! empty( $month_array ) ) {
+			foreach ( $month_array as $month_no => $month_name ){
+				$monthly_keuangan_count = $this->getMonthlyPengeluaranCountPayment( $month_no );
+				array_push( $monthly_keuangan_count_array, $monthly_keuangan_count );
+				array_push( $month_name_array, $month_name );
+			}
+		}
+
+        return [ 
+            'pengeluaran_count_data' => $monthly_keuangan_count_array,
+            'months' => $month_name_array
+        ];
+    }
+
+	public function getMonthlyKeuanganData() {
+        $data = $this->getPengeluaranData();
+		$monthly_keuangan_data_array = array(
+			'months' => $data['months'],
+			'pemasukan_count_data' => $this->getPemasukanData(),
+			'pengeluaran_count_data' => $data['pengeluaran_count_data'],
+		);
+
+		return $monthly_keuangan_data_array;
     }
 }
