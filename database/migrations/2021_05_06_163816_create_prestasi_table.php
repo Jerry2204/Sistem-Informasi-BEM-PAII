@@ -16,9 +16,12 @@ class CreatePrestasiTable extends Migration
         Schema::create('prestasi', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('nim', 20);
+            $table->integer('angkatan');
             $table->string('program_studi');
             $table->string('prestasi');
             $table->date('tanggal');
+            $table->text('link');
             $table->timestamps();
         });
     }

@@ -20,9 +20,12 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nama</th>
+                                            <th scope="col">NIM</th>
+                                            <th scope="col">Angkatan</th>
                                             <th scope="col">Prodi</th>
                                             <th scope="col">Prestasi</th>
                                             <th scope="col">Tanggal</th>
+                                            <th scope="col">Link</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -30,9 +33,16 @@
                                             <tr>
                                                 <th scope="row">{{ $loop->iteration }}</th>
                                                 <td>{{ $prestasi->name }}</td>
+                                                <td>{{ $prestasi->nim }}</td>
+                                                <td>{{ $prestasi->angkatan }}</td>
                                                 <td>{{ $prestasi->program_studi }}</td>
                                                 <td>{{ $prestasi->prestasi }}</td>
                                                 <td>{{ $prestasi->tanggal->format('d M Y') }}</td>
+                                                <td>
+                                                    <a href="{{ $prestasi->link }}">
+                                                        {{ substr($prestasi->link, 0, 20) }}...
+                                                    </a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

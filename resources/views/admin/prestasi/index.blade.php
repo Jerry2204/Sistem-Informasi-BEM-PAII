@@ -63,9 +63,12 @@
                                     <tr>
                                         <th scope="col">No</th>
                                         <th scope="col">Nama</th>
+                                        <th scope="col">NIM</th>
+                                        <th scope="col">Angkatan</th>
                                         <th scope="col">Program Studi</th>
                                         <th scope="col">Prestasi</th>
                                         <th scope="col">Tanggal</th>
+                                        <th scope="col">Link</th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -74,9 +77,16 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $prestasi->name }}</td>
+                                        <td>{{ $prestasi->nim }}</td>
+                                        <td>{{ $prestasi->angkatan }}</td>
                                         <td>{{ $prestasi->program_studi }}</td>
                                         <td>{{ $prestasi->prestasi }}</td>
-                                        <td>{{ $prestasi->tanggal }}</td>
+                                        <td>{{ $prestasi->tanggal->format('d M Y') }}</td>
+                                        <td>
+                                            <a href="{{ $prestasi->link }}">
+                                                {{ substr($prestasi->link, 0, 20) }}...
+                                            </a>
+                                        </td>
                                         <td style="width: 20%">
                                             <a href="{{ route('prestasi_detail', $prestasi->id) }}" class="btn btn-sm btn-primary">Ubah</a>
                                             <a href="#" class="btn btn-sm btn-danger delete-confirm" data-id="{{ $prestasi->id }}">
@@ -111,6 +121,24 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="form-group row @error('nim') has-danger @enderror">
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="nim">NIM</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input wire:model="nim" class="form-control @error('nim') form-control-danger @enderror" type="text" id="nim" name="nim" value="{{ old('nim') }}" placeholder="ex: 11419046">
+                                        @error('nim')
+                                        <div class="form-control-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row @error('angkatan') has-danger @enderror">
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="angkatan">Angkatan</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input wire:model="angkatan" class="form-control @error('angkatan') form-control-danger @enderror" type="number" id="angkatan" name="angkatan" value="{{ old('angkatan') }}" placeholder="ex: 2019">
+                                        @error('angkatan')
+                                        <div class="form-control-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                                 <div class="form-group row @error('program_studi') has-danger @enderror">
                                     <label class="col-sm-12 col-md-2 col-form-label" for="program_studi">Program Studi</label>
                                     <div class="col-sm-12 col-md-10">
@@ -134,6 +162,15 @@
                                     <div class="col-sm-12 col-md-10">
                                         <input wire:model="tanggal" class="form-control @error('tanggal') form-control-danger @enderror" type="date" id="tanggal" name="tanggal" value="{{ old('tanggal') }}" placeholder="Johnny Brown">
                                         @error('tanggal')
+                                        <div class="form-control-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="form-group row @error('link') has-danger @enderror">
+                                    <label class="col-sm-12 col-md-2 col-form-label" for="link">Link</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <input wire:model="link" class="form-control @error('link') form-control-danger @enderror" type="text" id="link" name="link" value="{{ old('link') }}" placeholder="ex: https://perlombaan...">
+                                        @error('link')
                                         <div class="form-control-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>

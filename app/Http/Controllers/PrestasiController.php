@@ -23,11 +23,15 @@ class PrestasiController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'nim' => 'required',
+            'angkatan' => 'required',
             'program_studi' => 'required',
             'prestasi' => 'required',
             'tanggal' => 'required'
         ],[
             'name.required' => 'Nama harus diisi',
+            'nim.required' => 'NIM harus diisi',
+            'angkatan.required' => 'Angkatan harus diisi',
             'program_studi.required' => 'Program Studi harus diisi',
             'prestasi.required' => 'Prestasi harus diisi',
             'tanggal.required' => 'Tanggal harus diisi',

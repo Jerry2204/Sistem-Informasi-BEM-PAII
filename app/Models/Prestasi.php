@@ -11,5 +11,5 @@ class Prestasi extends Model
 
     protected $dates = ['tanggal'];
     protected $table = 'prestasi';
-    protected $fillable = ['name', 'program_studi', 'prestasi', 'tanggal'];
+    protected $fillable = ['name', 'nim', 'angkatan', 'program_studi', 'prestasi', 'tanggal', 'link'];
 }
