@@ -64,16 +64,16 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-12 col-md-3 blog-archieve">
+                <div class="col-12 col-md-3 blog-archieve border-left pl-3">
                     <div class="blog_post">
                         <h4 class="heading font-weight-bold mb-4">Postingan Terbaru</h4>
                         @forelse ($new_posts as $new_post)
-                            <div class="my-2 border-bottom">
-                                <a class="heading text-heading-child-post font-14"
-                                    href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
-                                <p class="text-secondary text-parag-child-post">{{ $new_post->kategori->nama_kategori }}
-                                </p>
-                            </div>
+                        <div class="my-2 border-bottom">
+                            <a class="heading text-heading-child-post font-14 text-decoration-none" href="{{ route('single.post', $new_post->slug) }}">{{ $new_post->title }}</a>
+                            <p class="text-secondary text-parag-child-post text">
+                                {{ $new_post->kategori ? $new_post->kategori->nama_kategori : 'Tidak ada kategori' }}
+                            </p>
+                        </div>
                         @empty
                             <p class="text">Tidak ada postingan</p>
                         @endforelse
@@ -83,8 +83,7 @@
                         <h4 class="heading font-weight-bold mb-4">Category</h4>
                         <div class="my-2 border-bottom pb-2 pt-0">
                             @forelse ($category as $item)
-                                <a class="text-secondary text-parag-child-archieve font-14"
-                                    href="{{ route('blog_kategori', $item->id) }}">{{ $item->nama_kategori }}</a>
+                            <a class="text-parag-child-archieve font-14 d-block mt-1 text-decoration-none text" href="{{ route('blog_kategori', $item->id) }}">{{ $item->nama_kategori }}</a>
                             @empty
                                 <p class="text">No Category</p>
                             @endforelse

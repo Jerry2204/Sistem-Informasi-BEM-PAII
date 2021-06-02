@@ -1,6 +1,6 @@
 <div class="left-side-bar">
     <div class="brand-logo">
-        <a href="{{ route('dashboard')}}" style="color: #E9695B" class="font-weight-bold">
+        <a href="{{ route('dashboard')}}" style="color: #E7DA59" class="font-weight-bold">
             <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" width="50" alt="" class="dark-logo">
             <img src="{{ asset('assets/images/Logo-BEM-IT-Del.png') }}" width="50" alt="" class="light-logo">&nbsp;&nbsp;BEM IT
             DEL

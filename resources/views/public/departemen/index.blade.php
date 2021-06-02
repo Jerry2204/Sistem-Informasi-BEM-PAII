@@ -47,6 +47,15 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12 desc p-5">
+        <div class="container text-center">
+            <h4 class="heading font-weight-bold text-uppercase">Kepala Departemen</h4>
+            <img src="{{ $departemen->kadep ? $departemen->kadep->foto() : '' }}" class="rounded mt-3 shadow img-fluid" alt="">
+            <h5 class="text mt-3 font-weight-bold">{{ $departemen->kadep ? $departemen->kadep->user->name : '' }}</h5>
+            <h5 class="text font-weight-bold">{{ $departemen->kadep ? $departemen->kadep->nim : '' }}</h5>
+            <h5 class="text font-weight-bold">{{ $departemen->kadep ? $departemen->kadep->programStudi->nama_program_studi : '' }}</h5>
+        </div>
+    </div>
 @endsection
 
 
