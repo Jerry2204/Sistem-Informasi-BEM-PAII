@@ -2,6 +2,10 @@
 
 @section('title', 'Forums')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/forum-bph.css') }}">
+@endsection
+
 @section('content')
     <div class="page-header">
         <div class="row">
@@ -19,8 +23,6 @@
         </div>
     </div>
 
-
-
     <div class="col-sm-12 col-md-12 mb-30 ml-0 pb-3 px-0">
         <div class="card card-box mt-3">
             <div class="card-body">
@@ -33,7 +35,7 @@
 
 @endsection
 
-@section('script')
+@section('scripts')
     <script src="{{ asset('assets/datatables/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('assets/datatables/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('assets/datatables/js/buttons.bootstrap4.min.js') }}"></script>
@@ -51,6 +53,9 @@
                 'marginTop': '20px',
                 'marginBottom': '20px',
             });
+            var objDiv = document.querySelector(".chat-desc");
+            objDiv.scrollTop = objDiv.scrollHeight;
+
         })
 
     </script>

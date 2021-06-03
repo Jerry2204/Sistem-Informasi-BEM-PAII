@@ -4210,6 +4210,15 @@ body.IE .register-page-wrap .container {
     padding-bottom: 27px
 }
 
+.chat-footer .file-upload label {
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    color: #222;
+    padding-top: 30px;
+    padding-bottom: 27px
+}
+
 .chat-footer .chat_text_area {
     float: left;
     width: calc(100% - 145px)
@@ -4227,6 +4236,13 @@ body.IE .register-page-wrap .container {
 .chat-footer .chat_send {
     float: right;
     width: 90px
+}
+.chat-footer .none-display {
+    display: none;
+}
+
+.chat-footer .flex-display {
+    display: flex;
 }
 
 .chat-footer .chat_send .btn {
@@ -4872,4 +4888,8 @@ body.IE .register-page-wrap .container {
 
 .ck-editor__editable_inline {
     min-height: 250px;
+}
+
+.cardpopup{
+    background: #000 !important;
 }

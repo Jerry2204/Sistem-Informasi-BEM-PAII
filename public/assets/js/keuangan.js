@@ -3,7 +3,6 @@ var ctx = document.getElementById('myChart').getContext('2d');
 $.ajax({
     url: '/getdatachart',
     success: (dataApi) => {
-        console.log(dataApi)
         chart(dataApi)
     },
 });
