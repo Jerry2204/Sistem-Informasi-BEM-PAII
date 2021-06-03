@@ -46,7 +46,7 @@
 			</div>
 			<div class="login-menu">
 				<ul>
-					<li><a href="{{ route('register.umum') }}">Register</a></li>
+					<li><a href="{{ route('register.umum') }}">Daftar</a></li>
 				</ul>
 			</div>
 		</div>
@@ -92,19 +92,16 @@
 										<label class="custom-control-label" for="remember">Remember</label>
 									</div>
 								</div>
-								<div class="col-6">
-									<div class="forgot-password"><a href="forgot-password.html">Forgot Password</a></div>
-								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
 									<div class="input-group mb-0">
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Sign In</button>
+                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Masuk</button>
 										{{-- <a class="btn btn-primary btn-lg btn-block" href="index.html">Sign In</a> --}}
 									</div>
-									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">OR</div>
+									<div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">Atau</div>
 									<div class="input-group mb-0">
-										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register.umum') }}">Register To Create Account</a>
+										<a class="btn btn-outline-primary btn-lg btn-block" href="{{ route('register.umum') }}">Daftar Akun Baru</a>
 									</div>
 								</div>
 							</div>

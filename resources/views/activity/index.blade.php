@@ -7,12 +7,12 @@
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="title">
-                    <h4>Calendar</h4>
+                    <h4>Kegiatan</h4>
                 </div>
                 <nav aria-label="breadcrumb" role="navigation">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Calendar</li>
+                        <li class="breadcrumb-item active" aria-current="page">Kegiatan</li>
                     </ol>
                 </nav>
             </div>
@@ -66,16 +66,16 @@
                     <form id="add-event" method="POST" action="{{ route('add_calendar') }}">
                         @csrf
                         <div class="modal-body">
-                            <h4 class="text-blue h4 mb-10 title-form-event">Add Event Detail</h4>
+                            <h4 class="text-blue h4 mb-10">Tambah Kegiatan</h4>
                             <div class="form-group">
-                                <label>Event title</label>
+                                <label>Judul Kegiatan</label>
                                 <input type="text" class="form-control" name="title" id="name" value="{{ old('title') }}">
                                 @error('title')
                                     <div class="text-danger error-message text font-14">{{ $message }}</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Event Date Start</label>
+                                <label>Tanggal Mulai</label>
                                 <input type='text' class="datetimepicker form-control" name="start" autocomplete="off"
                                     id="date-start" value="{{ old('start') }}">
                                 @error('start')
@@ -83,13 +83,13 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Event Date End</label>
+                                <label>Tanggal Berakhir</label>
                                 <input type='text' class="datetimepicker form-control" name="end" autocomplete="off"
                                     id="date-end" value="{{ old('end') }}">
                                 <div class="text-secondary error-message text font-14">*optional</div>
                             </div>
                             <div class="form-group">
-                                <label>Event Description</label>
+                                <label>Deskripsi Kegiatan</label>
                                 <textarea class="form-control" name="description"
                                     id="description">{{ old('description') }}</textarea>
                                 @error('description')
@@ -97,19 +97,19 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label>Event Color</label>
+                                <label>Warna</label>
                                 <select class="form-control" name="color" id="color">
-                                    <option value="fc-bg-default">fc-bg-default</option>
-                                    <option value="fc-bg-blue">fc-bg-blue</option>
-                                    <option value="fc-bg-lightgreen">fc-bg-lightgreen</option>
-                                    <option value="fc-bg-pinkred">fc-bg-pinkred</option>
-                                    <option value="fc-bg-deepskyblue">fc-bg-deepskyblue</option>
+                                    <option value="fc-bg-default">default</option>
+                                    <option value="fc-bg-blue">biru</option>
+                                    <option value="fc-bg-lightgreen">hijau</option>
+                                    <option value="fc-bg-pinkred">Merah</option>
+                                    <option value="fc-bg-deepskyblue">biru langit</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Event Icon</label>
+                                <label>Icon Kegiatan</label>
                                 <select class="form-control" name="icon" id="icon">
-                                    <option value="circle">circle</option>
+                                    <option value="circle">lingkaran</option>
                                     <option value="cog">cog</option>
                                     <option value="group">group</option>
                                     <option value="suitcase">suitcase</option>
@@ -118,8 +118,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Tutup</button>
                         </div>
                     </form>
                 </div>

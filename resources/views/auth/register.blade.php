@@ -53,7 +53,7 @@
             </div>
             <div class="login-menu">
                 <ul>
-                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('login') }}">Masuk</a></li>
                 </ul>
             </div>
         </div>
@@ -67,7 +67,7 @@
                 <div class="col-md-6 col-lg-6">
                     <div class="login-box bg-white box-shadow border-radius-10">
                         <div class="login-title">
-                            <h2 class="text-center text-primary">Register</h2>
+                            <h2 class="text-center text-primary">Daftar</h2>
                         </div>
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
@@ -126,7 +126,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="input-group mb-0">
-                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Register</button>
+                                        <button class="btn btn-primary btn-lg btn-block" type="submit">Daftar</button>
                                         {{-- <a class="btn btn-primary btn-lg btn-block" href="index.html">Sign In</a> --}}
                                     </div>
                                     <div class="font-16 weight-600 pt-10 pb-10 text-center" data-color="#707373">atau
