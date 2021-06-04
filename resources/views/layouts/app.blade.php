@@ -130,13 +130,24 @@
                     </div>
                     <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
                         <h5 class="heading font-weight-bold">Link Terkait</h5>
-                        <a href="https://www.del.ac.id/" class="mt-2 text-dark font-14">Institut Teknologi Del</a>
-                        <a href="https://www.del.or.id/" class="mt-2 text-dark font-14">Yayasan Del</a>
+                        <a href="https://www.del.ac.id/" target="_blank" class="mt-2 text-dark font-14">Institut Teknologi Del</a>
+                        <a href="https://www.del.or.id/" target="_blank" class="mt-2 text-dark font-14">Yayasan Del</a>
                     </div>
                     <div class="contact col-12 col-md-3 d-flex flex-column py-4 text px-3">
                         <h5 class="heading font-weight-bold">kontak</h5>
                         <p class="mt-2 text-dark font-14">Jl. P.I Del, Sitoluama Laguboti, Sumatra Utara, Indonesia</p>
                         <p class="text-dark font-14">+62 822 - 7685 - 8074</p>
+                        <div class="d-flex flex-row">
+                            <a href="https://www.facebook.com/bem.itdel" target="_blank" class="mr-4 h4">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/bem.itdel/" target="_blank" class="h4 mr-4">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/bem_itdel" target="_blank" class="h4">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

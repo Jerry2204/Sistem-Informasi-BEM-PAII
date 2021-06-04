@@ -9,7 +9,7 @@ class PrestasiController extends Controller
 {
     public function index()
     {
-        $prestasis = Prestasi::all();
+        $prestasis = Prestasi::paginate(10);
         return view('public.prestasi.index', compact('prestasis'));
     }
 

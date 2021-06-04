@@ -4,16 +4,30 @@
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/forum.css') }}">
+    <script src="{{ asset('assets/sweetalert2/sweetalert2.all.min.js') }}"></script>
 @endsection
 
 @section('content')
+    {{-- Session --}}
+    @if (session()->has('sukses'))
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Sukses',
+            text: "{{ session('sukses') }}",
+            showConfirmButton: false,
+            timer: 1500
+        })
+    </script>
+    @endif
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
                 <h6>Forum Diskusi</h6>
                 <ol class="breadcrumb pl-0" style="background: transparent">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">FAQ</li>
+                    <li class="breadcrumb-item active" aria-current="page">Forum</li>
                 </ol>
             </div>
 
@@ -35,7 +49,7 @@
                         <form method="POST" action="{{ route('add_forum') }}">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">New Question</h5>
+                                    <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Tambah Diskusi Baru</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -43,25 +57,26 @@
                                 <div class="modal-body">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Name:</label>
+                                        <label for="recipient-name" class="col-form-label">Nama:</label>
                                         <input type="text" class="form-control font-14" name="name"
-                                            value="{{ Auth::user()->name }}" />
+                                            value="{{ Auth::user()->name }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">Email:</label>
                                         <input type="text" class="form-control font-14" name="email"
-                                            value="{{ Auth::user()->email }}">
+                                            value="{{ Auth::user()->email }}" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label for="message-text" class="col-form-label">Question:</label>
+                                        <label for="message-text" class="col-form-label">Pertanyaan:</label>
                                         <textarea class="form-control font-14" name="question"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary font-14"
-                                        data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary font-14 font-weight-light">Send
-                                        message</button>
+                                        data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary font-14 font-weight-light">
+                                        Tambah
+                                    </button>
                                 </div>
                         </form>
                     </div>
@@ -72,7 +87,7 @@
                     <div class="modal-dialog text font-14">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">New Question</h5>
+                                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Tambah Diskusi Baru</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -108,11 +123,22 @@
                             <a class="text font-14" href="/forums/{{ $item->id }}">{{ $item->question }}</a>
                             <p class="text font-12 text-secondary mt-2 font-weight-regular" style="opacity: 1">
                                 {{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
-                            <div class="d-flex flex-column">
-                                <p class="text font-14 mr-4 mb-3"><i class="fas fa-comment-alt"></i> &nbsp;@php
+                            <div class="d-flex flex-row">
+                                <p class="text font-14 mr-4 mb-3 font-weight-bold"><i class="fas fa-comment-alt"></i> &nbsp;@php
                                     echo count($item->answer_forums);
                                 @endphp
                                     Answer
+                                </p>
+                                @if (auth()->user()->email == $item->email)
+                                <a href="#" class="text font-14 mr-4 mb-3 font-weight-bold text-danger text-decoration-none delete-confirm" data-id="{{ $item->id }}">
+                                    <form action="{{ route('forum.delete', $item->id) }}" method="POST" id="delete{{ $item->id }}">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                                    <i class="fas fa-trash"></i>
+                                    Hapus
+                                </a>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -148,4 +174,31 @@
 
 @section('script')
 <script src="{{ asset('assets/js/forums-faq.js') }}"></script>
+
+<script>
+$('.delete-confirm').click(function(e) {
+    id = e.target.dataset.id
+
+    Swal.fire({
+        title: 'Apakah anda yakin akan menghapus forum ini?',
+        text: "Kamu tidak dapat mengembalikan data!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Batal',
+        confirmButtonText: 'Ya, Hapus!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $(`#delete${id}`).submit();
+
+                Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+                )
+            }
+        })
+    })
+</script>
 @endsection

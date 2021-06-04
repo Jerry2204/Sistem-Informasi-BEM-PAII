@@ -49,17 +49,19 @@
                                 </table>
                             </div>
                             <nav aria-label="Page navigation example" class="navs-search">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
+                                <ul class="pagination mt-5">
+                                    <li class="page-item @if ($prestasis->currentPage() === 1) disabled @endif">
+                                        <a class="page-link" href="/prestasi?page={{ $prestasis->currentPage() - 1 }}" aria-label="Previous">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
+                                    @for ($i = 1; $i <= $prestasis->lastPage(); $i++)
+                                        <li class="page-item">
+                                            <a class="page-link" href="/prestasi?page={{ $i }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                    <li class="page-item @if ($prestasis->currentPage() === $prestasis->total()) disabled @endif">
+                                        <a class="page-link" href="/prestasi?page={{ $prestasis->currentPage() + 1 }}" aria-label="Next">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>

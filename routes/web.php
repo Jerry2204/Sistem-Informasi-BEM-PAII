@@ -155,6 +155,7 @@ Route::get('/forum', [ForumController::class, 'index'])->name('forum');
 Route::get('/forums/{id}', [ForumController::class, 'detail'])->name('forum_detail');
 Route::post('/forum/add', [ForumController::class, 'store'])->name('add_forum');
 Route::post('/replyforum/add/{forum_id}', [AnswerForumsController::class, 'store'])->name('add_reply_forum');
+Route::delete('/forums/delete/{id}', [ForumController::class, 'destroy'])->name('forum.delete');
 
 Route::get('/bph', [BPHController::class, 'index'])->name('bph');
 Route::get('/addBph', [BPHController::class, 'addBph'])->name('addBph');

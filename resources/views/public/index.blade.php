@@ -77,7 +77,7 @@
                     @foreach ($posts as $post)
                     <div class="col mb-4">
                         <div class="card">
-                            <img src="https://img.freepik.com/free-photo/praying-hands-with-faith-religion-belief-god-power-hope-devotion_79161-710.jpg?size=626&ext=jpg"
+                            <img src="{{ $post->thumbnail() }}"
                                 class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>

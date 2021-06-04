@@ -35,11 +35,20 @@ class ForumController extends Controller
             'question' => $request->question
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('sukses', 'Forum berhasil ditambahkan');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-
+        $forum = Forum::find($id);
+        if (auth()->user()->email == $forum->email)
+        {
+            $forum->delete();
+            return back();
+        }
+        else
+        {
+            return back()->with('gagal', 'Anda tidak dapat menghapus forum');
+        }
     }
 }
