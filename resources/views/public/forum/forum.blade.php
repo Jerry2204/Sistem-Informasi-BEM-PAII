@@ -24,7 +24,7 @@
                             <div class="col-md-12 d-flex mx-0 p-0">
                                 <div class="rounded-circle border box-image">
                                     <img class="image-child"
-                                        src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                    src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                         alt="...">
                                 </div>
                                 <div class="d-flex flex-column ml-3 my-1">
@@ -52,7 +52,7 @@
                                 <div class="col-md-12 d-flex mx-0 p-0">
                                     <div class="rounded-circle border box-image">
                                         <img class="image-child"
-                                            src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                        src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                             alt="...">
                                     </div>
                                     <div class="d-flex flex-column ml-3 my-1">
@@ -76,7 +76,7 @@
                                                     <div class="form-group">
                                                         <label for="exampleFormControlTextarea1"
                                                             class="font-14">Message</label>
-                                                            <textarea class="form-control text font-14  @error('answer') is-invalid @enderror" name="answer" 
+                                                            <textarea class="form-control text font-14  @error('answer') is-invalid @enderror" name="answer"
                                                             rows="3"></textarea>
                                                         @error('answer')
                                                             <p class="text text-danger font-14 mt-3">Input harus di isi</p>
@@ -101,7 +101,7 @@
                                                             <div class="col-md-12 d-flex mx-0 p-0">
                                                                 <div class="rounded-circle border box-image">
                                                                     <img class="image-child"
-                                                                        src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                                                    src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                                                         alt="...">
                                                                 </div>
                                                                 <div class="d-flex flex-column ml-3 my-1">

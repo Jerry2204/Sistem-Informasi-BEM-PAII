@@ -27,7 +27,7 @@ class BPH extends Model
         {
             return asset('assets/images/profil') . '/' . $this->foto;
         } else {
-            return asset('assets/images/photo1.jpg');
+            return asset('assets/images/profil/profile.jpeg');
         }
     }
 

@@ -34,7 +34,7 @@
                                     <div class="col-md-12 d-flex mx-0 p-0">
                                         <div class="rounded-circle border box-image">
                                             <img class="image-child"
-                                                src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                            src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                                 alt="...">
                                         </div>
                                         <div class="d-flex flex-column ml-3 my-1">
@@ -99,7 +99,7 @@
                                                                     <div class="col-md-12 d-flex mx-0 p-0">
                                                                         <div class="rounded-circle border box-image">
                                                                             <img class="image-child"
-                                                                                src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                                                            src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                                                                 alt="...">
                                                                         </div>
                                                                         <div class="d-flex flex-column ml-3 my-1">

@@ -80,6 +80,7 @@
 	<script src="{{ asset('assets/datatables/js/dataTables.responsive.min.js') }}"></script>
 	<script src="{{ asset('assets/datatables/js/responsive.bootstrap4.min.js') }}"></script>
    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.6.0/main.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="{{ asset('assets/scripts/dashboard.js') }}"></script>
 	@livewireScripts
 	@yield('scripts')

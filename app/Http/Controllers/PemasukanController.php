@@ -93,10 +93,10 @@ class PemasukanController extends Controller
 
     public function getMonth(){
         $now = now();
-        $current_month = $now->month;
+        $current_month = date('m', strtotime("-4 months", strtotime(now())));
         $month_array = array();
-        $effectiveDate = date('m', strtotime("+4 months", strtotime(now())));
-        for ($i = $current_month; $i <= $effectiveDate ; $i++) { 
+        $effectiveDate = $now->month;
+        for ($i = $current_month; $i <= $effectiveDate ; $i++) {
             $month_no = $i;
 			$month_name = $this->getMonthName($i);
             $month_array[ $month_no ] = $month_name;
@@ -143,7 +143,7 @@ class PemasukanController extends Controller
 			}
 		}
 
-        return [ 
+        return [
             'pengeluaran_count_data' => $monthly_keuangan_count_array,
             'months' => $month_name_array
         ];

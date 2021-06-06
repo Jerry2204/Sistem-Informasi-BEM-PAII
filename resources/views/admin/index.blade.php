@@ -17,6 +17,11 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-xl-12 col-12 mb-30">
+        <div class="card-box height-100-p widget-style1">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
     <div class="col-xl-4 col-6 mb-30">
         <div class="card-box height-100-p widget-style1">
             <div class="text-center">
@@ -68,4 +73,8 @@
     </div>
     @endforeach
 </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/js/keuangan.js') }}"></script>
 @endsection

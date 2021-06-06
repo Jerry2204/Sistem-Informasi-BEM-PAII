@@ -82,9 +82,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <p class="card-date">{{ $post->created_at->format('D, d M Y') }}</p>
-                                <p class="card-text text card-text-news">Institut Teknologi Del berkunjung ke salah satu
-                                    sekolah yang ada di Kabupaten Simalungun guna mengajarkan pentingnya teknologi pada masa
-                                    sekarang ini</p>
+                                <p class="card-text text card-text-news">{!! substr($post->content, 0, 150) !!}...</p>
                                 <p class="card-date">Oleh: {{ $post->user->name }}</p>
                                 <a href="{{ route('single.post', $post->slug) }}" class="btn btn-primary btn-detail-card">Lihat Detail</a>
                             </div>

@@ -17,8 +17,8 @@ class CreateActivityTable extends Migration
             $table->id();
             $table->char('groupId', 255)->nullable();
             $table->char('title', 255);
-            $table->date('start');
-            $table->date('end')->nullable();
+            $table->dateTime('start');
+            $table->dateTime('end')->nullable();
             $table->char('color', 255)->nullable();
             $table->char('description', 255);
             $table->string('icon');

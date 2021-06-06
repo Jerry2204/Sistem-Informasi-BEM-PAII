@@ -54,11 +54,14 @@ class JabatanIndex extends Component
 
     public function destroy (Jabatan $jabatan) {
         if ($jabatan) {
-            $bph = $jabatan->bph;
-            $user = $bph->user;
-            $user->forceDelete();
-            $bph->forceDelete();
-            $bph->user->forceDelete();
+            if ($jabatan->bph)
+            {
+                $bph = $jabatan->bph;
+                $user = $bph->user;
+                $user->forceDelete();
+                $bph->forceDelete();
+            }
+
             $jabatan->delete();
         }
 

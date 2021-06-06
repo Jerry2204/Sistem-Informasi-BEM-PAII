@@ -27,12 +27,12 @@
                 right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
             },
             events: "/activity/data",
-            dateClick: function () {
+            dateClick: function (info) {
                 $("#modal-view-event-add").modal();
                 $(".title-form-event").html("Add Event");
                 $("#add-event").attr("action", "/calendar/add");
                 $("#name").val("");
-                $("#date-start").val("");
+                $("#date-start").val(info.dateStr);
                 $("#date-end").val("");
                 $("#description").val("");
                 $("#icon").val("");

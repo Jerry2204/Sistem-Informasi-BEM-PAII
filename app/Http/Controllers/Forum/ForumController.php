@@ -18,7 +18,15 @@ class ForumController extends Controller
     public function detail($id)
     {
         $forum = Forum::where('id', $id)->first();
-        return view('public.forum.forum', compact('forum'));
+
+        if ($forum)
+        {
+            return view('public.forum.forum', compact('forum'));
+        }
+        else
+        {
+            return abort(404);
+        }
     }
 
     public function store(Request $request)

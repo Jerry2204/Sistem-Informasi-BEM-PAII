@@ -41,7 +41,7 @@
             <div class="collapse ml-auto navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav navigation-link">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('home') }}">Beranda</a>
+                        <a class="nav-link" href="{{ route('home') }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -106,6 +106,20 @@
             </div>
         </div>
     </nav>
+    <script>
+        const currentLocation = location.href;
+        const menuItem = document.querySelectorAll('a');
+        const listItem = document.querySelectorAll('li');
+        const menuLength = menuItem.length;
+        console.log(menuLength);
+        let i;
+        for(i = 0; i < menuLength; i++){
+            if(menuItem[i].href == currentLocation){
+                menuItem[i].className = "nav-link active";
+                console.log('halaman aktif');
+            }
+        }
+    </script>
 
     @yield('content')
 
@@ -126,7 +140,7 @@
                         <h5 class="heading font-weight-bold">Info</h5>
                         <a href="{{ route('about_us') }}" class="mt-2 text-dark font-14">Tentang Kami</a>
                         <a href="{{ route('blog') }}" class="mt-2 text-dark font-14">Blog</a>
-                        <a href="#" class="mt-2 text-dark font-14">Kontak</a>
+                        <a href="https://wa.me/6282276858074" class="mt-2 text-dark font-14">Kontak</a>
                     </div>
                     <div class="col-12 col-md-2 d-flex flex-column py-4 text px-0">
                         <h5 class="heading font-weight-bold">Link Terkait</h5>
@@ -136,7 +150,7 @@
                     <div class="contact col-12 col-md-3 d-flex flex-column py-4 text px-3">
                         <h5 class="heading font-weight-bold">kontak</h5>
                         <p class="mt-2 text-dark font-14">Jl. P.I Del, Sitoluama Laguboti, Sumatra Utara, Indonesia</p>
-                        <p class="text-dark font-14">+62 822 - 7685 - 8074</p>
+                        <p class="text-dark font-14"><a href="https://wa.me/6282276858074" target="_blank" class="text text-decoration-none">+62 822 - 7685 - 8074</a></p>
                         <div class="d-flex flex-row">
                             <a href="https://www.facebook.com/bem.itdel" target="_blank" class="mr-4 h4">
                                 <i class="fab fa-facebook-f"></i>

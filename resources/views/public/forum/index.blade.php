@@ -114,7 +114,7 @@
                         <div class="col-md-1 d-flex justify-content-start">
                             <div class="rounded-circle border box-image">
                                 <img class="image-child"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/1/18/Mark_Zuckerberg_F8_2019_Keynote_%2832830578717%29_%28cropped%29.jpg"
+                                    src="{{ asset('assets/images/profil/profile.jpeg') }}"
                                     alt="...">
                             </div>
                         </div>
@@ -129,15 +129,17 @@
                                 @endphp
                                     Answer
                                 </p>
-                                @if (auth()->user()->email == $item->email)
-                                <a href="#" class="text font-14 mr-4 mb-3 font-weight-bold text-danger text-decoration-none delete-confirm" data-id="{{ $item->id }}">
-                                    <form action="{{ route('forum.delete', $item->id) }}" method="POST" id="delete{{ $item->id }}">
-                                        @csrf
-                                        @method('delete')
-                                    </form>
-                                    <i class="fas fa-trash"></i>
-                                    Hapus
-                                </a>
+                                @if (Auth::check())
+                                    @if (auth()->user()->email == $item->email)
+                                    <a href="#" class="text font-14 mr-4 mb-3 font-weight-bold text-danger text-decoration-none delete-confirm" data-id="{{ $item->id }}">
+                                        <form action="{{ route('forum.delete', $item->id) }}" method="POST" id="delete{{ $item->id }}">
+                                            @csrf
+                                            @method('delete')
+                                        </form>
+                                        <i class="fas fa-trash"></i>
+                                        Hapus
+                                    </a>
+                                    @endif
                                 @endif
                             </div>
                         </div>
