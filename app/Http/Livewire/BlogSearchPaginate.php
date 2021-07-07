@@ -25,7 +25,7 @@ class BlogSearchPaginate extends Component
     public function render()
     {
         return view('livewire.blog-search-paginate', [
-            'posts' => Post::where('title', 'like', '%'.$this->query.'%')->paginate(9),
+            'posts' => Post::where('title', 'like', '%'.$this->query.'%')->orWhere('content', 'like', '%'.$this->query.'%')->paginate(9),
         ]);
     }
 }

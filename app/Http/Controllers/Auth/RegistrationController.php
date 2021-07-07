@@ -44,7 +44,7 @@ class RegistrationController extends Controller
     public function store_umum(Request $request) {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|confirmed'
         ]);
 

@@ -83,11 +83,14 @@
                         </a>
                     </li>
                 @endif
+                @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan' || auth()->user()->role == 'admin')
                 <li>
                     <a href="{{ route('about_page') }}" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-notepad-1"></span><span class="mtext">About Page</span>
                     </a>
                 </li>
+                @endif
+                @if (auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan' || auth()->user()->role == 'kadep' || auth()->user()->role == 'admin')
                 <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-newspaper-1"></span><span class="mtext">Blog</span>
@@ -97,6 +100,7 @@
                         <li><a href="{{ route('kategori') }}">Kategori</a></li>
                     </ul>
                 </li>
+                @endif
                 @if (auth()->user()->role == 'admin' || auth()->user()->role == 'bph' || auth()->user()->role == 'kemahasiswaan')
                 <li>
                     <a href="{{ route('history') }}" class="dropdown-toggle no-arrow">

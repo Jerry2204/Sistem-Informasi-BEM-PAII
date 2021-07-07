@@ -124,11 +124,11 @@
                             <p class="text font-12 text-secondary mt-2 font-weight-regular" style="opacity: 1">
                                 {{ Carbon\Carbon::parse($item->created_at)->format('d M Y') }}</p>
                             <div class="d-flex flex-row">
-                                <p class="text font-14 mr-4 mb-3 font-weight-bold"><i class="fas fa-comment-alt"></i> &nbsp;@php
+                                <a href="/forums/{{ $item->id }}" class="text font-14 mr-4 mb-3 font-weight-bold"><i class="fas fa-comment-alt"></i> &nbsp;@php
                                     echo count($item->answer_forums);
                                 @endphp
                                     Answer
-                                </p>
+                                </a>
                                 @if (Auth::check())
                                     @if (auth()->user()->email == $item->email)
                                     <a href="#" class="text font-14 mr-4 mb-3 font-weight-bold text-danger text-decoration-none delete-confirm" data-id="{{ $item->id }}">

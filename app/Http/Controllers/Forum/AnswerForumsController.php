@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class AnswerForumsController extends Controller
 {
     public function store(Request $request, $forum_id){
-        $request->validate([ 
+        $request->validate([
             'answer' => 'required'
         ]);
-        
+
         AnswerForum::create([
             'name' => Auth::user()->name,
             'email' => Auth::user()->email,

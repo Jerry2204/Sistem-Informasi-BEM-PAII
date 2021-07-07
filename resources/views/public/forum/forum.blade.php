@@ -162,8 +162,8 @@
                             </div>
                         </div>
                     </div>
+                @endforeach
             </div>
-            @endforeach
             <hr>
 
             @if (Auth::check())

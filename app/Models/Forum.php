@@ -10,7 +10,9 @@ class Forum extends Model
     use HasFactory;
     protected $fillable = ['name', 'email', 'question', 'answer'];
 
-    public function answer_forums(){
+    public function answer_forums()
+    {
         return $this->hasMany(AnswerForum::class)->whereNull('parent_id');
     }
+    
 }
